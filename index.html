@@ -1,152 +1,535 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Juvambro</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+  <title>Juvambro | Ideas. Opportunities. Possibilities.</title>
 
-        body {
-            font-family: Arial, sans-serif;
-            color: #172033;
-            background: #ffffff;
-            line-height: 1.6;
-        }
+  <meta name="description" content="Juvambro is a platform for ideas, opportunities, personal growth and meaningful connections.">
 
-        header {
-            padding: 20px 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #eeeeee;
-        }
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        .logo {
-            font-size: 28px;
-            font-weight: bold;
-        }
+    html {
+      scroll-behavior: smooth;
+    }
 
-        nav a {
-            margin-left: 25px;
-            text-decoration: none;
-            color: #172033;
-        }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: #172033;
+      background: #ffffff;
+      line-height: 1.6;
+    }
 
-        .hero {
-            min-height: 70vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 60px 20px;
-            background: #f5f7ff;
-        }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-        .hero-content {
-            max-width: 750px;
-        }
+    /* HEADER */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.96);
+      border-bottom: 1px solid #eeeeee;
+      padding: 18px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-        .hero h1 {
-            font-size: 58px;
-            margin-bottom: 20px;
-        }
+    .logo {
+      font-size: 27px;
+      font-weight: 800;
+      color: #172033;
+    }
 
-        .hero p {
-            font-size: 20px;
-            color: #5c6475;
-            margin-bottom: 30px;
-        }
+    .logo span {
+      color: #5546e8;
+    }
 
-        .button {
-            display: inline-block;
-            padding: 14px 28px;
-            background: #4f46e5;
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: bold;
-        }
+    nav {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
 
-        .about {
-            padding: 80px 8%;
-            text-align: center;
-        }
+    nav a {
+      font-size: 15px;
+      font-weight: 600;
+      color: #4b5563;
+      transition: 0.2s;
+    }
 
-        .about h2 {
-            font-size: 36px;
-            margin-bottom: 20px;
-        }
+    nav a:hover {
+      color: #5546e8;
+    }
 
-        .about p {
-            max-width: 700px;
-            margin: auto;
-            color: #5c6475;
-        }
+    .nav-button {
+      background: #5546e8;
+      color: white !important;
+      padding: 10px 18px;
+      border-radius: 8px;
+    }
 
-        footer {
-            padding: 30px;
-            text-align: center;
-            background: #172033;
-            color: white;
-        }
+    /* HERO */
+    .hero {
+      min-height: 650px;
+      padding: 100px 7%;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(135deg, #f5f6ff, #ffffff);
+    }
 
-        @media (max-width: 700px) {
-            .hero h1 {
-                font-size: 40px;
-            }
+    .hero-content {
+      max-width: 850px;
+      margin: auto;
+      text-align: center;
+    }
 
-            nav {
-                display: none;
-            }
-        }
-    </style>
+    .badge {
+      display: inline-block;
+      background: #ebe9ff;
+      color: #5546e8;
+      padding: 8px 16px;
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 25px;
+    }
+
+    .hero h1 {
+      font-size: clamp(45px, 7vw, 78px);
+      line-height: 1.05;
+      margin-bottom: 25px;
+      letter-spacing: -2px;
+    }
+
+    .hero h1 span {
+      color: #5546e8;
+    }
+
+    .hero p {
+      max-width: 680px;
+      margin: auto;
+      font-size: 20px;
+      color: #5b6475;
+    }
+
+    .hero-buttons {
+      margin-top: 35px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .primary-button,
+    .secondary-button {
+      padding: 14px 25px;
+      border-radius: 9px;
+      font-weight: 700;
+      transition: 0.2s;
+    }
+
+    .primary-button {
+      background: #5546e8;
+      color: white;
+    }
+
+    .primary-button:hover {
+      transform: translateY(-2px);
+    }
+
+    .secondary-button {
+      border: 1px solid #d9dbe5;
+      background: white;
+      color: #172033;
+    }
+
+    /* GENERAL SECTIONS */
+    section {
+      padding: 90px 7%;
+    }
+
+    .section-title {
+      text-align: center;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .section-title h2 {
+      font-size: 42px;
+      margin-bottom: 15px;
+    }
+
+    .section-title p {
+      color: #667085;
+      font-size: 17px;
+    }
+
+    /* ABOUT */
+    .about {
+      background: white;
+    }
+
+    .about-content {
+      max-width: 900px;
+      margin: 45px auto 0;
+      text-align: center;
+    }
+
+    .about-content p {
+      color: #596273;
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    /* SERVICES */
+    .services {
+      background: #f8f9fc;
+    }
+
+    .cards {
+      max-width: 1100px;
+      margin: 50px auto 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .card {
+      background: white;
+      padding: 35px;
+      border-radius: 16px;
+      border: 1px solid #e8e9ef;
+      transition: 0.25s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(30, 35, 60, 0.08);
+    }
+
+    .card-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+      background: #ebe9ff;
+      color: #5546e8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 23px;
+      margin-bottom: 20px;
+    }
+
+    .card h3 {
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: #667085;
+    }
+
+    /* VISION */
+    .vision {
+      text-align: center;
+      background: #172033;
+      color: white;
+    }
+
+    .vision-content {
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .vision h2 {
+      font-size: 42px;
+      margin-bottom: 20px;
+    }
+
+    .vision p {
+      color: #d4d8e2;
+      font-size: 19px;
+    }
+
+    /* CTA */
+    .cta {
+      text-align: center;
+      background: #f5f6ff;
+    }
+
+    .cta-content {
+      max-width: 750px;
+      margin: auto;
+    }
+
+    .cta h2 {
+      font-size: 42px;
+      margin-bottom: 15px;
+    }
+
+    .cta p {
+      color: #667085;
+      margin-bottom: 30px;
+      font-size: 18px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #ffffff;
+      border-top: 1px solid #eeeeee;
+      padding: 35px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    footer p {
+      color: #7a8190;
+      font-size: 14px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+      color: #596273;
+      font-size: 14px;
+    }
+
+    /* MOBILE */
+    @media (max-width: 800px) {
+      header {
+        padding: 16px 5%;
+      }
+
+      nav {
+        gap: 12px;
+      }
+
+      nav a:not(.nav-button) {
+        display: none;
+      }
+
+      .hero {
+        padding: 80px 5%;
+        min-height: 580px;
+      }
+
+      section {
+        padding: 70px 5%;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .section-title h2,
+      .vision h2,
+      .cta h2 {
+        font-size: 34px;
+      }
+
+      footer {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-    <header>
-        <div class="logo">Juvambro</div>
+  <!-- HEADER -->
+  <header>
+    <a href="#home" class="logo">Juv<span>ambro</span></a>
 
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">What We Do</a>
+      <a href="#contact" class="nav-button">Get Started</a>
+    </nav>
+  </header>
 
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>Welcome to Juvambro</h1>
 
-            <p>
-                Building ideas, creating opportunities,
-                and connecting people with possibilities.
-            </p>
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-content">
 
-            <a href="#about" class="button">Discover Juvambro</a>
-        </div>
-    </section>
+      <div class="badge">Welcome to Juvambro</div>
 
-    <section class="about" id="about">
-        <h2>About Juvambro</h2>
+      <h1>
+        Ideas that create
+        <span>possibilities.</span>
+      </h1>
+
+      <p>
+        Juvambro is a platform built around ideas, opportunities,
+        personal growth and meaningful connections.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#about" class="primary-button">Discover Juvambro</a>
+        <a href="#services" class="secondary-button">Explore More</a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+
+    <div class="section-title">
+      <h2>About Juvambro</h2>
+
+      <p>
+        We believe that one good idea can become an opportunity,
+        and one opportunity can create a meaningful impact.
+      </p>
+    </div>
+
+    <div class="about-content">
+
+      <p>
+        Juvambro is being built as a space where people can discover
+        ideas, learn, grow and connect with new possibilities.
+      </p>
+
+      <p>
+        Our goal is to encourage people to think differently,
+        take action and turn their potential into something meaningful.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- WHAT WE DO -->
+  <section class="services" id="services">
+
+    <div class="section-title">
+
+      <h2>What We Do</h2>
+
+      <p>
+        Juvambro brings together different areas that can help
+        people move from ideas to action.
+      </p>
+
+    </div>
+
+    <div class="cards">
+
+      <div class="card">
+
+        <div class="card-icon">💡</div>
+
+        <h3>Ideas</h3>
 
         <p>
-            Juvambro is a growing project focused on creating
-            meaningful ideas, opportunities and solutions.
-            More information about our mission and services
-            will be available here soon.
+          Discover new perspectives, creative ideas and possibilities
+          that can inspire action.
         </p>
-    </section>
 
-    <footer id="contact">
-        <p>© 2026 Juvambro. All rights reserved.</p>
-    </footer>
+      </div>
+
+
+      <div class="card">
+
+        <div class="card-icon">🚀</div>
+
+        <h3>Opportunities</h3>
+
+        <p>
+          Find opportunities to learn, develop skills, build projects
+          and move closer to your goals.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="card-icon">🌍</div>
+
+        <h3>Connections</h3>
+
+        <p>
+          Connect people, experiences and ideas to create meaningful
+          possibilities for the future.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- VISION -->
+  <section class="vision">
+
+    <div class="vision-content">
+
+      <h2>Think. Build. Grow.</h2>
+
+      <p>
+        Juvambro aims to become a platform where ambitious people
+        can discover ideas, create opportunities and build a better future.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTACT / CTA -->
+  <section class="cta" id="contact">
+
+    <div class="cta-content">
+
+      <h2>Let's build something meaningful.</h2>
+
+      <p>
+        Juvambro is just getting started. There is a lot more to come.
+      </p>
+
+      <a href="mailto:hello@juvambro.com" class="primary-button">
+        Contact Juvambro
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <p>
+      © 2026 Juvambro. All rights reserved.
+    </p>
+
+    <div class="footer-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">What We Do</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+  </footer>
 
 </body>
 </html>
