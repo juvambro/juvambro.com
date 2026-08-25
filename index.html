@@ -1,535 +1,966 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Juvambro | Ideas. Opportunities. Possibilities.</title>
+<title>Juvambro | Think Differently. Start Small. Keep Growing.</title>
 
-  <meta name="description" content="Juvambro is a platform for ideas, opportunities, personal growth and meaningful connections.">
+<meta name="description" content="Juvambro helps people understand themselves, change the way they think and act, build better habits, develop their potential and create meaningful change through small daily actions.">
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<style>
 
-    html {
-      scroll-behavior: smooth;
-    }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      color: #172033;
-      background: #ffffff;
-      line-height: 1.6;
-    }
+html {
+    scroll-behavior: smooth;
+}
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #172033;
+    background: #ffffff;
+    line-height: 1.7;
+}
 
-    /* HEADER */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(255,255,255,0.96);
-      border-bottom: 1px solid #eeeeee;
-      padding: 18px 7%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+a {
+    text-decoration: none;
+    color: inherit;
+}
 
-    .logo {
-      font-size: 27px;
-      font-weight: 800;
-      color: #172033;
-    }
+.container {
+    width: 90%;
+    max-width: 1150px;
+    margin: auto;
+}
 
-    .logo span {
-      color: #5546e8;
-    }
+/* NAVIGATION */
 
-    nav {
-      display: flex;
-      gap: 30px;
-      align-items: center;
-    }
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255,255,255,0.96);
+    border-bottom: 1px solid #eeeeee;
+}
 
-    nav a {
-      font-size: 15px;
-      font-weight: 600;
-      color: #4b5563;
-      transition: 0.2s;
-    }
+.navbar {
+    min-height: 76px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
-    nav a:hover {
-      color: #5546e8;
+.logo {
+    font-size: 29px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.logo span {
+    color: #5146e5;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    font-weight: 600;
+}
+
+.nav-links a:hover {
+    color: #5146e5;
+}
+
+.nav-button {
+    background: #5146e5;
+    color: white !important;
+    padding: 12px 22px;
+    border-radius: 9px;
+}
+
+.nav-button:hover {
+    background: #4035d0;
+}
+
+/* HERO */
+
+.hero {
+    background: linear-gradient(135deg, #eef0ff, #f8f9ff);
+    padding: 115px 20px 125px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: clamp(45px, 7vw, 76px);
+    line-height: 1.05;
+    letter-spacing: -3px;
+    margin-bottom: 25px;
+}
+
+.hero h1 span {
+    color: #5146e5;
+}
+
+.tagline {
+    font-size: 27px;
+    font-weight: 700;
+    margin-bottom: 22px;
+}
+
+.hero-text {
+    max-width: 760px;
+    margin: auto;
+    font-size: 19px;
+    color: #596780;
+}
+
+.primary-button {
+    display: inline-block;
+    margin-top: 35px;
+    background: #5146e5;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 17px;
+}
+
+.primary-button:hover {
+    background: #4035d0;
+    transform: translateY(-2px);
+}
+
+/* GENERAL SECTIONS */
+
+section {
+    padding: 95px 0;
+}
+
+.section-light {
+    background: #f7f8fc;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 43px;
+    line-height: 1.2;
+    margin-bottom: 18px;
+}
+
+.section-intro {
+    max-width: 760px;
+    margin: 0 auto 55px;
+    text-align: center;
+    color: #61708a;
+    font-size: 18px;
+}
+
+/* PHILOSOPHY */
+
+.philosophy {
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+}
+
+.philosophy p {
+    font-size: 21px;
+    color: #53627a;
+    margin-bottom: 25px;
+}
+
+.quote {
+    margin-top: 35px;
+    padding: 30px;
+    border-left: 5px solid #5146e5;
+    background: white;
+    text-align: left;
+    border-radius: 10px;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+/* JOURNEY */
+
+.journey-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.journey-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid #e6e8ef;
+    transition: 0.25s;
+}
+
+.journey-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(20,30,60,0.08);
+}
+
+.number {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #eceaff;
+    color: #5146e5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.journey-card h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.journey-card p {
+    color: #64718a;
+}
+
+/* AREAS */
+
+.areas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.area-card {
+    background: white;
+    padding: 32px;
+    border-radius: 15px;
+    border: 1px solid #e5e7ef;
+}
+
+.icon {
+    font-size: 34px;
+    margin-bottom: 15px;
+}
+
+.area-card h3 {
+    margin-bottom: 10px;
+    font-size: 22px;
+}
+
+.area-card p {
+    color: #64718a;
+}
+
+/* AWARENESS */
+
+.awareness {
+    max-width: 850px;
+    margin: auto;
+    text-align: center;
+}
+
+.awareness-box {
+    background: white;
+    border-radius: 16px;
+    padding: 45px;
+    border: 1px solid #e3e6ef;
+    box-shadow: 0 10px 30px rgba(20,30,60,0.05);
+}
+
+.awareness-box h3 {
+    font-size: 27px;
+    margin-bottom: 15px;
+}
+
+.question {
+    margin-top: 25px;
+    padding: 18px;
+    background: #f7f8fc;
+    border-radius: 10px;
+    text-align: left;
+}
+
+.question strong {
+    display: block;
+    margin-bottom: 7px;
+}
+
+/* BECOMING */
+
+.becoming {
+    background: #172033;
+    color: white;
+    text-align: center;
+}
+
+.becoming .section-intro {
+    color: #cbd2e2;
+}
+
+.becoming-list {
+    max-width: 850px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.becoming-item {
+    padding: 22px;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    text-align: left;
+}
+
+.becoming-item strong {
+    color: #aaa3ff;
+}
+
+/* DAILY ACTION */
+
+.action-box {
+    max-width: 850px;
+    margin: auto;
+    text-align: center;
+}
+
+.action-card {
+    background: linear-gradient(135deg, #5146e5, #6b61f0);
+    color: white;
+    padding: 55px 35px;
+    border-radius: 18px;
+}
+
+.action-card h3 {
+    font-size: 34px;
+    margin-bottom: 15px;
+}
+
+.action-card p {
+    max-width: 650px;
+    margin: auto;
+    font-size: 18px;
+    color: #eeeeff;
+}
+
+.secondary-button {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 14px 28px;
+    background: white;
+    color: #5146e5;
+    border-radius: 9px;
+    font-weight: 700;
+}
+
+/* FINAL CTA */
+
+.final-cta {
+    text-align: center;
+    background: #eef0ff;
+}
+
+.final-cta h2 {
+    font-size: 45px;
+    margin-bottom: 20px;
+}
+
+.final-cta p {
+    max-width: 700px;
+    margin: auto;
+    color: #596780;
+    font-size: 19px;
+}
+
+/* FOOTER */
+
+footer {
+    background: #111827;
+    color: #cbd2e2;
+    padding: 50px 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.footer-logo {
+    color: white;
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.footer-links {
+    display: flex;
+    gap: 25px;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+.copyright {
+    margin-top: 30px;
+    padding-top: 25px;
+    border-top: 1px solid #293244;
+    font-size: 14px;
+}
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+
+    .nav-links {
+        gap: 12px;
+        font-size: 14px;
     }
 
     .nav-button {
-      background: #5546e8;
-      color: white !important;
-      padding: 10px 18px;
-      border-radius: 8px;
+        padding: 9px 14px;
     }
 
-    /* HERO */
+    .journey-grid,
+    .areas {
+        grid-template-columns: 1fr;
+    }
+
+    .becoming-list {
+        grid-template-columns: 1fr;
+    }
+
     .hero {
-      min-height: 650px;
-      padding: 100px 7%;
-      display: flex;
-      align-items: center;
-      background: linear-gradient(135deg, #f5f6ff, #ffffff);
-    }
-
-    .hero-content {
-      max-width: 850px;
-      margin: auto;
-      text-align: center;
-    }
-
-    .badge {
-      display: inline-block;
-      background: #ebe9ff;
-      color: #5546e8;
-      padding: 8px 16px;
-      border-radius: 30px;
-      font-size: 14px;
-      font-weight: 700;
-      margin-bottom: 25px;
-    }
-
-    .hero h1 {
-      font-size: clamp(45px, 7vw, 78px);
-      line-height: 1.05;
-      margin-bottom: 25px;
-      letter-spacing: -2px;
-    }
-
-    .hero h1 span {
-      color: #5546e8;
-    }
-
-    .hero p {
-      max-width: 680px;
-      margin: auto;
-      font-size: 20px;
-      color: #5b6475;
-    }
-
-    .hero-buttons {
-      margin-top: 35px;
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    .primary-button,
-    .secondary-button {
-      padding: 14px 25px;
-      border-radius: 9px;
-      font-weight: 700;
-      transition: 0.2s;
-    }
-
-    .primary-button {
-      background: #5546e8;
-      color: white;
-    }
-
-    .primary-button:hover {
-      transform: translateY(-2px);
-    }
-
-    .secondary-button {
-      border: 1px solid #d9dbe5;
-      background: white;
-      color: #172033;
-    }
-
-    /* GENERAL SECTIONS */
-    section {
-      padding: 90px 7%;
+        padding: 80px 20px;
     }
 
     .section-title {
-      text-align: center;
-      max-width: 700px;
-      margin: auto;
+        font-size: 34px;
     }
 
-    .section-title h2 {
-      font-size: 42px;
-      margin-bottom: 15px;
-    }
-
-    .section-title p {
-      color: #667085;
-      font-size: 17px;
-    }
-
-    /* ABOUT */
-    .about {
-      background: white;
-    }
-
-    .about-content {
-      max-width: 900px;
-      margin: 45px auto 0;
-      text-align: center;
-    }
-
-    .about-content p {
-      color: #596273;
-      font-size: 18px;
-      margin-bottom: 20px;
-    }
-
-    /* SERVICES */
-    .services {
-      background: #f8f9fc;
-    }
-
-    .cards {
-      max-width: 1100px;
-      margin: 50px auto 0;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 25px;
-    }
-
-    .card {
-      background: white;
-      padding: 35px;
-      border-radius: 16px;
-      border: 1px solid #e8e9ef;
-      transition: 0.25s;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 35px rgba(30, 35, 60, 0.08);
-    }
-
-    .card-icon {
-      width: 50px;
-      height: 50px;
-      border-radius: 12px;
-      background: #ebe9ff;
-      color: #5546e8;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 23px;
-      margin-bottom: 20px;
-    }
-
-    .card h3 {
-      font-size: 22px;
-      margin-bottom: 12px;
-    }
-
-    .card p {
-      color: #667085;
-    }
-
-    /* VISION */
-    .vision {
-      text-align: center;
-      background: #172033;
-      color: white;
-    }
-
-    .vision-content {
-      max-width: 850px;
-      margin: auto;
-    }
-
-    .vision h2 {
-      font-size: 42px;
-      margin-bottom: 20px;
-    }
-
-    .vision p {
-      color: #d4d8e2;
-      font-size: 19px;
-    }
-
-    /* CTA */
-    .cta {
-      text-align: center;
-      background: #f5f6ff;
-    }
-
-    .cta-content {
-      max-width: 750px;
-      margin: auto;
-    }
-
-    .cta h2 {
-      font-size: 42px;
-      margin-bottom: 15px;
-    }
-
-    .cta p {
-      color: #667085;
-      margin-bottom: 30px;
-      font-size: 18px;
-    }
-
-    /* FOOTER */
-    footer {
-      background: #ffffff;
-      border-top: 1px solid #eeeeee;
-      padding: 35px 7%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-    }
-
-    footer p {
-      color: #7a8190;
-      font-size: 14px;
+    .footer-content {
+        flex-direction: column;
     }
 
     .footer-links {
-      display: flex;
-      gap: 20px;
-      color: #596273;
-      font-size: 14px;
+        flex-wrap: wrap;
     }
+}
 
-    /* MOBILE */
-    @media (max-width: 800px) {
-      header {
-        padding: 16px 5%;
-      }
-
-      nav {
-        gap: 12px;
-      }
-
-      nav a:not(.nav-button) {
-        display: none;
-      }
-
-      .hero {
-        padding: 80px 5%;
-        min-height: 580px;
-      }
-
-      section {
-        padding: 70px 5%;
-      }
-
-      .cards {
-        grid-template-columns: 1fr;
-      }
-
-      .section-title h2,
-      .vision h2,
-      .cta h2 {
-        font-size: 34px;
-      }
-
-      footer {
-        flex-direction: column;
-        text-align: center;
-      }
-    }
-  </style>
+</style>
 </head>
 
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <a href="#home" class="logo">Juv<span>ambro</span></a>
+<!-- NAVIGATION -->
 
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#services">What We Do</a>
-      <a href="#contact" class="nav-button">Get Started</a>
-    </nav>
-  </header>
+<header>
+    <div class="container navbar">
 
+        <a href="#home" class="logo">
+            Ju<span>vambro</span>
+        </a>
 
-  <!-- HERO -->
-  <section class="hero" id="home">
-    <div class="hero-content">
-
-      <div class="badge">Welcome to Juvambro</div>
-
-      <h1>
-        Ideas that create
-        <span>possibilities.</span>
-      </h1>
-
-      <p>
-        Juvambro is a platform built around ideas, opportunities,
-        personal growth and meaningful connections.
-      </p>
-
-      <div class="hero-buttons">
-        <a href="#about" class="primary-button">Discover Juvambro</a>
-        <a href="#services" class="secondary-button">Explore More</a>
-      </div>
+        <nav class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#journey">Your Journey</a>
+            <a href="#areas">Explore</a>
+            <a href="#about">About</a>
+            <a href="#start" class="nav-button">Start</a>
+        </nav>
 
     </div>
-  </section>
+</header>
 
 
-  <!-- ABOUT -->
-  <section class="about" id="about">
+<!-- HERO -->
 
-    <div class="section-title">
-      <h2>About Juvambro</h2>
+<section class="hero" id="home">
 
-      <p>
-        We believe that one good idea can become an opportunity,
-        and one opportunity can create a meaningful impact.
-      </p>
-    </div>
+    <div class="container">
 
-    <div class="about-content">
+        <h1>
+            Think differently.<br>
+            <span>Start small. Keep growing.</span>
+        </h1>
 
-      <p>
-        Juvambro is being built as a space where people can discover
-        ideas, learn, grow and connect with new possibilities.
-      </p>
-
-      <p>
-        Our goal is to encourage people to think differently,
-        take action and turn their potential into something meaningful.
-      </p>
-
-    </div>
-
-  </section>
-
-
-  <!-- WHAT WE DO -->
-  <section class="services" id="services">
-
-    <div class="section-title">
-
-      <h2>What We Do</h2>
-
-      <p>
-        Juvambro brings together different areas that can help
-        people move from ideas to action.
-      </p>
-
-    </div>
-
-    <div class="cards">
-
-      <div class="card">
-
-        <div class="card-icon">💡</div>
-
-        <h3>Ideas</h3>
-
-        <p>
-          Discover new perspectives, creative ideas and possibilities
-          that can inspire action.
+        <p class="tagline">
+            Your life can change one small action at a time.
         </p>
 
-      </div>
-
-
-      <div class="card">
-
-        <div class="card-icon">🚀</div>
-
-        <h3>Opportunities</h3>
-
-        <p>
-          Find opportunities to learn, develop skills, build projects
-          and move closer to your goals.
+        <p class="hero-text">
+            Juvambro is a space for anyone who wants to grow,
+            understand themselves better, change the way they think
+            and act, build better habits, develop their potential,
+            and create a more meaningful life.
         </p>
 
-      </div>
+        <a href="#start" class="primary-button">
+            Start Your Journey
+        </a>
+
+    </div>
+
+</section>
 
 
-      <div class="card">
+<!-- PHILOSOPHY -->
 
-        <div class="card-icon">🌍</div>
+<section id="about">
 
-        <h3>Connections</h3>
+    <div class="container philosophy">
+
+        <h2 class="section-title">
+            Change begins with awareness.
+        </h2>
 
         <p>
-          Connect people, experiences and ideas to create meaningful
-          possibilities for the future.
+            We often say, "I want to change my life."
+            But where do we begin?
         </p>
 
-      </div>
+        <p>
+            Before changing our lives, we need to understand
+            the life we are currently living.
+        </p>
+
+        <p>
+            We cannot change what we do not recognize.
+            Awareness gives us a starting point.
+        </p>
+
+        <div class="quote">
+            "Before asking how to change your life,
+            first understand where you are, what you want
+            to change, and who you want to become."
+        </div>
 
     </div>
 
-  </section>
+</section>
 
 
-  <!-- VISION -->
-  <section class="vision">
+<!-- JOURNEY -->
 
-    <div class="vision-content">
+<section class="section-light" id="journey">
 
-      <h2>Think. Build. Grow.</h2>
+    <div class="container">
 
-      <p>
-        Juvambro aims to become a platform where ambitious people
-        can discover ideas, create opportunities and build a better future.
-      </p>
+        <h2 class="section-title">
+            The Juvambro Growth Journey
+        </h2>
+
+        <p class="section-intro">
+            Real growth does not happen overnight.
+            It begins with understanding yourself and
+            continues through small actions repeated over time.
+        </p>
+
+        <div class="journey-grid">
+
+            <div class="journey-card">
+                <div class="number">1</div>
+                <h3>Become Aware</h3>
+                <p>
+                    Understand your current situation,
+                    your habits, your thoughts, your strengths
+                    and the areas you want to improve.
+                </p>
+            </div>
+
+            <div class="journey-card">
+                <div class="number">2</div>
+                <h3>Define</h3>
+                <p>
+                    Decide what you actually want to change.
+                    Turn vague wishes into clear goals.
+                </p>
+            </div>
+
+            <div class="journey-card">
+                <div class="number">3</div>
+                <h3>Understand</h3>
+                <p>
+                    Explore why you think and behave the way
+                    you do and what may be holding you back.
+                </p>
+            </div>
+
+            <div class="journey-card">
+                <div class="number">4</div>
+                <h3>Envision</h3>
+                <p>
+                    Imagine the life you want and the direction
+                    in which you want to grow.
+                </p>
+            </div>
+
+            <div class="journey-card">
+                <div class="number">5</div>
+                <h3>Become</h3>
+                <p>
+                    Ask an important question:
+                    Who do I need to become to achieve what I want?
+                </p>
+            </div>
+
+            <div class="journey-card">
+                <div class="number">6</div>
+                <h3>Develop</h3>
+                <p>
+                    Build knowledge, skills, habits and qualities
+                    that make your desired future possible.
+                </p>
+            </div>
+
+            <div class="journey-card">
+                <div class="number">7</div>
+                <h3>Act</h3>
+                <p>
+                    Turn ideas into action. Start small and
+                    take one meaningful step.
+                </p>
+            </div>
+
+            <div class="journey-card">
+                <div class="number">8</div>
+                <h3>Reflect</h3>
+                <p>
+                    Look at what happened, what worked,
+                    what failed and what you learned.
+                </p>
+            </div>
+
+            <div class="journey-card">
+                <div class="number">9</div>
+                <h3>Grow</h3>
+                <p>
+                    Use what you learned to improve your next
+                    action and continue moving forward.
+                </p>
+            </div>
+
+        </div>
 
     </div>
 
-  </section>
+</section>
 
 
-  <!-- CONTACT / CTA -->
-  <section class="cta" id="contact">
+<!-- AREAS -->
 
-    <div class="cta-content">
+<section id="areas">
 
-      <h2>Let's build something meaningful.</h2>
+    <div class="container">
 
-      <p>
-        Juvambro is just getting started. There is a lot more to come.
-      </p>
+        <h2 class="section-title">
+            Explore your potential
+        </h2>
 
-      <a href="mailto:hello@juvambro.com" class="primary-button">
-        Contact Juvambro
-      </a>
+        <p class="section-intro">
+            Growth is not only about money or career.
+            It is about becoming a better version of yourself
+            across different areas of life.
+        </p>
+
+        <div class="areas">
+
+            <div class="area-card">
+                <div class="icon">🧠</div>
+                <h3>Mindset</h3>
+                <p>
+                    Challenge limiting beliefs and learn to
+                    see yourself, problems and possibilities differently.
+                </p>
+            </div>
+
+            <div class="area-card">
+                <div class="icon">📚</div>
+                <h3>Learning</h3>
+                <p>
+                    Develop knowledge and practical skills that
+                    increase your ability to create opportunities.
+                </p>
+            </div>
+
+            <div class="area-card">
+                <div class="icon">🔄</div>
+                <h3>Habits</h3>
+                <p>
+                    Build habits that support the person
+                    you want to become.
+                </p>
+            </div>
+
+            <div class="area-card">
+                <div class="icon">🎯</div>
+                <h3>Goals</h3>
+                <p>
+                    Turn wishes into clear goals and
+                    manageable actions.
+                </p>
+            </div>
+
+            <div class="area-card">
+                <div class="icon">💼</div>
+                <h3>Career & Skills</h3>
+                <p>
+                    Become more valuable by developing
+                    skills and creating opportunities.
+                </p>
+            </div>
+
+            <div class="area-card">
+                <div class="icon">🌍</div>
+                <h3>Perspective</h3>
+                <p>
+                    Expand the way you see the world,
+                    other people and your own possibilities.
+                </p>
+            </div>
+
+        </div>
 
     </div>
 
-  </section>
+</section>
 
 
-  <!-- FOOTER -->
-  <footer>
+<!-- AWARENESS -->
 
-    <p>
-      © 2026 Juvambro. All rights reserved.
-    </p>
+<section class="section-light">
 
-    <div class="footer-links">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#services">What We Do</a>
-      <a href="#contact">Contact</a>
+    <div class="container awareness">
+
+        <h2 class="section-title">
+            Start by understanding yourself
+        </h2>
+
+        <p class="section-intro">
+            Before choosing a destination, you need to know
+            where you are starting from.
+        </p>
+
+        <div class="awareness-box">
+
+            <h3>Ask yourself</h3>
+
+            <div class="question">
+                <strong>Where am I today?</strong>
+                What does my current life look like?
+            </div>
+
+            <div class="question">
+                <strong>What am I not satisfied with?</strong>
+                What would I genuinely like to improve?
+            </div>
+
+            <div class="question">
+                <strong>What is working well?</strong>
+                What strengths and positive habits can I build upon?
+            </div>
+
+            <div class="question">
+                <strong>What do I want?</strong>
+                What would a better life look like for me?
+            </div>
+
+            <div class="question">
+                <strong>What is one thing I can change?</strong>
+                What small action could I take today?
+            </div>
+
+        </div>
+
     </div>
 
-  </footer>
+</section>
+
+
+<!-- BECOMING -->
+
+<section class="becoming">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            Don't only ask what you want.
+            Ask who you want to become.
+        </h2>
+
+        <p class="section-intro">
+            Many people focus only on the things they want to achieve.
+            But lasting change often begins with becoming the person
+            capable of achieving them.
+        </p>
+
+        <div class="becoming-list">
+
+            <div class="becoming-item">
+                <strong>Want better finances?</strong><br>
+                Develop financial knowledge and disciplined habits.
+            </div>
+
+            <div class="becoming-item">
+                <strong>Want a better career?</strong><br>
+                Develop valuable skills and become a continuous learner.
+            </div>
+
+            <div class="becoming-item">
+                <strong>Want better relationships?</strong><br>
+                Improve communication, empathy and self-awareness.
+            </div>
+
+            <div class="becoming-item">
+                <strong>Want more confidence?</strong><br>
+                Take action, learn from experience and keep promises to yourself.
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- DAILY ACTION -->
+
+<section id="start">
+
+    <div class="container action-box">
+
+        <h2 class="section-title">
+            Start small.
+        </h2>
+
+        <p class="section-intro">
+            You don't need a perfect plan.
+            You need a first step.
+        </p>
+
+        <div class="action-card">
+
+            <h3>
+                What can you do today?
+            </h3>
+
+            <p>
+                Choose one small action that moves you closer
+                to the person you want to become.
+                It can be learning something, changing a habit,
+                starting a conversation, exercising, reading,
+                planning, creating or simply taking time to reflect.
+            </p>
+
+            <a href="#reflection" class="secondary-button">
+                Find My Next Step
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- REFLECTION -->
+
+<section class="section-light" id="reflection">
+
+    <div class="container awareness">
+
+        <h2 class="section-title">
+            One step is enough for today.
+        </h2>
+
+        <p class="section-intro">
+            Write down one answer before you leave.
+        </p>
+
+        <div class="awareness-box">
+
+            <h3>
+                What is one thing you can do today
+                to become slightly better than yesterday?
+            </h3>
+
+            <p style="margin-top:20px; color:#64718a;">
+                Your journey does not need to be perfect.
+                It needs to continue.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FINAL CTA -->
+
+<section class="final-cta">
+
+    <div class="container">
+
+        <h2>
+            Your journey starts where you are.
+        </h2>
+
+        <p>
+            You don't need to have everything figured out.
+            You don't need to change everything at once.
+            Start with awareness. Choose a direction.
+            Take one small action. Learn. Repeat. Grow.
+        </p>
+
+        <a href="#home" class="primary-button">
+            Begin Again
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="footer-content">
+
+            <div>
+                <div class="footer-logo">Juvambro</div>
+
+                <p>
+                    Think differently. Start small. Keep growing.
+                </p>
+            </div>
+
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#journey">Journey</a>
+                <a href="#areas">Explore</a>
+                <a href="#about">About</a>
+            </div>
+
+        </div>
+
+        <div class="copyright">
+            © 2026 Juvambro. All rights reserved.
+        </div>
+
+    </div>
+
+</footer>
 
 </body>
 </html>
