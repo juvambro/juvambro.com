@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Become Aware | Juvambro</title>
+
+  <meta name="description"
+        content="Begin your Juvambro journey by understanding where you are, what you want to change, and what you can do next.">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: #172033;
+      background: #f7f8fc;
+      line-height: 1.7;
+    }
+
+    /* NAVIGATION */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: white;
+      border-bottom: 1px solid #e7e9f2;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 12%;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 800;
+      color: #172033;
+      text-decoration: none;
+    }
+
+    .logo span {
+      color: #5146e5;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #172033;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover {
+      color: #5146e5;
+    }
+
+    .start-button {
+      background: #5146e5;
+      color: white !important;
+      padding: 11px 22px;
+      border-radius: 10px;
+    }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 90px 20px 70px;
+      background: #eef0ff;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 6vw, 68px);
+      line-height: 1.1;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 span {
+      color: #5146e5;
+    }
+
+    .hero p {
+      max-width: 760px;
+      margin: auto;
+      color: #52617d;
+      font-size: 20px;
+    }
+
+    /* PROGRESS */
+    .progress {
+      max-width: 850px;
+      margin: 45px auto 0;
+    }
+
+    .progress-text {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      color: #52617d;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .progress-bar {
+      height: 8px;
+      background: #dfe2f2;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      width: 20%;
+      height: 100%;
+      background: #5146e5;
+      border-radius: 20px;
+    }
+
+    /* MAIN */
+    .container {
+      max-width: 900px;
+      margin: 70px auto;
+      padding: 0 20px;
+    }
+
+    .intro {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .intro h2 {
+      font-size: 38px;
+      margin-bottom: 15px;
+    }
+
+    .intro p {
+      color: #52617d;
+      font-size: 18px;
+    }
+
+    /* QUESTIONS */
+    .question-card {
+      background: white;
+      border: 1px solid #e4e7f0;
+      border-radius: 18px;
+      padding: 32px;
+      margin-bottom: 25px;
+      box-shadow: 0 8px 25px rgba(23, 32, 51, 0.04);
+    }
+
+    .question-number {
+      display: inline-flex;
+      width: 38px;
+      height: 38px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: #e9e7ff;
+      color: #5146e5;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+
+    .question-card h3 {
+      font-size: 23px;
+      margin-bottom: 8px;
+    }
+
+    .question-card p {
+      color: #52617d;
+      margin-bottom: 18px;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 130px;
+      padding: 16px;
+      border: 1px solid #d8dce8;
+      border-radius: 12px;
+      resize: vertical;
+      font-family: inherit;
+      font-size: 16px;
+      color: #172033;
+      outline: none;
+    }
+
+    textarea:focus {
+      border-color: #5146e5;
+      box-shadow: 0 0 0 3px rgba(81, 70, 229, 0.10);
+    }
+
+    /* COMPLETION */
+    .completion {
+      margin-top: 50px;
+      background: #172033;
+      color: white;
+      padding: 55px 35px;
+      border-radius: 22px;
+      text-align: center;
+    }
+
+    .completion h2 {
+      font-size: 34px;
+      margin-bottom: 15px;
+    }
+
+    .completion p {
+      max-width: 650px;
+      margin: 0 auto 25px;
+      color: #dce1ee;
+    }
+
+    .continue-button {
+      display: inline-block;
+      text-decoration: none;
+      background: #5146e5;
+      color: white;
+      padding: 14px 28px;
+      border-radius: 10px;
+      font-weight: 700;
+    }
+
+    .continue-button:hover {
+      background: #6258ef;
+    }
+
+    /* FOOTER */
+    footer {
+      margin-top: 80px;
+      background: #101827;
+      color: white;
+      padding: 45px 12%;
+    }
+
+    footer .footer-content {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    footer h3 {
+      margin-bottom: 8px;
+    }
+
+    footer p {
+      color: #b9c1d2;
+    }
+
+    footer a {
+      color: #b9c1d2;
+      text-decoration: none;
+      margin-left: 20px;
+    }
+
+    .copyright {
+      border-top: 1px solid #2b3447;
+      margin-top: 30px;
+      padding-top: 20px;
+      color: #8993a8;
+    }
+
+    /* MOBILE */
+    @media (max-width: 700px) {
+      nav {
+        padding: 15px 5%;
+      }
+
+      .nav-links {
+        gap: 12px;
+        font-size: 14px;
+      }
+
+      .nav-links a:nth-child(2),
+      .nav-links a:nth-child(3) {
+        display: none;
+      }
+
+      .hero {
+        padding: 65px 20px 55px;
+      }
+
+      .question-card {
+        padding: 24px;
+      }
+
+      footer {
+        padding: 40px 8%;
+      }
+
+      footer a {
+        margin-left: 0;
+        margin-right: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="index.html" class="logo">
+      Ju<span>vambro</span>
+    </a>
+
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="journey.html">Your Journey</a>
+      <a href="index.html#explore">Explore</a>
+      <a href="index.html#about">About</a>
+      <a href="awareness.html" class="start-button">Start</a>
+    </div>
+  </nav>
+
+
+  <!-- HERO -->
+  <section class="hero">
+
+    <h1>
+      Start by <span>understanding yourself.</span>
+    </h1>
+
+    <p>
+      Before changing your life, first understand where you are.
+      Awareness gives you a starting point.
+    </p>
+
+    <div class="progress">
+      <div class="progress-text">
+        <span>Your Juvambro Journey</span>
+        <span>Step 1 of 9</span>
+      </div>
+
+      <div class="progress-bar">
+        <div class="progress-fill"></div>
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- QUESTIONS -->
+  <main class="container">
+
+    <div class="intro">
+      <h2>Become Aware</h2>
+
+      <p>
+        Take a few minutes to honestly examine your current situation.
+        There are no right or wrong answers. This is for you.
+      </p>
+    </div>
+
+
+    <!-- QUESTION 1 -->
+    <div class="question-card">
+
+      <div class="question-number">1</div>
+
+      <h3>Where am I today?</h3>
+
+      <p>
+        What does my current life look like?
+        Think about your studies, work, finances, relationships,
+        health, habits, time and personal life.
+      </p>
+
+      <textarea
+        placeholder="Write honestly about your current situation..."
+      ></textarea>
+
+    </div>
+
+
+    <!-- QUESTION 2 -->
+    <div class="question-card">
+
+      <div class="question-number">2</div>
+
+      <h3>What am I not satisfied with?</h3>
+
+      <p>
+        What would you genuinely like to improve?
+        What situations, habits or patterns are no longer serving you?
+      </p>
+
+      <textarea
+        placeholder="What would you like to change?"
+      ></textarea>
+
+    </div>
+
+
+    <!-- QUESTION 3 -->
+    <div class="question-card">
+
+      <div class="question-number">3</div>
+
+      <h3>What is working well?</h3>
+
+      <p>
+        What are your strengths?
+        Which habits, relationships, skills or decisions are helping you?
+      </p>
+
+      <textarea
+        placeholder="Write about what is already working..."
+      ></textarea>
+
+    </div>
+
+
+    <!-- QUESTION 4 -->
+    <div class="question-card">
+
+      <div class="question-number">4</div>
+
+      <h3>What do I want to improve?</h3>
+
+      <p>
+        Imagine your life becoming better.
+        Which areas would you most like to develop?
+      </p>
+
+      <textarea
+        placeholder="Describe the areas of your life you want to improve..."
+      ></textarea>
+
+    </div>
+
+
+    <!-- QUESTION 5 -->
+    <div class="question-card">
+
+      <div class="question-number">5</div>
+
+      <h3>What is one thing I can change?</h3>
+
+      <p>
+        You don't need to change everything at once.
+        What is one small action you could take today?
+      </p>
+
+      <textarea
+        placeholder="Write one small action you can take today..."
+      ></textarea>
+
+    </div>
+
+
+    <!-- COMPLETION -->
+    <section class="completion">
+
+      <h2>Awareness is your starting point.</h2>
+
+      <p>
+        You don't need to have everything figured out.
+        You simply need to understand where you are before
+        deciding where you want to go.
+      </p>
+
+      <p>
+        <strong>
+          Don't change everything. Start with one thing.
+        </strong>
+      </p>
+
+      <a href="define.html" class="continue-button">
+        Continue to Step 2 →
+      </a>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <div class="footer-content">
+
+      <div>
+        <h3>Juvambro</h3>
+        <p>
+          Think differently. Start small. Keep growing.
+        </p>
+      </div>
+
+      <div>
+        <a href="index.html">Home</a>
+        <a href="journey.html">Journey</a>
+        <a href="index.html#explore">Explore</a>
+        <a href="index.html#about">About</a>
+      </div>
+
+    </div>
+
+    <div class="copyright">
+      © 2026 Juvambro. All rights reserved.
+    </div>
+
+  </footer>
+
+</body>
+</html>
