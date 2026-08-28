@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Act | Juvambro</title>
+
+    <meta name="description"
+        content="Turn your goals and identity into meaningful actions you can take today.">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #172033;
+            background: #f7f8fc;
+            line-height: 1.7;
+        }
+
+        nav {
+            background: white;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e5e7ef;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .logo span {
+            color: #5146e5;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #172033;
+            font-weight: 600;
+            margin-left: 28px;
+        }
+
+        .start-button {
+            background: #5146e5;
+            color: white !important;
+            padding: 12px 22px;
+            border-radius: 12px;
+        }
+
+        .hero {
+            background: #eef0ff;
+            text-align: center;
+            padding: 90px 20px 80px;
+        }
+
+        .step {
+            display: inline-block;
+            background: #e1ddff;
+            color: #5146e5;
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-size: 58px;
+            line-height: 1.15;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: #5146e5;
+        }
+
+        .hero p {
+            max-width: 750px;
+            margin: auto;
+            font-size: 20px;
+            color: #52617d;
+        }
+
+        .journey {
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .journey-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .journey-title h2 {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .journey-title p {
+            color: #52617d;
+            font-size: 18px;
+        }
+
+        .question {
+            background: white;
+            border: 1px solid #e2e5ee;
+            border-radius: 20px;
+            padding: 35px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 25px rgba(20, 30, 60, 0.04);
+        }
+
+        .number {
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #e7e4ff;
+            color: #5146e5;
+            border-radius: 50%;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .question h3 {
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        .question p {
+            color: #52617d;
+            margin-bottom: 20px;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 140px;
+            border: 1px solid #d9ddea;
+            border-radius: 12px;
+            padding: 18px;
+            font-family: inherit;
+            font-size: 16px;
+            resize: vertical;
+            outline: none;
+        }
+
+        textarea:focus {
+            border-color: #5146e5;
+        }
+
+        .closing {
+            background: #172033;
+            color: white;
+            text-align: center;
+            padding: 70px 25px;
+            border-radius: 25px;
+            margin-top: 30px;
+        }
+
+        .closing h2 {
+            font-size: 38px;
+            margin-bottom: 20px;
+        }
+
+        .closing p {
+            max-width: 700px;
+            margin: auto;
+            color: #d7dbea;
+            font-size: 18px;
+        }
+
+        .continue {
+            display: inline-block;
+            margin-top: 30px;
+            background: #5146e5;
+            color: white;
+            text-decoration: none;
+            padding: 15px 28px;
+            border-radius: 12px;
+            font-weight: 700;
+        }
+
+        footer {
+            background: #101827;
+            color: white;
+            padding: 50px 8%;
+        }
+
+        footer p {
+            color: #c8cedd;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 700px) {
+            nav {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav a {
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .question {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">Ju<span>vambro</span></div>
+
+        <div>
+            <a href="index.html">Home</a>
+            <a href="journey.html">Your Journey</a>
+            <a href="index.html#explore">Explore</a>
+            <a href="index.html#about">About</a>
+            <a href="journey.html" class="start-button">Start</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="step">Step 4 of your journey</div>
+
+        <h1>
+            Turn intention into <span>action.</span>
+        </h1>
+
+        <p>
+            Knowing who you want to become is important.
+            But change happens when you begin to act like that person.
+        </p>
+    </section>
+
+    <main class="journey">
+
+        <div class="journey-title">
+            <h2>Take action.</h2>
+
+            <p>
+                Turn what you have discovered into small,
+                realistic actions you can actually take.
+            </p>
+        </div>
+
+        <div class="question">
+            <div class="number">1</div>
+
+            <h3>What should I start doing?</h3>
+
+            <p>
+                What is one behaviour or habit that would move you
+                closer to the person you want to become?
+            </p>
+
+            <textarea placeholder="I should start..."></textarea>
+        </div>
+
+        <div class="question">
+            <div class="number">2</div>
+
+            <h3>What is one small action I can take today?</h3>
+
+            <p>
+                Don't try to change everything at once.
+                Choose one action you can realistically complete today.
+            </p>
+
+            <textarea placeholder="Today, I will..."></textarea>
+        </div>
+
+        <div class="question">
+            <div class="number">3</div>
+
+            <h3>When will I do it?</h3>
+
+            <p>
+                Choose a specific time or situation when you will
+                take this action.
+            </p>
+
+            <textarea placeholder="I will do it..."></textarea>
+        </div>
+
+        <div class="question">
+            <div class="number">4</div>
+
+            <h3>What might stop me?</h3>
+
+            <p>
+                Think about the obstacles, distractions or excuses
+                that could get in your way.
+            </p>
+
+            <textarea placeholder="Something that might stop me is..."></textarea>
+        </div>
+
+        <div class="question">
+            <div class="number">5</div>
+
+            <h3>How will I keep going?</h3>
+
+            <p>
+                What can you do when motivation becomes low?
+                Think about how you can stay consistent.
+            </p>
+
+            <textarea placeholder="I will keep going by..."></textarea>
+        </div>
+
+        <div class="closing">
+            <h2>Small actions create change.</h2>
+
+            <p>
+                You don't need to transform your life in one day.
+                Choose one meaningful action and begin.
+            </p>
+
+            <a href="journey.html" class="continue">
+                Continue Your Journey →
+            </a>
+        </div>
+
+    </main>
+
+    <footer>
+        <h2>Juvambro</h2>
+        <p>Think differently. Start small. Keep growing.</p>
+    </footer>
+
+</body>
+</html>
