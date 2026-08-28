@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Become | Juvambro</title>
+
+    <meta name="description"
+          content="Discover who you want to become and the qualities, habits and actions that will help you grow.">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #172033;
+            background: #f7f8fc;
+            line-height: 1.7;
+        }
+
+        header {
+            background: white;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 20px 12%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 30px;
+            font-weight: bold;
+            color: #172033;
+        }
+
+        .logo span {
+            color: #5146e5;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #172033;
+            font-weight: 600;
+        }
+
+        .start-button {
+            background: #5146e5;
+            color: white;
+            padding: 14px 24px;
+            border-radius: 12px;
+        }
+
+        .hero {
+            background: #eef0ff;
+            text-align: center;
+            padding: 90px 20px 70px;
+        }
+
+        .hero h1 {
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #5146e5;
+        }
+
+        .hero p {
+            max-width: 750px;
+            margin: auto;
+            font-size: 20px;
+            color: #53617a;
+        }
+
+        .progress {
+            max-width: 920px;
+            margin: 55px auto 0;
+            text-align: left;
+        }
+
+        .progress-top {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-weight: bold;
+            color: #53617a;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: #dfe2f1;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            width: 33%;
+            height: 100%;
+            background: #5146e5;
+        }
+
+        .section {
+            max-width: 930px;
+            margin: 70px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: #53617a;
+            font-size: 18px;
+        }
+
+        .question {
+            background: white;
+            padding: 35px;
+            margin-bottom: 30px;
+            border-radius: 18px;
+            border: 1px solid #e1e4ed;
+            box-shadow: 0 8px 25px rgba(23, 32, 51, 0.04);
+        }
+
+        .number {
+            width: 42px;
+            height: 42px;
+            background: #ebe9ff;
+            color: #5146e5;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .question h3 {
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        .question p {
+            color: #53617a;
+            margin-bottom: 20px;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 130px;
+            border: 1px solid #d6d9e3;
+            border-radius: 12px;
+            padding: 18px;
+            font-family: inherit;
+            font-size: 16px;
+            resize: vertical;
+            outline: none;
+        }
+
+        textarea:focus {
+            border-color: #5146e5;
+            box-shadow: 0 0 0 3px rgba(81, 70, 229, 0.1);
+        }
+
+        .closing {
+            background: #172033;
+            color: white;
+            text-align: center;
+            padding: 65px 30px;
+            border-radius: 25px;
+            margin-top: 60px;
+        }
+
+        .closing h2 {
+            font-size: 38px;
+            margin-bottom: 20px;
+        }
+
+        .closing p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: #dbe0ed;
+            font-size: 17px;
+        }
+
+        .continue-button {
+            display: inline-block;
+            text-decoration: none;
+            background: #5146e5;
+            color: white;
+            padding: 16px 30px;
+            border-radius: 12px;
+            font-weight: bold;
+        }
+
+        footer {
+            margin-top: 80px;
+            background: #101827;
+            color: white;
+            padding: 55px 12%;
+        }
+
+        footer p {
+            color: #c5ccdb;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 800px) {
+            header {
+                padding: 18px 6%;
+            }
+
+            nav {
+                gap: 12px;
+            }
+
+            .hero h1 {
+                font-size: 45px;
+            }
+
+            .section-title h2 {
+                font-size: 34px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">Ju<span>vambro</span></div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="journey.html">Your Journey</a>
+        <a href="index.html#explore">Explore</a>
+        <a href="index.html#about">About</a>
+        <a href="awareness.html" class="start-button">Start</a>
+    </nav>
+</header>
+
+<section class="hero">
+
+    <h1>Think about who <span>you can become.</span></h1>
+
+    <p>
+        Your goals describe what you want to achieve.
+        Your identity describes the person who can achieve them.
+    </p>
+
+    <div class="progress">
+
+        <div class="progress-top">
+            <span>Your Juvambro Journey</span>
+            <span>Step 3 of 9</span>
+        </div>
+
+        <div class="progress-bar">
+            <div class="progress-fill"></div>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="section">
+
+    <div class="section-title">
+
+        <h2>Become</h2>
+
+        <p>
+            Imagine the person you want to become and understand
+            what you need to develop to move toward that future.
+        </p>
+
+    </div>
+
+    <div class="question">
+
+        <div class="number">1</div>
+
+        <h3>Who do I want to become?</h3>
+
+        <p>
+            Imagine yourself one, three or five years from now.
+            What kind of person would you be proud to become?
+        </p>
+
+        <textarea placeholder="Describe the person you want to become..."></textarea>
+
+    </div>
+
+    <div class="question">
+
+        <div class="number">2</div>
+
+        <h3>What qualities would this person have?</h3>
+
+        <p>
+            Think about the qualities that would help you become
+            the person you want to be.
+        </p>
+
+        <textarea placeholder="For example: discipline, courage, patience, confidence..."></textarea>
+
+    </div>
+
+    <div class="question">
+
+        <div class="number">3</div>
+
+        <h3>What would this person do differently?</h3>
+
+        <p>
+            How would this person spend their time, make decisions
+            and respond to difficulties?
+        </p>
+
+        <textarea placeholder="Describe what this person would do differently..."></textarea>
+
+    </div>
+
+    <div class="question">
+
+        <div class="number">4</div>
+
+        <h3>What do I need to stop doing?</h3>
+
+        <p>
+            Which habits, behaviours or ways of thinking may be
+            keeping you from becoming that person?
+        </p>
+
+        <textarea placeholder="What do you need to stop doing?"></textarea>
+
+    </div>
+
+    <div class="question">
+
+        <div class="number">5</div>
+
+        <h3>What do I need to start doing?</h3>
+
+        <p>
+            What behaviours or habits would move you closer
+            to the person you want to become?
+        </p>
+
+        <textarea placeholder="What do you need to start doing?"></textarea>
+
+    </div>
+
+    <div class="closing">
+
+        <h2>Becoming requires development.</h2>
+
+        <p>
+            You don't become a different person simply by wishing for change.
+            You develop the knowledge, skills, habits and qualities that make
+            your desired future possible.
+        </p>
+
+        <a href="journey.html" class="continue-button">
+            Continue to Step 4 →
+        </a>
+
+    </div>
+
+</section>
+
+<footer>
+
+    <h2>Juvambro</h2>
+
+    <p>Think differently. Start small. Keep growing.</p>
+
+</footer>
+
+</body>
+</html>
