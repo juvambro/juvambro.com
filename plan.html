@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Your Personal Plan | Juvambro</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #172033;
+            background: #f7f8fc;
+            line-height: 1.7;
+        }
+
+        nav {
+            background: white;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e5e7ef;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .logo span {
+            color: #5146e5;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #172033;
+            font-weight: 600;
+            margin-left: 28px;
+        }
+
+        .hero {
+            background: #eef0ff;
+            text-align: center;
+            padding: 90px 20px;
+        }
+
+        .label {
+            display: inline-block;
+            background: #e3e0ff;
+            color: #5146e5;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #5146e5;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: auto;
+            font-size: 20px;
+            color: #52607a;
+        }
+
+        main {
+            max-width: 950px;
+            margin: 70px auto;
+            padding: 0 20px;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .intro h2 {
+            font-size: 36px;
+            margin-bottom: 12px;
+        }
+
+        .intro p {
+            color: #52607a;
+        }
+
+        .plan-card {
+            background: white;
+            border-radius: 20px;
+            padding: 35px;
+            margin-bottom: 25px;
+            border: 1px solid #e3e6ef;
+            box-shadow: 0 8px 25px rgba(20, 30, 60, 0.05);
+        }
+
+        .number {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: #e3e0ff;
+            color: #5146e5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .plan-card h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .plan-card p {
+            color: #52607a;
+        }
+
+        .answer {
+            margin-top: 20px;
+            padding: 20px;
+            background: #f7f8fc;
+            border-radius: 12px;
+            min-height: 60px;
+        }
+
+        .closing {
+            background: #172033;
+            color: white;
+            text-align: center;
+            padding: 60px 30px;
+            border-radius: 25px;
+            margin-top: 50px;
+        }
+
+        .closing h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .closing p {
+            color: #dce1f0;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            background: #5146e5;
+            color: white;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-weight: 700;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: #52607a;
+        }
+
+        @media (max-width: 700px) {
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            nav {
+                padding: 20px;
+            }
+
+            nav a {
+                margin-left: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">Ju<span>vambro</span></div>
+
+    <div>
+        <a href="index.html">Home</a>
+        <a href="journey.html">Your Journey</a>
+        <a href="define.html">Explore</a>
+        <a href="complete.html">Complete</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="label">Your Personal Plan</div>
+
+    <h1>Turn reflection into a <span>plan.</span></h1>
+
+    <p>
+        You have reflected on yourself. Now it is time to turn
+        what you discovered into something you can act on.
+    </p>
+</section>
+
+<main>
+
+    <div class="intro">
+        <h2>Your plan starts here.</h2>
+
+        <p>
+            Review what you discovered and decide what you will do next.
+        </p>
+    </div>
+
+    <div class="plan-card">
+        <div class="number">1</div>
+
+        <h3>Who do I want to become?</h3>
+
+        <p>
+            The person you want to become gives direction to your actions.
+        </p>
+
+        <div class="answer">
+            Your answer will appear here.
+        </div>
+    </div>
+
+    <div class="plan-card">
+        <div class="number">2</div>
+
+        <h3>What should I start doing?</h3>
+
+        <p>
+            Choose a behaviour or habit that moves you closer to that person.
+        </p>
+
+        <div class="answer">
+            Your answer will appear here.
+        </div>
+    </div>
+
+    <div class="plan-card">
+        <div class="number">3</div>
+
+        <h3>What is my first action?</h3>
+
+        <p>
+            Start small. The goal is to create an action you can actually complete.
+        </p>
+
+        <div class="answer">
+            Your answer will appear here.
+        </div>
+    </div>
+
+    <div class="plan-card">
+        <div class="number">4</div>
+
+        <h3>What might stop me?</h3>
+
+        <p>
+            Knowing your obstacles helps you prepare for them.
+        </p>
+
+        <div class="answer">
+            Your answer will appear here.
+        </div>
+    </div>
+
+    <div class="plan-card">
+        <div class="number">5</div>
+
+        <h3>How will I keep going?</h3>
+
+        <p>
+            Consistency matters more than motivation.
+        </p>
+
+        <div class="answer">
+            Your answer will appear here.
+        </div>
+    </div>
+
+    <div class="closing">
+
+        <h2>Your next step starts now.</h2>
+
+        <p>
+            You don't need to change everything today.
+            Choose one meaningful action and begin.
+        </p>
+
+        <a href="journey.html" class="button">
+            Continue Your Journey →
+        </a>
+
+    </div>
+
+</main>
+
+<footer>
+    <h3>Juvambro</h3>
+    <p>Think differently. Start small. Keep growing.</p>
+</footer>
+
+</body>
+</html>
