@@ -494,5 +494,17 @@
 
     </footer>
 
+<script>
+    const answers = document.querySelectorAll("textarea");
+
+    answers.forEach((textarea, index) => {
+        textarea.addEventListener("input", function () {
+            localStorage.setItem(
+                "journey_answer_" + (index + 1),
+                this.value
+            );
+        });
+    });
+</script>
 </body>
 </html>
