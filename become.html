@@ -397,6 +397,30 @@
     <p>Think differently. Start small. Keep growing.</p>
 
 </footer>
+<script>
+    const becomeFields = [
+        "become1",
+        "become2",
+        "become3",
+        "become4",
+        "become5"
+    ];
 
+    becomeFields.forEach(function(id) {
+        const field = document.getElementById(id);
+
+        if (field) {
+            const savedAnswer = localStorage.getItem(id);
+
+            if (savedAnswer) {
+                field.value = savedAnswer;
+            }
+
+            field.addEventListener("input", function() {
+                localStorage.setItem(id, field.value);
+            });
+        }
+    });
+</script>
 </body>
 </html>
