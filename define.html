@@ -534,6 +534,25 @@
     </div>
 
   </footer>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const page = window.location.pathname.split("/").pop() || "home";
+  const textareas = document.querySelectorAll("textarea");
 
+  textareas.forEach((textarea, index) => {
+    const key = "juvambro_" + page + "_answer_" + index;
+
+    const saved = localStorage.getItem(key);
+
+    if (saved !== null) {
+      textarea.value = saved;
+    }
+
+    textarea.addEventListener("input", function () {
+      localStorage.setItem(key, textarea.value);
+    });
+  });
+});
+</script>
 </body>
 </html>
