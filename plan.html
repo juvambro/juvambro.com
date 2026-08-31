@@ -312,6 +312,24 @@
     <h3>Juvambro</h3>
     <p>Think differently. Start small. Keep growing.</p>
 </footer>
+<script>
+    const planFields = [
+        "become1",
+        "become2",
+        "become3",
+        "become4",
+        "become5"
+    ];
 
+    const answers = document.querySelectorAll(".answer");
+
+    planFields.forEach(function(id, index) {
+        const savedAnswer = localStorage.getItem(id);
+
+        if (savedAnswer && answers[index]) {
+            answers[index].textContent = savedAnswer;
+        }
+    });
+</script>
 </body>
 </html>
