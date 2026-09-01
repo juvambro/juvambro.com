@@ -211,6 +211,26 @@
     <p>Juvambro</p>
     <p>Think differently. Start small. Keep growing.</p>
 </footer>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const textarea = document.querySelector("textarea");
 
+    if (!textarea) return;
+
+    const key = "juvambro_understand_answer";
+
+    // Load saved answer
+    const saved = localStorage.getItem(key);
+
+    if (saved !== null) {
+        textarea.value = saved;
+    }
+
+    // Save answer whenever the user types
+    textarea.addEventListener("input", function () {
+        localStorage.setItem(key, textarea.value);
+    });
+});
+</script>
 </body>
 </html>
