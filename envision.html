@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Envision — Juvambro</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fa;
+            color: #222;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+
+        .step {
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .intro {
+            text-align: center;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+
+        .question {
+            background: white;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .question h3 {
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 120px;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            box-sizing: border-box;
+            resize: vertical;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 35px;
+        }
+
+        .continue {
+            display: inline-block;
+            padding: 14px 28px;
+            background: #222;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .continue:hover {
+            background: #444;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="step">Step 4 of 9</div>
+
+    <h1>Envision</h1>
+
+    <p class="intro">
+        You have become aware of yourself, defined what matters to you,
+        and started to understand your situation. Now imagine the future
+        you want to create.
+    </p>
+
+    <div class="question">
+        <h3>1. What kind of life do I want to create?</h3>
+        <textarea id="envision1" placeholder="Write your thoughts here..."></textarea>
+    </div>
+
+    <div class="question">
+        <h3>2. Where do I want to be in the future?</h3>
+        <textarea id="envision2" placeholder="Write your thoughts here..."></textarea>
+    </div>
+
+    <div class="question">
+        <h3>3. What does my ideal future look like?</h3>
+        <textarea id="envision3" placeholder="Write your thoughts here..."></textarea>
+    </div>
+
+    <div class="question">
+        <h3>4. What kind of person do I want to become?</h3>
+        <textarea id="envision4" placeholder="Write your thoughts here..."></textarea>
+    </div>
+
+    <div class="question">
+        <h3>5. What would make my future meaningful?</h3>
+        <textarea id="envision5" placeholder="Write your thoughts here..."></textarea>
+    </div>
+
+    <div class="button-container">
+        <a href="become.html" class="continue">Continue →</a>
+    </div>
+
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const fields = document.querySelectorAll("textarea");
+
+    fields.forEach(function (field) {
+
+        const id = field.id;
+        const key = "juvambro_" + id;
+
+        const saved = localStorage.getItem(key);
+
+        if (saved !== null) {
+            field.value = saved;
+        }
+
+        field.addEventListener("input", function () {
+            localStorage.setItem(key, field.value);
+        });
+
+    });
+
+});
+</script>
+
+</body>
+</html>
