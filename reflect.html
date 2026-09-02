@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Juvambro | Reflect</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            background: #f7f8fa;
+            color: #172033;
+            line-height: 1.7;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 850px;
+            margin: auto;
+        }
+
+        header {
+            background: white;
+            padding: 25px 0;
+            border-bottom: 1px solid #eeeeee;
+        }
+
+        .content {
+            padding: 60px 0;
+        }
+
+        .step {
+            color: #666;
+            font-size: 15px;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 42px;
+            margin: 0 0 15px;
+        }
+
+        .intro {
+            font-size: 19px;
+            color: #555;
+            margin-bottom: 40px;
+        }
+
+        .question {
+            background: white;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            border: 1px solid #eeeeee;
+        }
+
+        h2 {
+            font-size: 20px;
+            margin-top: 0;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 120px;
+            padding: 15px;
+            border: 1px solid #cccccc;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 16px;
+            resize: vertical;
+        }
+
+        .continue {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 14px 24px;
+            background: #172033;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="container">
+        <strong>Juvambro</strong>
+    </div>
+</header>
+
+<main class="content">
+    <div class="container">
+
+        <div class="step">Step 8 of 9</div>
+
+        <h1>Reflect</h1>
+
+        <p class="intro">
+            Look back at what you have done, what worked,
+            what failed, and what you learned.
+        </p>
+
+        <div class="question">
+            <h2>1. What worked well for me?</h2>
+            <textarea id="reflect1" placeholder="Write your answer..."></textarea>
+        </div>
+
+        <div class="question">
+            <h2>2. What did not work?</h2>
+            <textarea id="reflect2" placeholder="Write your answer..."></textarea>
+        </div>
+
+        <div class="question">
+            <h2>3. What did I learn?</h2>
+            <textarea id="reflect3" placeholder="Write your answer..."></textarea>
+        </div>
+
+        <div class="question">
+            <h2>4. What would I do differently?</h2>
+            <textarea id="reflect4" placeholder="Write your answer..."></textarea>
+        </div>
+
+        <div class="question">
+            <h2>5. What will I improve next?</h2>
+            <textarea id="reflect5" placeholder="Write your answer..."></textarea>
+        </div>
+
+        <a href="grow.html" class="continue">
+            Continue to Step 9 →
+        </a>
+
+    </div>
+</main>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const fields = [
+        "reflect1",
+        "reflect2",
+        "reflect3",
+        "reflect4",
+        "reflect5"
+    ];
+
+    fields.forEach(function (id) {
+
+        const field = document.getElementById(id);
+
+        const saved = localStorage.getItem("juvambro_" + id);
+
+        if (saved !== null) {
+            field.value = saved;
+        }
+
+        field.addEventListener("input", function () {
+            localStorage.setItem("juvambro_" + id, field.value);
+        });
+
+    });
+
+});
+</script>
+
+</body>
+</html>
