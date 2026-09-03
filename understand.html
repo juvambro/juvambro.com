@@ -138,39 +138,213 @@
             padding: 40px;
             color: #596987;
         }
+  /* Modern Step 3 design */
+
+body {
+    background: #f7f8ff;
+    color: #172033;
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: white;
+    border-bottom: 1px solid #e7e9f2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 12%;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 800;
+    color: #172033;
+    text-decoration: none;
+}
+
+.logo span {
+    color: #5146e5;
+}
+
+.nav-links {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #172033;
+    font-weight: 600;
+    margin-left: 0;
+}
+
+.nav-links a:hover {
+    color: #5146e5;
+}
+
+.start-button {
+    background: #5146e5;
+    color: white !important;
+    padding: 11px 22px;
+    border-radius: 10px;
+}
+
+.hero {
+    text-align: center;
+    padding: 90px 20px 70px;
+    background: #eef0ff;
+}
+
+.hero h1 {
+    font-size: clamp(42px, 6vw, 68px);
+    line-height: 1.1;
+    margin-bottom: 22px;
+}
+
+.hero h1 span {
+    color: #5146e5;
+}
+
+.hero > p {
+    max-width: 760px;
+    margin: auto;
+    color: #52617d;
+    font-size: 20px;
+}
+
+.progress {
+    max-width: 850px;
+    margin: 45px auto 0;
+}
+
+.progress-text {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    color: #52617d;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.progress-bar {
+    height: 8px;
+    background: #dfe2f2;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    width: 40%;
+    height: 100%;
+    background: #5146e5;
+    border-radius: 20px;
+}
+
+main.container {
+    max-width: 900px;
+    margin: 70px auto;
+    padding: 0 20px;
+}
+
+.intro {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.intro h2 {
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+.intro p {
+    color: #52617d;
+    font-size: 18px;
+}
+
+.card {
+    background: white;
+    border: 1px solid #e4e7f0;
+    border-radius: 18px;
+    padding: 32px;
+    margin-bottom: 25px;
+    box-shadow: 0 8px 25px rgba(23, 32, 51, 0.04);
+}
+
+.card h2 {
+    margin-bottom: 15px;
+}
+
+.card p,
+.card li {
+    color: #52617d;
+}
+
+.card textarea {
+    width: 100%;
+    min-height: 180px;
+    margin-top: 20px;
+    padding: 16px;
+    border: 1px solid #dfe2f2;
+    border-radius: 12px;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    resize: vertical;
+}
+
+.back {
+    margin-right: 10px;
+} 
     </style>
 </head>
 
 <body>
 
-<header>
-    <div class="logo">Ju<span>vambro</span></div>
+<nav>
+    <a href="index.html" class="logo">Ju<span>vambro</span></a>
 
-    <nav>
+    <div class="nav-links">
         <a href="index.html">Home</a>
         <a href="journey.html">Your Journey</a>
-    </nav>
-</header>
+        <a href="index.html#explore">Explore</a>
+        <a href="index.html#about">About</a>
+        <a href="journey.html" class="start-button">Start</a>
+    </div>
+</nav>
 
-<main>
-<div style="font-size: 14px; color: #666; margin-bottom: 15px;">Step 3 of 9</div>
-    <div class="number">3</div>
+<section class="hero">
+    <h1>Understand <span>yourself.</span></h1>
 
-    <h1>Understand</h1>
-
-    <p class="intro">
+    <p>
         Explore why you think and behave the way you do,
         and discover what may be holding you back.
     </p>
 
-    <div class="card">
-        <h2>Look beneath the surface.</h2>
+    <div class="progress">
+        <div class="progress-text">
+            <span>Your Juvambro Journey</span>
+            <span>Step 3 of 9</span>
+        </div>
 
+        <div class="progress-bar">
+            <div class="progress-fill"></div>
+        </div>
+    </div>
+</section>
+
+<main class="container">
+
+    <div class="intro">
+        <h2>Look beneath the surface.</h2>
         <p>
             Understanding yourself means looking beyond what you do
             and asking why you do it.
         </p>
     </div>
+
+    
 
     <div class="card">
         <p class="question">
