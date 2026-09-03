@@ -348,6 +348,29 @@
         <h2>Juvambro</h2>
         <p>Think differently. Start small. Keep growing.</p>
     </footer>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
 
+    const fields = document.querySelectorAll("textarea");
+
+    fields.forEach(function (field) {
+
+        const id = field.id;
+        const key = "juvambro_" + id;
+
+        const saved = localStorage.getItem(key);
+
+        if (saved !== null) {
+            field.value = saved;
+        }
+
+        field.addEventListener("input", function () {
+            localStorage.setItem(key, field.value);
+        });
+
+    });
+
+});
+</script>
 </body>
 </html>
