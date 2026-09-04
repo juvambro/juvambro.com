@@ -41,18 +41,31 @@
         }
 
         .question {
-            background: white;
-            padding: 25px;
-            margin-bottom: 20px;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-        }
+    background: white;
+    border: 1px solid #e4e7f0;
+    border-radius: 18px;
+    padding: 32px;
+    margin-bottom: 25px;
+    box-shadow: 0 8px 25px rgba(23, 32, 51, 0.04);
+}
+
+        .question-number {
+    display: inline-flex;
+    width: 38px;
+    height: 38px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #e9e7ff;
+    color: #5146e5;
+    font-weight: 800;
+    margin-bottom: 18px;
+}
 
         .question h3 {
-            margin-top: 0;
-            margin-bottom: 12px;
-        }
-
+    font-size: 23px;
+    margin-bottom: 8px;
+}
         textarea {
             width: 100%;
             min-height: 120px;
@@ -308,18 +321,21 @@ footer {
     <div class="question">
         <div class="question-number">1</div>
 <h3>What kind of life do I want to create?</h3>
+        <p>Think about the life you would genuinely like to create, beyond your current situation.</p>
         <textarea id="envision1" placeholder="Write your thoughts here..."></textarea>
     </div>
 
     <div class="question">
         <div class="question-number">2</div>
         <h3>Where do I want to be in the future?</h3>
+        <p>Imagine where you would like to be in your personal life, career, relationships, and other important areas.</p>
         <textarea id="envision2" placeholder="Write your thoughts here..."></textarea>
     </div>
 
     <div class="question">
         <div class="question-number">3</div>
         <h3>What does my ideal future look like?</h3>
+        <p>Describe what your ideal future would look and feel like if you could design it freely.</p>
         <textarea id="envision3" placeholder="Write your thoughts here..."></textarea>
     </div>
 
@@ -327,12 +343,14 @@ footer {
 
         <div class="question-number">4</div>
         <h3>What kind of person do I want to become?</h3>
+        <p>Think about the qualities, values, habits, and character you want to develop.</p>
         <textarea id="envision4" placeholder="Write your thoughts here..."></textarea>
     </div>
 
     <div class="question">
        <div class="question-number">5</div> 
         <h3>What would make my future meaningful?</h3>
+        <p>Think about the people, purpose, achievements, experiences, and values that would give your future meaning.</p>
         <textarea id="envision5" placeholder="Write your thoughts here..."></textarea>
     </div>
 
