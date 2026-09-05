@@ -85,53 +85,200 @@
             text-decoration: none;
             border-radius: 8px;
         }
+ nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: white;
+    border-bottom: 1px solid #e7e9f2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 12%;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 800;
+    color: #172033;
+    text-decoration: none;
+}
+
+.logo span {
+    color: #5146e5;
+}
+
+.nav-links {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #172033;
+    font-weight: 600;
+}
+
+.start-button {
+    background: #5146e5;
+    color: white !important;
+    padding: 11px 22px;
+    border-radius: 10px;
+}
+
+.hero {
+    text-align: center;
+    padding: 90px 20px 70px;
+    background: #eef0ff;
+}
+
+.hero h1 {
+    font-size: clamp(42px, 6vw, 68px);
+    line-height: 1.1;
+    margin-bottom: 22px;
+}
+
+.hero h1 span {
+    color: #5146e5;
+}
+
+.hero p {
+    max-width: 760px;
+    margin: auto;
+    color: #52617d;
+    font-size: 20px;
+}
+
+.progress {
+    max-width: 850px;
+    margin: 45px auto 0;
+}
+
+.progress-text {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    color: #52617d;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.progress-bar {
+    height: 8px;
+    background: #dfe2f2;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    width: 80%;
+    height: 100%;
+    background: #5146e5;
+    border-radius: 20px;
+}
+
+.question {
+    background: white;
+    border: 1px solid #e4e7f0;
+    border-radius: 18px;
+    padding: 32px;
+    margin-bottom: 25px;
+    box-shadow: 0 8px 25px rgba(23, 32, 51, 0.04);
+}
+
+.question-number {
+    display: inline-flex;
+    width: 38px;
+    height: 38px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #e9e7ff;
+    color: #5146e5;
+    font-weight: 800;
+    margin-bottom: 18px;
+}
+
+.question h2 {
+    font-size: 23px;
+    margin-bottom: 8px;
+}
+
+.question p {
+    color: #52617d;
+    margin-bottom: 18px;
+}   
     </style>
 </head>
 
 <body>
 
-<header>
-    <div class="container">
-        <strong>Juvambro</strong>
+<nav>
+    <a href="index.html" class="logo">Juv<span>ambro</span></a>
+
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="journey.html">Your Journey</a>
+        <a href="#">Explore</a>
+        <a href="#">About</a>
+        <a href="awareness.html" class="start-button">Start</a>
     </div>
-</header>
+</nav>
 
-<main class="content">
+<section class="hero">
+    <h1>Reflect <span>Your Growth</span></h1>
+    <p>Look back at what you have done, what worked, what failed, and what you learned.</p>
+
+    <div class="progress">
+        <div class="progress-text">
+            <span>Your Juvambro Journey</span>
+            <span>Step 8 of 9</span>
+        </div>
+
+        <div class="progress-bar">
+            <div class="progress-fill"></div>
+        </div>
+    </div>
+</section>
+    <main class="content">
     <div class="container">
 
-        <div class="step">Step 8 of 9</div>
-
-        <h1>Reflect</h1>
-
-        <p class="intro">
-            Look back at what you have done, what worked,
-            what failed, and what you learned.
-        </p>
+       
 
         <div class="question">
-            <h2>1. What worked well for me?</h2>
-            <textarea id="reflect1" placeholder="Write your answer..."></textarea>
-        </div>
+    <div class="question-number">1</div>
+    <h3>What worked well for me?</h3>
+    <p>Think about the actions, habits, or choices that gave you good results.</p>
+    <textarea id="reflect1" placeholder="Write your answer..."></textarea>
+</div>
 
         <div class="question">
-            <h2>2. What did not work?</h2>
-            <textarea id="reflect2" placeholder="Write your answer..."></textarea>
-        </div>
+    <div class="question-number">2</div>
+    <h3>What did not work?</h3>
+    <p>Think about what did not go as planned and what made things difficult.</p>
+    <textarea id="reflect2" placeholder="Write your answer..."></textarea>
+</div>
 
         <div class="question">
-            <h2>3. What did I learn?</h2>
-            <textarea id="reflect3" placeholder="Write your answer..."></textarea>
-        </div>
+    <div class="question-number">3</div>
+    <h3>What did I learn?</h3>
+    <p>Think about the lessons, discoveries, or new understanding you gained.</p>
+    <textarea id="reflect3" placeholder="Write your answer..."></textarea>
+</div>
 
         <div class="question">
-            <h2>4. What would I do differently?</h2>
-            <textarea id="reflect4" placeholder="Write your answer..."></textarea>
-        </div>
-
+    <div class="question-number">4</div>
+    <h3>What would I do differently?</h3>
+    <p>Think about what you would change if you had the opportunity to do it again.</p>
+    <textarea id="reflect4" placeholder="Write your answer..."></textarea>
+</div>
         <div class="question">
-            <h2>5. What will I improve next?</h2>
-            <textarea id="reflect5" placeholder="Write your answer..."></textarea>
-        </div>
+    <div class="question-number">5</div>
+    <h3>What will I improve next?</h3>
+    <p>Choose one important area you want to improve and decide what you will do next.</p>
+    <textarea id="reflect5" placeholder="Write your answer..."></textarea>
+</div>
 
         <a href="grow.html" class="continue">
             Continue to Step 9 →
