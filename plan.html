@@ -314,9 +314,9 @@
 </footer>
 <script>
     const planFields = [
+    "become1",
     "act1",
     "act2",
-    "act3",
     "act4",
     "act5"
 ];
@@ -324,7 +324,7 @@
     const answers = document.querySelectorAll(".answer");
 
     planFields.forEach(function(id, index) {
-        const savedAnswer = localStorage.getItem(id);
+       const savedAnswer = localStorage.getItem("juvambro_" + id);
 
         if (savedAnswer && answers[index]) {
             answers[index].textContent = savedAnswer;
