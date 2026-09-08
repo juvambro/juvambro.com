@@ -48,6 +48,10 @@ header {
     border-bottom: 1px solid #eeeeee;
 }
 
+.menu-toggle {
+    display: none;
+}
+
 .navbar {
     min-height: 76px;
     display: flex;
@@ -419,6 +423,33 @@ footer {
 
 @media (max-width: 800px) {
 
+    .menu-toggle {
+        display: block;
+        background: none;
+        border: none;
+        font-size: 28px;
+        cursor: pointer;
+        color: #172033;
+    }
+
+    .nav-links {
+    display: none;
+    position: absolute;
+    top: 76px;
+    left: 0;
+    right: 0;
+    background: white;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px 20px;
+    gap: 20px;
+    border-top: 1px solid #eeeeee;
+    box-shadow: 0 8px 20px rgba(23, 32, 51, 0.08);
+}
+        .nav-links.active {
+        display: flex;
+    }
+
     .nav-links {
         gap: 12px;
         font-size: 14px;
@@ -467,6 +498,10 @@ footer {
         <a href="#home" class="logo">
             Ju<span>vambro</span>
         </a>
+
+        <button class="menu-toggle" aria-label="Open menu">
+            ☰
+        </button>
 
         <nav class="nav-links">
             <a href="#home">Home</a>
@@ -959,6 +994,13 @@ footer {
     </div>
 
 </footer>
+<script>
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
 
+    menuToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+    });
+</script>
 </body>
 </html>
