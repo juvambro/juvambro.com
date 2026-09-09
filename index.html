@@ -46,8 +46,11 @@ header {
     z-index: 1000;
     background: rgba(255,255,255,0.96);
     border-bottom: 1px solid #eeeeee;
+        transition: transform 0.3s ease;
 }
-
+header.nav-hidden {
+    transform: translateY(-100%);
+}
 .menu-toggle {
     display: none;
 }
@@ -1026,6 +1029,22 @@ navLinks.querySelectorAll("a").forEach(link => {
         navLinks.classList.remove("active");
     });
 });
+</script>
+    <script>
+    let lastScrollY = window.scrollY;
+    const header = document.querySelector("header");
+
+    window.addEventListener("scroll", () => {
+        const currentScrollY = window.scrollY;
+
+        if (currentScrollY > lastScrollY && currentScrollY > 80) {
+            header.classList.add("nav-hidden");
+        } else {
+            header.classList.remove("nav-hidden");
+        }
+
+        lastScrollY = currentScrollY;
+    });
 </script>
 </body>
 </html>
