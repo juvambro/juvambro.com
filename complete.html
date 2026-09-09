@@ -339,6 +339,50 @@
     <p>Think differently. Start small. Keep growing.</p>
 
 </footer>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
 
+    function getAnswer(key, fallback) {
+        const answer = localStorage.getItem(key);
+
+        if (answer && answer.trim() !== "") {
+            return answer;
+        }
+
+        return fallback;
+    }
+
+    document.getElementById("summary-awareness").textContent =
+        getAnswer("juvambro_awareness.html_answer_0", "No answer provided yet.");
+
+    document.getElementById("summary-define").textContent =
+        getAnswer("juvambro_define.html_answer_0", "No answer provided yet.");
+
+    document.getElementById("summary-understand").textContent =
+        getAnswer("juvambro_understand_answer", "No answer provided yet.");
+
+    document.getElementById("summary-envision").textContent =
+        getAnswer("juvambro_envision1", "No answer provided yet.");
+
+    document.getElementById("summary-become").textContent =
+        getAnswer("juvambro_become1", "No answer provided yet.");
+
+    document.getElementById("summary-develop").textContent =
+        getAnswer("juvambro_develop1", "No answer provided yet.");
+
+    document.getElementById("summary-act").textContent =
+        getAnswer("juvambro_act1", "No answer provided yet.");
+
+    document.getElementById("summary-plan").textContent =
+        getAnswer("juvambro_act1", "No answer provided yet.");
+
+    document.getElementById("summary-reflect").textContent =
+        getAnswer("juvambro_reflect3", "No answer provided yet.");
+
+    document.getElementById("summary-grow").textContent =
+        getAnswer("juvambro_grow5", "No answer provided yet.");
+
+});
+</script>
 </body>
 </html>
