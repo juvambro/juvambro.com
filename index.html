@@ -1034,7 +1034,11 @@ navLinks.querySelectorAll("a").forEach(link => {
     let lastScrollY = window.scrollY;
     const header = document.querySelector("header");
 
-    window.addEventListener("scroll", () => {
+   window.addEventListener("scroll", () => {
+
+    // Hide the header only on mobile
+    if (window.innerWidth <= 800) {
+
         const currentScrollY = window.scrollY;
 
         if (currentScrollY > lastScrollY && currentScrollY > 80) {
@@ -1044,7 +1048,14 @@ navLinks.querySelectorAll("a").forEach(link => {
         }
 
         lastScrollY = currentScrollY;
-    });
+
+    } else {
+
+        // Keep the header visible on laptop/desktop
+        header.classList.remove("nav-hidden");
+    }
+
+});
 </script>
 </body>
 </html>
