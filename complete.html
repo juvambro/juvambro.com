@@ -374,7 +374,16 @@ document.addEventListener("DOMContentLoaded", function () {
         getAnswer("juvambro_act1", "No answer provided yet.");
 
     document.getElementById("summary-plan").textContent =
-        getAnswer("juvambro_act1", "No answer provided yet.");
+    "Who I want to become:\n" +
+    (localStorage.getItem("juvambro_become1") || "No answer provided.") +
+    "\n\nWhat I should start doing:\n" +
+    (localStorage.getItem("juvambro_act1") || "No answer provided.") +
+    "\n\nMy first action:\n" +
+    (localStorage.getItem("juvambro_act2") || "No answer provided.") +
+    "\n\nWhat might stop me:\n" +
+    (localStorage.getItem("juvambro_act4") || "No answer provided.") +
+    "\n\nHow I will keep going:\n" +
+    (localStorage.getItem("juvambro_act5") || "No answer provided.");
 
     document.getElementById("summary-reflect").textContent =
     localStorage.getItem("juvambro_reflect3") || "No answer provided yet.";
