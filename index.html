@@ -421,7 +421,49 @@ footer {
     border-top: 1px solid #293244;
     font-size: 14px;
 }
+.next-step-options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 30px;
+}
 
+.next-step-options button {
+    padding: 14px 22px;
+    border: 1px solid #d8dce8;
+    border-radius: 12px;
+    background: white;
+    color: #172033;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.next-step-options button:hover {
+    border-color: #5146e5;
+    color: #5146e5;
+    transform: translateY(-2px);
+}
+
+#next-step-result {
+    padding: 25px;
+    border-radius: 15px;
+    background: #f4f3ff;
+    text-align: center;
+}
+
+#next-step-result h3 {
+    color: #172033;
+    margin-bottom: 10px;
+}
+
+#next-step-text {
+    font-size: 17px;
+    line-height: 1.6;
+}
 /* MOBILE */
 
 @media (max-width: 800px) {
