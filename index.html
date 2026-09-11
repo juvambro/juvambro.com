@@ -1011,7 +1011,17 @@ footer {
                 <button onclick="showNextStep('relationships')">
                     Relationships
                 </button>
+<button onclick="showNextStep('health')">
+    Health & Well-being
+</button>
 
+<button onclick="showNextStep('money')">
+    Money & Finances
+</button>
+
+<button onclick="showNextStep('perspective')">
+    Perspective
+</button>
             </div>
 
             <div id="next-step-result" style="display:none; margin-top:30px;">
@@ -1151,7 +1161,17 @@ function showNextStep(area) {
             "Choose one skill that could make you more valuable. Spend 20 minutes today learning or practicing it.",
 
         relationships:
-            "Think of one person who matters to you. Take one small action today to improve that relationship."
+            relationships:
+    "Think of one person who matters to you. Take one small action today to improve that relationship.",
+
+health:
+    "Choose one small action that supports your well-being today, such as taking a walk, drinking enough water, getting enough sleep, or taking a short break.",
+
+money:
+    "Take 10 minutes today to look at one part of your finances. Learn where your money is going and choose one small improvement you can make.",
+
+perspective:
+    "Expose yourself to one new idea today. Read, listen, or talk to someone who can help you see a situation from a different point of view."
     };
 
     document.getElementById("next-step-text").textContent = steps[area];
