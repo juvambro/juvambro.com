@@ -1210,6 +1210,41 @@ function showNextStep(area) {
 
         return;
     }
+        if (area === "learning") {
+
+        document.getElementById("next-step-result").style.display = "block";
+
+        document.getElementById("next-step-result").innerHTML = `
+            <h3>What is most difficult for you right now?</h3>
+
+            <div class="next-step-options">
+
+                <button onclick="showLearningStep('knowing')">
+                    Not knowing what to learn
+                </button>
+
+                <button onclick="showLearningStep('starting')">
+                    Getting started
+                </button>
+
+                <button onclick="showLearningStep('focus')">
+                    Staying focused
+                </button>
+
+                <button onclick="showLearningStep('understanding')">
+                    Understanding difficult things
+                </button>
+
+                <button onclick="showLearningStep('consistency')">
+                    Learning consistently
+                </button>
+
+            </div>
+        `;
+
+        return;
+    }
+
     const steps = {
 
         mindset:
