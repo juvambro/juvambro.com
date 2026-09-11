@@ -930,24 +930,57 @@ footer {
     <div class="container awareness">
 
         <h2 class="section-title">
-            One step is enough for today.
+            Find Your Next Step
         </h2>
 
         <p class="section-intro">
-            Write down one answer before you leave.
+            You don't need to change everything today.
+            Start with one small action.
         </p>
 
         <div class="awareness-box">
 
             <h3>
-                What is one thing you can do today
-                to become slightly better than yesterday?
+                What would you like to improve right now?
             </h3>
 
-            <p style="margin-top:20px; color:#64718a;">
-                Your journey does not need to be perfect.
-                It needs to continue.
-            </p>
+            <div class="next-step-options">
+
+                <button onclick="showNextStep('mindset')">
+                    Mindset
+                </button>
+
+                <button onclick="showNextStep('habits')">
+                    Habits
+                </button>
+
+                <button onclick="showNextStep('learning')">
+                    Learning
+                </button>
+
+                <button onclick="showNextStep('goals')">
+                    Goals
+                </button>
+
+                <button onclick="showNextStep('career')">
+                    Career & Skills
+                </button>
+
+                <button onclick="showNextStep('relationships')">
+                    Relationships
+                </button>
+
+            </div>
+
+            <div id="next-step-result" style="display:none; margin-top:30px;">
+
+                <h3>
+                    Your next step
+                </h3>
+
+                <p id="next-step-text" style="margin-top:15px; color:#64718a;"></p>
+
+            </div>
 
         </div>
 
@@ -1054,6 +1087,35 @@ navLinks.querySelectorAll("a").forEach(link => {
     }
 
 });
+</script>
+    <script>
+function showNextStep(area) {
+
+    const steps = {
+
+        mindset:
+            "Take 10 minutes today to write down one thought or belief that may be holding you back. Ask yourself: Is this really true?",
+
+        habits:
+            "Choose one small habit you want to improve. Make it so easy that you can start today.",
+
+        learning:
+            "Spend 20 minutes today learning one useful thing that can help you move toward an important goal.",
+
+        goals:
+            "Choose one goal that matters to you. Write down the smallest action you can take today to move toward it.",
+
+        career:
+            "Choose one skill that could make you more valuable. Spend 20 minutes today learning or practicing it.",
+
+        relationships:
+            "Think of one person who matters to you. Take one small action today to improve that relationship."
+    };
+
+    document.getElementById("next-step-text").textContent = steps[area];
+
+    document.getElementById("next-step-result").style.display = "block";
+}
 </script>
 </body>
 </html>
