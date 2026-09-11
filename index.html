@@ -1273,6 +1273,34 @@ function showMindsetStep(problem) {
         </p>
     `;
 }
+        function showHabitStep(problem) {
+
+    const habitSteps = {
+
+        starting:
+            "Choose one habit you want to build. Make it so small that you can do it in less than 2 minutes. Do it once today.",
+
+        consistency:
+            "Choose one habit you already started. Decide exactly when you will do it tomorrow, and keep the action small enough to repeat.",
+
+        procrastination:
+            "Choose one task you have been avoiding. Work on it for just 5 minutes. You do not need to finish it today.",
+
+        phone:
+            "Choose one time of day when your phone distracts you most. Put your phone away for 20 minutes and use that time for something important.",
+
+        routine:
+            "Choose one part of your daily routine to improve. Decide one small action you will do at the same time every day."
+    };
+
+    document.getElementById("next-step-result").innerHTML = `
+        <h3>Your next step</h3>
+
+        <p id="next-step-text" style="margin-top:15px; color:#64718a;">
+            ${habitSteps[problem]}
+        </p>
+    `;
+}
 </script>
 </script>
 </body>
