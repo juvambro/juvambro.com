@@ -1142,7 +1142,40 @@ navLinks.querySelectorAll("a").forEach(link => {
 </script>
     <script>
 function showNextStep(area) {
+    if (area === "mindset") {
 
+        document.getElementById("next-step-result").style.display = "block";
+
+        document.getElementById("next-step-result").innerHTML = `
+            <h3>What is most difficult for you right now?</h3>
+
+            <div class="next-step-options">
+
+                <button onclick="showMindsetStep('negative')">
+                    Negative thoughts
+                </button>
+
+                <button onclick="showMindsetStep('confidence')">
+                    Lack of confidence
+                </button>
+
+                <button onclick="showMindsetStep('fear')">
+                    Fear of failure
+                </button>
+
+                <button onclick="showMindsetStep('overthinking')">
+                    Overthinking
+                </button>
+
+                <button onclick="showMindsetStep('consistency')">
+                    Staying consistent
+                </button>
+
+            </div>
+        `;
+
+        return;
+    }
     const steps = {
 
         mindset:
@@ -1178,6 +1211,36 @@ perspective:
 
     document.getElementById("next-step-result").style.display = "block";
 }
+
+function showMindsetStep(problem) {
+
+    const mindsetSteps = {
+
+        negative:
+            "Write down one negative thought you often have. Then ask: Is this thought completely true? Write one more balanced way to look at the situation.",
+
+        confidence:
+            "Choose one small thing you have been avoiding because you doubt yourself. Take the first step today, even if it feels uncomfortable.",
+
+        fear:
+            "Choose one small action you are afraid to take. Make it smaller and take the first step today. You do not need to feel ready before you begin.",
+
+        overthinking:
+            "Choose one decision you have been thinking about too much. Give yourself 10 minutes to write the options, choose one, and take one small action.",
+
+        consistency:
+            "Choose one behaviour you want to repeat. Make it very small and decide exactly when you will do it today."
+    };
+
+    document.getElementById("next-step-result").innerHTML = `
+        <h3>Your next step</h3>
+
+        <p id="next-step-text" style="margin-top:15px; color:#64718a;">
+            ${mindsetSteps[problem]}
+        </p>
+    `;
+}
+</script>
 </script>
 </body>
 </html>
