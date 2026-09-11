@@ -1176,6 +1176,40 @@ function showNextStep(area) {
 
         return;
     }
+        if (area === "habits") {
+
+        document.getElementById("next-step-result").style.display = "block";
+
+        document.getElementById("next-step-result").innerHTML = `
+            <h3>What is most difficult for you right now?</h3>
+
+            <div class="next-step-options">
+
+                <button onclick="showHabitStep('starting')">
+                    Starting a habit
+                </button>
+
+                <button onclick="showHabitStep('consistency')">
+                    Staying consistent
+                </button>
+
+                <button onclick="showHabitStep('procrastination')">
+                    Procrastination
+                </button>
+
+                <button onclick="showHabitStep('phone')">
+                    Too much phone time
+                </button>
+
+                <button onclick="showHabitStep('routine')">
+                    Building a routine
+                </button>
+
+            </div>
+        `;
+
+        return;
+    }
     const steps = {
 
         mindset:
