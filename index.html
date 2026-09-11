@@ -1334,6 +1334,35 @@ function showMindsetStep(problem) {
         <p id="next-step-text" style="margin-top:15px; color:#64718a;">
             ${habitSteps[problem]}
         </p>
+       `;
+}
+
+function showLearningStep(problem) {
+
+    const learningSteps = {
+
+        knowing:
+            "Choose one useful skill or topic that can help you reach an important goal. Spend 10 minutes today exploring it.",
+
+        starting:
+            "Do not wait until you feel ready. Choose one small learning task and spend just 10 minutes doing it today.",
+
+        focus:
+            "Remove one distraction and study for just 15 minutes. Put your phone away and focus only on the task.",
+
+        understanding:
+            "When something feels difficult, break it into a smaller part. Spend 10 minutes understanding just one part before moving on.",
+
+        consistency:
+            "Choose one small learning activity you can repeat every day. Decide when you will do it and start today."
+    };
+
+    document.getElementById("next-step-result").innerHTML = `
+        <h3>Your next step</h3>
+
+        <p id="next-step-text" style="margin-top:15px; color:#64718a;">
+            ${learningSteps[problem]}
+        </p>
     `;
 }
 </script>
