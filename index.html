@@ -1399,6 +1399,34 @@ function showLearningStep(problem) {
         </p>
     `;
 }
+        function showGoalStep(problem) {
+
+    const goalSteps = {
+
+        unclear:
+            "Take 10 minutes today to think about what really matters to you. Write down one thing you would like to improve or achieve.",
+
+        choosing:
+            "Choose one goal that matters most to you right now. Put the other goals aside for now and give your attention to this one.",
+
+        starting:
+            "Choose one goal and ask yourself: What is the smallest action I can take today? Do that action before the day ends.",
+
+        procrastination:
+            "Choose one goal you have been delaying. Work on it for just 5 minutes today. Starting is more important than finishing.",
+
+        consistency:
+            "Choose one small action that moves you toward your goal. Decide when you will do it each day and focus on repeating it."
+    };
+
+    document.getElementById("next-step-result").innerHTML = `
+        <h3>Your next step</h3>
+
+        <p id="next-step-text" style="margin-top:15px; color:#64718a;">
+            ${goalSteps[problem]}
+        </p>
+    `;
+}
 </script>
 </body>
 </html>
