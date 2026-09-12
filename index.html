@@ -447,7 +447,11 @@ footer {
     color: #5146e5;
     transform: translateY(-2px);
 }
-
+.next-step-options button.selected {
+    background: #5146e5;
+    color: white;
+    border-color: #5146e5;
+}
 #next-step-result {
     padding: 25px;
     border-radius: 15px;
@@ -1159,23 +1163,23 @@ function showNextStep(area) {
 
             <div class="next-step-options">
 
-                <button onclick="showMindsetStep('negative')">
+               <button onclick="selectNextStep(this); showMindsetStep('negative')">
                     Negative thoughts
                 </button>
 
-                <button onclick="showMindsetStep('confidence')">
+                <button onclick="selectNextStep(this); showMindsetStep('confidence')">
                     Lack of confidence
                 </button>
 
-                <button onclick="showMindsetStep('fear')">
+                <button onclick="selectNextStep(this); showMindsetStep('fear')">
                     Fear of failure
                 </button>
 
-                <button onclick="showMindsetStep('overthinking')">
+                <button onclick="selectNextStep(this); showMindsetStep('overthinking')">
                     Overthinking
                 </button>
 
-                <button onclick="showMindsetStep('consistency')">
+                <button onclick="selectNextStep(this); showMindsetStep('consistency')">
                     Staying consistent
                 </button>
 
@@ -1744,6 +1748,16 @@ function showLearningStep(problem) {
             ${perspectiveSteps[problem]}
         </p>
     `;
+}
+        function selectNextStep(button) {
+
+    const buttons = button.parentElement.querySelectorAll("button");
+
+    buttons.forEach(function (btn) {
+        btn.classList.remove("selected");
+    });
+
+    button.classList.add("selected");
 }
 </script>
 </body>
