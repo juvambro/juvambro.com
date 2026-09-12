@@ -1278,6 +1278,40 @@ function showNextStep(area) {
 
         return;
     }
+if (area === "career") {
+
+    document.getElementById("next-step-result").style.display = "block";
+
+    document.getElementById("next-step-result").innerHTML = `
+        <h3>What is most difficult for you right now?</h3>
+
+        <div class="next-step-options">
+
+            <button onclick="showCareerStep('direction')">
+                I don't know what career I want
+            </button>
+
+            <button onclick="showCareerStep('skills')">
+                I don't know what skills to learn
+            </button>
+
+            <button onclick="showCareerStep('experience')">
+                I don't have enough experience
+            </button>
+
+            <button onclick="showCareerStep('confidence')">
+                I lack confidence in my abilities
+            </button>
+
+            <button onclick="showCareerStep('action')">
+                I don't know what to do next
+            </button>
+
+        </div>
+    `;
+
+    return;
+}
 
     const steps = {
 
