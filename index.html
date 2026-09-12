@@ -1380,6 +1380,40 @@ if (area === "health") {
 
     return;
 }
+if (area === "money") {
+
+    document.getElementById("next-step-result").style.display = "block";
+
+    document.getElementById("next-step-result").innerHTML = `
+        <h3>What is most difficult for you right now?</h3>
+
+        <div class="next-step-options">
+
+            <button onclick="showMoneyStep('budget')">
+                Managing my spending
+            </button>
+
+            <button onclick="showMoneyStep('saving')">
+                Saving money
+            </button>
+
+            <button onclick="showMoneyStep('debt')">
+                Dealing with debt
+            </button>
+
+            <button onclick="showMoneyStep('investing')">
+                Learning about investing
+            </button>
+
+            <button onclick="showMoneyStep('knowledge')">
+                Understanding money better
+            </button>
+
+        </div>
+    `;
+
+    return;
+}
 
     const steps = {
 
@@ -1610,6 +1644,34 @@ function showLearningStep(problem) {
 
         <p id="next-step-text" style="margin-top:15px; color:#64718a;">
             ${healthSteps[problem]}
+        </p>
+    `;
+}
+        function showMoneyStep(problem) {
+
+    const moneySteps = {
+
+        budget:
+            "Take 10 minutes today to look at where your money is going. Choose one expense you can reduce or control.",
+
+        saving:
+            "Choose a small amount you can save regularly. Start with an amount that feels realistic and put it aside today.",
+
+        debt:
+            "Write down your debts and choose one to focus on first. Learn its balance, interest rate, and minimum payment.",
+
+        investing:
+            "Spend 20 minutes learning one investing basic, such as the difference between saving and investing or what a diversified investment means.",
+
+        knowledge:
+            "Choose one money topic you want to understand better. Spend 15 minutes learning about it from a reliable source."
+    };
+
+    document.getElementById("next-step-result").innerHTML = `
+        <h3>Your next step</h3>
+
+        <p id="next-step-text" style="margin-top:15px; color:#64718a;">
+            ${moneySteps[problem]}
         </p>
     `;
 }
