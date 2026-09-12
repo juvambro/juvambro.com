@@ -1516,13 +1516,19 @@ function showMindsetStep(problem) {
             "Choose one behaviour you want to repeat. Make it very small and decide exactly when you will do it today."
     };
 
-    document.getElementById("next-step-result").innerHTML = `
-        <h3>Your next step</h3>
+    const result = document.getElementById("next-step-result");
 
-        <p id="next-step-text" style="margin-top:15px; color:#64718a;">
-            ${mindsetSteps[problem]}
-        </p>
-    `;
+result.innerHTML = `
+    <h3>Your next step</h3>
+
+    <p id="next-step-text" style="margin-top:15px; color:#64718a;">
+        ${mindsetSteps[problem]}
+    </p>
+
+    <button onclick="goBackToMindset()" style="margin-top:20px;">
+        ← Change my choice
+    </button>
+`;
 }
         function showHabitStep(problem) {
 
@@ -1758,6 +1764,9 @@ function showLearningStep(problem) {
     });
 
     button.classList.add("selected");
+}
+        function goBackToMindset() {
+    showNextStep("mindset");
 }
 </script>
 </body>
