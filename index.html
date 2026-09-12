@@ -1346,6 +1346,40 @@ if (area === "relationships") {
 
     return;
 }
+if (area === "health") {
+
+    document.getElementById("next-step-result").style.display = "block";
+
+    document.getElementById("next-step-result").innerHTML = `
+        <h3>What is most difficult for you right now?</h3>
+
+        <div class="next-step-options">
+
+            <button onclick="showHealthStep('energy')">
+                Having low energy
+            </button>
+
+            <button onclick="showHealthStep('sleep')">
+                Improving my sleep
+            </button>
+
+            <button onclick="showHealthStep('exercise')">
+                Being more active
+            </button>
+
+            <button onclick="showHealthStep('nutrition')">
+                Eating better
+            </button>
+
+            <button onclick="showHealthStep('stress')">
+                Managing stress
+            </button>
+
+        </div>
+    `;
+
+    return;
+}
 
     const steps = {
 
@@ -1548,6 +1582,34 @@ function showLearningStep(problem) {
 
         <p id="next-step-text" style="margin-top:15px; color:#64718a;">
             ${relationshipSteps[problem]}
+        </p>
+    `;
+}
+        function showHealthStep(problem) {
+
+    const healthSteps = {
+
+        energy:
+            "Choose one small action that can support your energy today. Take a short walk, drink some water, or take a short break if you need one.",
+
+        sleep:
+            "Choose one small change for tonight. Try going to bed at a regular time and put your phone away before you sleep.",
+
+        exercise:
+            "Start small. Take a 10-minute walk today or do a few simple exercises. Focus on getting started, not doing a perfect workout.",
+
+        nutrition:
+            "Choose one meal today and make one healthier change. For example, add some fruit or vegetables or choose water instead of a sugary drink.",
+
+        stress:
+            "Take 10 minutes today without distractions. Walk, breathe slowly, or sit quietly and notice what is causing you stress."
+    };
+
+    document.getElementById("next-step-result").innerHTML = `
+        <h3>Your next step</h3>
+
+        <p id="next-step-text" style="margin-top:15px; color:#64718a;">
+            ${healthSteps[problem]}
         </p>
     `;
 }
