@@ -1139,6 +1139,14 @@ navLinks.querySelectorAll("a").forEach(link => {
     }
 
 });
+        function scrollToNextStep() {
+    setTimeout(function () {
+        document.getElementById("next-step-result").scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+    }, 100);
+}
 </script>
     <script>
 function showNextStep(area) {
@@ -1171,9 +1179,10 @@ function showNextStep(area) {
                     Staying consistent
                 </button>
 
-            </div>
-        `;
+                        </div>
+                `;
 
+        scrollToNextStep();
         return;
     }
         if (area === "habits") {
