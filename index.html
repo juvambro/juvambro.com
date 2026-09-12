@@ -1244,6 +1244,40 @@ function showNextStep(area) {
 
         return;
     }
+    if (area === "goals") {
+
+        document.getElementById("next-step-result").style.display = "block";
+
+        document.getElementById("next-step-result").innerHTML = `
+            <h3>What is most difficult for you right now?</h3>
+
+            <div class="next-step-options">
+
+                <button onclick="showGoalStep('unclear')">
+                    I don't know what I want
+                </button>
+
+                <button onclick="showGoalStep('choosing')">
+                    I have too many goals
+                </button>
+
+                <button onclick="showGoalStep('starting')">
+                    I don't know where to start
+                </button>
+
+                <button onclick="showGoalStep('procrastination')">
+                    I keep delaying my goals
+                </button>
+
+                <button onclick="showGoalStep('consistency')">
+                    I start but don't stay consistent
+                </button>
+
+            </div>
+        `;
+
+        return;
+    }
 
     const steps = {
 
