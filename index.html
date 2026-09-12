@@ -1312,6 +1312,40 @@ if (area === "career") {
 
     return;
 }
+if (area === "relationships") {
+
+    document.getElementById("next-step-result").style.display = "block";
+
+    document.getElementById("next-step-result").innerHTML = `
+        <h3>What is most difficult for you right now?</h3>
+
+        <div class="next-step-options">
+
+            <button onclick="showRelationshipStep('communication')">
+                Communicating better
+            </button>
+
+            <button onclick="showRelationshipStep('connection')">
+                Building deeper connections
+            </button>
+
+            <button onclick="showRelationshipStep('conflict')">
+                Dealing with conflict
+            </button>
+
+            <button onclick="showRelationshipStep('boundaries')">
+                Setting healthy boundaries
+            </button>
+
+            <button onclick="showRelationshipStep('loneliness')">
+                Feeling lonely
+            </button>
+
+        </div>
+    `;
+
+    return;
+}
 
     const steps = {
 
@@ -1486,6 +1520,34 @@ function showLearningStep(problem) {
 
         <p id="next-step-text" style="margin-top:15px; color:#64718a;">
             ${careerSteps[problem]}
+        </p>
+    `;
+}
+        function showRelationshipStep(problem) {
+
+    const relationshipSteps = {
+
+        communication:
+            "Choose one person who matters to you. Have one honest conversation with them today and listen carefully without interrupting.",
+
+        connection:
+            "Choose one person you would like to know better. Send them a message or spend some time with them today.",
+
+        conflict:
+            "Think about one conflict you are facing. Before reacting, take a moment to understand the other person's point of view.",
+
+        boundaries:
+            "Think about one situation where you need a healthier boundary. Decide what you are comfortable with and communicate it clearly.",
+
+        loneliness:
+            "Take one small step toward connection today. Message someone, join an activity, or start a conversation with someone new."
+    };
+
+    document.getElementById("next-step-result").innerHTML = `
+        <h3>Your next step</h3>
+
+        <p id="next-step-text" style="margin-top:15px; color:#64718a;">
+            ${relationshipSteps[problem]}
         </p>
     `;
 }
