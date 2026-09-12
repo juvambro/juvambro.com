@@ -1461,6 +1461,34 @@ function showLearningStep(problem) {
         </p>
     `;
 }
+        function showCareerStep(problem) {
+
+    const careerSteps = {
+
+        direction:
+            "Think about what you enjoy, what you are good at, and what kind of problems you would like to solve. Write down three possible career directions.",
+
+        skills:
+            "Choose one skill that could make you more valuable in the career you want. Spend 20 minutes today learning or practicing it.",
+
+        experience:
+            "Choose one small project, volunteer activity, or practical task where you can use your skills. Start looking for one opportunity today.",
+
+        confidence:
+            "Choose one skill you already have and use it today. Notice what you can do well instead of focusing only on what you still need to learn.",
+
+        action:
+            "Choose one career-related action you can complete today. It could be learning a skill, improving your CV, researching an opportunity, or contacting someone."
+    };
+
+    document.getElementById("next-step-result").innerHTML = `
+        <h3>Your next step</h3>
+
+        <p id="next-step-text" style="margin-top:15px; color:#64718a;">
+            ${careerSteps[problem]}
+        </p>
+    `;
+}
 </script>
 </body>
 </html>
