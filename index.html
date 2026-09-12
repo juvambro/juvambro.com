@@ -29,7 +29,7 @@ body {
 
 a {
     text-decoration: none;
-    color: inherit;
+    color: inherit;const steps = {
 }
 
 .container {
@@ -1414,7 +1414,40 @@ if (area === "money") {
 
     return;
 }
+if (area === "perspective") {
 
+    document.getElementById("next-step-result").style.display = "block";
+
+    document.getElementById("next-step-result").innerHTML = `
+        <h3>What is most difficult for you right now?</h3>
+
+        <div class="next-step-options">
+
+            <button onclick="showPerspectiveStep('stuck')">
+                I feel stuck
+            </button>
+
+            <button onclick="showPerspectiveStep('different')">
+                I want to think differently
+            </button>
+
+            <button onclick="showPerspectiveStep('negative')">
+                I often see things negatively
+            </button>
+
+            <button onclick="showPerspectiveStep('open')">
+                I want to understand other viewpoints
+            </button>
+
+            <button onclick="showPerspectiveStep('growth')">
+                I want to grow my way of thinking
+            </button>
+
+        </div>
+    `;
+
+    return;
+}
     const steps = {
 
         mindset:
@@ -1672,6 +1705,34 @@ function showLearningStep(problem) {
 
         <p id="next-step-text" style="margin-top:15px; color:#64718a;">
             ${moneySteps[problem]}
+        </p>
+    `;
+}
+        function showPerspectiveStep(problem) {
+
+    const perspectiveSteps = {
+
+        stuck:
+            "Step back from the situation for a moment. Ask yourself: What is one thing I can control or change today?",
+
+        different:
+            "Expose yourself to one new idea today. Read something, listen to someone, or explore a viewpoint that is different from your usual way of thinking.",
+
+        negative:
+            "Notice one negative thought you have today. Ask yourself: Is there another way to look at this situation?",
+
+        open:
+            "Choose a topic you feel strongly about. Listen to someone with a different viewpoint and try to understand why they see it that way.",
+
+        growth:
+            "Choose one idea you want to understand better. Spend 15 minutes learning about it and ask yourself how it could change the way you think."
+    };
+
+    document.getElementById("next-step-result").innerHTML = `
+        <h3>Your next step</h3>
+
+        <p id="next-step-text" style="margin-top:15px; color:#64718a;">
+            ${perspectiveSteps[problem]}
         </p>
     `;
 }
