@@ -1518,15 +1518,41 @@ function showMindsetStep(problem) {
 
     const result = document.getElementById("next-step-result");
 
-result.innerHTML = `
-    <h3>Your next step</h3>
+    result.innerHTML = `
+        <h3>What is most difficult for you right now?</h3>
 
-    <p id="next-step-text" style="margin-top:15px; color:#64718a;">
-        ${mindsetSteps[problem]}
-    </p>
+        <div class="next-step-options">
 
-    
-`;
+            <button onclick="selectNextStep(this); showMindsetStep('negative')">
+                Negative thoughts
+            </button>
+
+            <button onclick="selectNextStep(this); showMindsetStep('confidence')">
+                Lack of confidence
+            </button>
+
+            <button onclick="selectNextStep(this); showMindsetStep('fear')">
+                Fear of failure
+            </button>
+
+            <button onclick="selectNextStep(this); showMindsetStep('overthinking')">
+                Overthinking
+            </button>
+
+            <button onclick="selectNextStep(this); showMindsetStep('consistency')">
+                Staying consistent
+            </button>
+
+        </div>
+
+        <div style="margin-top:30px;">
+            <h3>Your next step</h3>
+
+            <p id="next-step-text" style="margin-top:15px; color:#64718a;">
+                ${mindsetSteps[problem]}
+            </p>
+        </div>
+    `;
 }
         function showHabitStep(problem) {
 
