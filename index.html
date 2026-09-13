@@ -1523,23 +1523,23 @@ function showMindsetStep(problem) {
 
         <div class="next-step-options">
 
-            <button onclick="selectNextStep(this); showMindsetStep('negative')">
+            <button class="${problem === 'negative' ? 'selected' : ''}" onclick="showMindsetStep('negative')">
                 Negative thoughts
             </button>
 
-            <button onclick="selectNextStep(this); showMindsetStep('confidence')">
+            <button class="${problem === 'confidence' ? 'selected' : ''}" onclick="showMindsetStep('confidence')">
                 Lack of confidence
             </button>
 
-            <button onclick="selectNextStep(this); showMindsetStep('fear')">
+            <button class="${problem === 'fear' ? 'selected' : ''}" onclick="showMindsetStep('fear')">
                 Fear of failure
             </button>
 
-            <button onclick="selectNextStep(this); showMindsetStep('overthinking')">
+            <button class="${problem === 'overthinking' ? 'selected' : ''}" onclick="showMindsetStep('overthinking')">
                 Overthinking
             </button>
 
-            <button onclick="selectNextStep(this); showMindsetStep('consistency')">
+            <button class="${problem === 'consistency' ? 'selected' : ''}" onclick="showMindsetStep('consistency')">
                 Staying consistent
             </button>
 
