@@ -1574,13 +1574,43 @@ function showMindsetStep(problem) {
             "Choose one part of your daily routine to improve. Decide one small action you will do at the same time every day."
     };
 
-    document.getElementById("next-step-result").innerHTML = `
-        <h3>Your next step</h3>
+    const result = document.getElementById("next-step-result");
 
-        <p id="next-step-text" style="margin-top:15px; color:#64718a;">
-            ${habitSteps[problem]}
-        </p>
-       `;
+    result.innerHTML = `
+        <h3>What is most difficult for you right now?</h3>
+
+        <div class="next-step-options">
+
+            <button class="${problem === 'starting' ? 'selected' : ''}" onclick="showHabitStep('starting')">
+                Starting a habit
+            </button>
+
+            <button class="${problem === 'consistency' ? 'selected' : ''}" onclick="showHabitStep('consistency')">
+                Staying consistent
+            </button>
+
+            <button class="${problem === 'procrastination' ? 'selected' : ''}" onclick="showHabitStep('procrastination')">
+                Procrastination
+            </button>
+
+            <button class="${problem === 'phone' ? 'selected' : ''}" onclick="showHabitStep('phone')">
+                Phone distraction
+            </button>
+
+            <button class="${problem === 'routine' ? 'selected' : ''}" onclick="showHabitStep('routine')">
+                Improving my routine
+            </button>
+
+        </div>
+
+        <div style="margin-top:30px;">
+            <h3>Your next step</h3>
+
+            <p id="next-step-text" style="margin-top:15px; color:#64718a;">
+                ${habitSteps[problem]}
+            </p>
+        </div>
+    `;
 }
 
 function showLearningStep(problem) {
