@@ -1633,13 +1633,43 @@ function showLearningStep(problem) {
             "Choose one small learning activity you can repeat every day. Decide when you will do it and start today."
     };
 
-    document.getElementById("next-step-result").innerHTML = `
+    const result = document.getElementById("next-step-result");
+
+result.innerHTML = `
+    <h3>What is most difficult for you right now?</h3>
+
+    <div class="next-step-options">
+
+        <button class="${problem === 'knowing' ? 'selected' : ''}" onclick="showLearningStep('knowing')">
+            Not knowing what to learn
+        </button>
+
+        <button class="${problem === 'starting' ? 'selected' : ''}" onclick="showLearningStep('starting')">
+            Getting started
+        </button>
+
+        <button class="${problem === 'focus' ? 'selected' : ''}" onclick="showLearningStep('focus')">
+            Staying focused
+        </button>
+
+        <button class="${problem === 'understanding' ? 'selected' : ''}" onclick="showLearningStep('understanding')">
+            Understanding difficult things
+        </button>
+
+        <button class="${problem === 'consistency' ? 'selected' : ''}" onclick="showLearningStep('consistency')">
+            Learning consistently
+        </button>
+
+    </div>
+
+    <div style="margin-top:30px;">
         <h3>Your next step</h3>
 
         <p id="next-step-text" style="margin-top:15px; color:#64718a;">
             ${learningSteps[problem]}
         </p>
-    `;
+    </div>
+`;
 }
         function showGoalStep(problem) {
 
@@ -1661,13 +1691,43 @@ function showLearningStep(problem) {
             "Choose one small action that moves you toward your goal. Decide when you will do it each day and focus on repeating it."
     };
 
-    document.getElementById("next-step-result").innerHTML = `
+    const result = document.getElementById("next-step-result");
+
+result.innerHTML = `
+    <h3>What is most difficult for you right now?</h3>
+
+    <div class="next-step-options">
+
+        <button class="${problem === 'unclear' ? 'selected' : ''}" onclick="showGoalStep('unclear')">
+            I don't know what I want
+        </button>
+
+        <button class="${problem === 'choosing' ? 'selected' : ''}" onclick="showGoalStep('choosing')">
+            I have too many goals
+        </button>
+
+        <button class="${problem === 'starting' ? 'selected' : ''}" onclick="showGoalStep('starting')">
+            I don't know where to start
+        </button>
+
+        <button class="${problem === 'procrastination' ? 'selected' : ''}" onclick="showGoalStep('procrastination')">
+            I keep delaying my goals
+        </button>
+
+        <button class="${problem === 'consistency' ? 'selected' : ''}" onclick="showGoalStep('consistency')">
+            I start but don't stay consistent
+        </button>
+
+    </div>
+
+    <div style="margin-top:30px;">
         <h3>Your next step</h3>
 
         <p id="next-step-text" style="margin-top:15px; color:#64718a;">
             ${goalSteps[problem]}
         </p>
-    `;
+    </div>
+`;
 }
         function showCareerStep(problem) {
 
@@ -1689,13 +1749,43 @@ function showLearningStep(problem) {
             "Choose one career-related action you can complete today. It could be learning a skill, improving your CV, researching an opportunity, or contacting someone."
     };
 
-    document.getElementById("next-step-result").innerHTML = `
+    const result = document.getElementById("next-step-result");
+
+result.innerHTML = `
+    <h3>What is most difficult for you right now?</h3>
+
+    <div class="next-step-options">
+
+        <button class="${problem === 'direction' ? 'selected' : ''}" onclick="showCareerStep('direction')">
+            I don't know what career I want
+        </button>
+
+        <button class="${problem === 'skills' ? 'selected' : ''}" onclick="showCareerStep('skills')">
+            I don't know what skills to learn
+        </button>
+
+        <button class="${problem === 'experience' ? 'selected' : ''}" onclick="showCareerStep('experience')">
+            I don't have enough experience
+        </button>
+
+        <button class="${problem === 'confidence' ? 'selected' : ''}" onclick="showCareerStep('confidence')">
+            I lack confidence in my abilities
+        </button>
+
+        <button class="${problem === 'action' ? 'selected' : ''}" onclick="showCareerStep('action')">
+            I don't know what to do next
+        </button>
+
+    </div>
+
+    <div style="margin-top:30px;">
         <h3>Your next step</h3>
 
         <p id="next-step-text" style="margin-top:15px; color:#64718a;">
             ${careerSteps[problem]}
         </p>
-    `;
+    </div>
+`;
 }
         function showRelationshipStep(problem) {
 
@@ -1717,13 +1807,43 @@ function showLearningStep(problem) {
             "Take one small step toward connection today. Message someone, join an activity, or start a conversation with someone new."
     };
 
-    document.getElementById("next-step-result").innerHTML = `
+    const result = document.getElementById("next-step-result");
+
+result.innerHTML = `
+    <h3>What is most difficult for you right now?</h3>
+
+    <div class="next-step-options">
+
+        <button class="${problem === 'communication' ? 'selected' : ''}" onclick="showRelationshipStep('communication')">
+            Communicating better
+        </button>
+
+        <button class="${problem === 'connection' ? 'selected' : ''}" onclick="showRelationshipStep('connection')">
+            Building deeper connections
+        </button>
+
+        <button class="${problem === 'conflict' ? 'selected' : ''}" onclick="showRelationshipStep('conflict')">
+            Dealing with conflict
+        </button>
+
+        <button class="${problem === 'boundaries' ? 'selected' : ''}" onclick="showRelationshipStep('boundaries')">
+            Setting healthy boundaries
+        </button>
+
+        <button class="${problem === 'loneliness' ? 'selected' : ''}" onclick="showRelationshipStep('loneliness')">
+            Feeling lonely
+        </button>
+
+    </div>
+
+    <div style="margin-top:30px;">
         <h3>Your next step</h3>
 
         <p id="next-step-text" style="margin-top:15px; color:#64718a;">
             ${relationshipSteps[problem]}
         </p>
-    `;
+    </div>
+`;
 }
         function showHealthStep(problem) {
 
@@ -1745,13 +1865,43 @@ function showLearningStep(problem) {
             "Take 10 minutes today without distractions. Walk, breathe slowly, or sit quietly and notice what is causing you stress."
     };
 
-    document.getElementById("next-step-result").innerHTML = `
+    const result = document.getElementById("next-step-result");
+
+result.innerHTML = `
+    <h3>What is most difficult for you right now?</h3>
+
+    <div class="next-step-options">
+
+        <button class="${problem === 'energy' ? 'selected' : ''}" onclick="showHealthStep('energy')">
+            Having low energy
+        </button>
+
+        <button class="${problem === 'sleep' ? 'selected' : ''}" onclick="showHealthStep('sleep')">
+            Improving my sleep
+        </button>
+
+        <button class="${problem === 'exercise' ? 'selected' : ''}" onclick="showHealthStep('exercise')">
+            Being more active
+        </button>
+
+        <button class="${problem === 'nutrition' ? 'selected' : ''}" onclick="showHealthStep('nutrition')">
+            Eating better
+        </button>
+
+        <button class="${problem === 'stress' ? 'selected' : ''}" onclick="showHealthStep('stress')">
+            Managing stress
+        </button>
+
+    </div>
+
+    <div style="margin-top:30px;">
         <h3>Your next step</h3>
 
         <p id="next-step-text" style="margin-top:15px; color:#64718a;">
             ${healthSteps[problem]}
         </p>
-    `;
+    </div>
+`;
 }
         function showMoneyStep(problem) {
 
@@ -1773,13 +1923,43 @@ function showLearningStep(problem) {
             "Choose one money topic you want to understand better. Spend 15 minutes learning about it from a reliable source."
     };
 
-    document.getElementById("next-step-result").innerHTML = `
+    const result = document.getElementById("next-step-result");
+
+result.innerHTML = `
+    <h3>What is most difficult for you right now?</h3>
+
+    <div class="next-step-options">
+
+        <button class="${problem === 'budget' ? 'selected' : ''}" onclick="showMoneyStep('budget')">
+            Managing my spending
+        </button>
+
+        <button class="${problem === 'saving' ? 'selected' : ''}" onclick="showMoneyStep('saving')">
+            Saving money
+        </button>
+
+        <button class="${problem === 'debt' ? 'selected' : ''}" onclick="showMoneyStep('debt')">
+            Dealing with debt
+        </button>
+
+        <button class="${problem === 'investing' ? 'selected' : ''}" onclick="showMoneyStep('investing')">
+            Learning about investing
+        </button>
+
+        <button class="${problem === 'knowledge' ? 'selected' : ''}" onclick="showMoneyStep('knowledge')">
+            Understanding money better
+        </button>
+
+    </div>
+
+    <div style="margin-top:30px;">
         <h3>Your next step</h3>
 
         <p id="next-step-text" style="margin-top:15px; color:#64718a;">
             ${moneySteps[problem]}
         </p>
-    `;
+    </div>
+`;
 }
         function showPerspectiveStep(problem) {
 
@@ -1801,13 +1981,43 @@ function showLearningStep(problem) {
             "Choose one idea you want to understand better. Spend 15 minutes learning about it and ask yourself how it could change the way you think."
     };
 
-    document.getElementById("next-step-result").innerHTML = `
+    const result = document.getElementById("next-step-result");
+
+result.innerHTML = `
+    <h3>What is most difficult for you right now?</h3>
+
+    <div class="next-step-options">
+
+        <button class="${problem === 'stuck' ? 'selected' : ''}" onclick="showPerspectiveStep('stuck')">
+            I feel stuck
+        </button>
+
+        <button class="${problem === 'different' ? 'selected' : ''}" onclick="showPerspectiveStep('different')">
+            I want to think differently
+        </button>
+
+        <button class="${problem === 'negative' ? 'selected' : ''}" onclick="showPerspectiveStep('negative')">
+            I often see things negatively
+        </button>
+
+        <button class="${problem === 'open' ? 'selected' : ''}" onclick="showPerspectiveStep('open')">
+            I want to understand other viewpoints
+        </button>
+
+        <button class="${problem === 'growth' ? 'selected' : ''}" onclick="showPerspectiveStep('growth')">
+            I want to grow my way of thinking
+        </button>
+
+    </div>
+
+    <div style="margin-top:30px;">
         <h3>Your next step</h3>
 
         <p id="next-step-text" style="margin-top:15px; color:#64718a;">
             ${perspectiveSteps[problem]}
         </p>
-    `;
+    </div>
+`;
 }
         function selectNextStep(button) {
 
