@@ -304,6 +304,49 @@ main.container {
 
 .back {
     margin-right: 10px;
+}
+
+/* MOBILE */
+@media (max-width: 700px) {
+    nav {
+        padding: 15px 5%;
+    }
+
+    .nav-links {
+        gap: 12px;
+        font-size: 14px;
+    }
+
+    .nav-links a:nth-child(2),
+    .nav-links a:nth-child(3) {
+        display: none;
+    }
+
+    .hero {
+        padding: 65px 20px 55px;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .hero > p {
+        font-size: 18px;
+    }
+
+    main.container {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 20px;
+    }
+
+    .card {
+        padding: 24px;
+    }
+
+    footer {
+        padding: 40px 8%;
+    }
 } 
     </style>
 </head>
