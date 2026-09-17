@@ -204,25 +204,38 @@
             margin-top: 10px;
         }
 
-        @media (max-width: 700px) {
-            nav {
-                flex-direction: column;
-                gap: 20px;
-            }
+       @media (max-width: 700px) {
 
-            nav a {
-                margin-left: 10px;
-                margin-right: 10px;
-            }
+    nav {
+        flex-direction: row;
+        gap: 10px;
+        padding: 15px 5%;
+    }
 
-            .hero h1 {
-                font-size: 40px;
-            }
+    nav > div:last-child {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
 
-            .question {
-                padding: 25px;
-            }
-        }
+    nav > div:last-child a {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    nav > div:last-child a:nth-child(2),
+    nav > div:last-child a:nth-child(3) {
+        display: none;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .question {
+        padding: 25px;
+    }
+}
     </style>
 </head>
 
