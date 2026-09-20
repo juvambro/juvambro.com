@@ -773,16 +773,16 @@ footer {
 
         <div class="areas">
 
-            <div class="area-card">
-                <div class="icon">🧠</div>
-                <h3>Mindset</h3>
-                <p>
-                    Challenge limiting beliefs and learn to
-                    see yourself, problems and possibilities differently.
-                </p>
-            </div>
+            <div class="area-card" onclick="openNextStep('mindset')">
+    <div class="icon">🧠</div>
+    <h3>Mindset</h3>
+    <p>
+        Challenge limiting beliefs and learn to
+        see yourself, problems and possibilities differently.
+    </p>
+</div>
 
-            <div class="area-card">
+            <div class="area-card" onclick="openNextStep('learning')">
                 <div class="icon">📚</div>
                 <h3>Learning</h3>
                 <p>
@@ -791,7 +791,7 @@ footer {
                 </p>
             </div>
 
-            <div class="area-card">
+            <div class="area-card" onclick="openNextStep('habits')">
                 <div class="icon">🔄</div>
                 <h3>Habits</h3>
                 <p>
@@ -800,7 +800,7 @@ footer {
                 </p>
             </div>
 
-            <div class="area-card">
+            <div class="area-card" onclick="openNextStep('goals')">
                 <div class="icon">🎯</div>
                 <h3>Goals</h3>
                 <p>
@@ -809,7 +809,7 @@ footer {
                 </p>
             </div>
 
-            <div class="area-card">
+           <div class="area-card" onclick="openNextStep('career')">
                 <div class="icon">💼</div>
                 <h3>Career & Skills</h3>
                 <p>
@@ -818,7 +818,7 @@ footer {
                 </p>
             </div>
 
-            <div class="area-card">
+            <div class="area-card" onclick="openNextStep('perspective')">
                 <div class="icon">🌍</div>
                 <h3>Perspective</h3>
                 <p>
@@ -826,7 +826,7 @@ footer {
                     other people and your own possibilities.
                 </p>
             </div>
-            <div class="area-card">
+            <div class="area-card" onclick="openNextStep('relationships')">
                 <div class="icon">🤝</div>
                 <h3>Relationships</h3>
                 <p>
@@ -835,7 +835,7 @@ footer {
                 </p>
             </div>
 
-            <div class="area-card">
+            <div class="area-card" onclick="openNextStep('health')">
                 <div class="icon">❤️</div>
                 <h3>Health & Well-being</h3>
                 <p>
@@ -844,7 +844,7 @@ footer {
                 </p>
             </div>
 
-            <div class="area-card">
+            <div class="area-card" onclick="openNextStep('money')">
                 <div class="icon">💰</div>
                 <h3>Money & Finances</h3>
                 <p>
@@ -1175,6 +1175,16 @@ navLinks.querySelectorAll("a").forEach(link => {
             block: "center"
         });
     }, 100);
+}
+        function openNextStep(area) {
+    document.getElementById("reflection").scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+
+    setTimeout(function () {
+        showNextStep(area);
+    }, 500);
 }
 </script>
     <script>
