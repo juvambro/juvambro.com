@@ -447,7 +447,11 @@ footer {
     cursor: pointer;
     transition: all 0.2s ease;
 }
-
+.next-step-options button.selected {
+    background: #5146e5;
+    color: white;
+    border-color: #5146e5;
+}
 .next-step-options button:hover {
     border-color: #5146e5;
     color: #5146e5;
@@ -1023,9 +1027,9 @@ footer {
 
             <div class="next-step-options">
 
-                <button onclick="selectNextStep(this); showNextStep('mindset')">
-                    Mindset
-                </button>
+                <button onclick="showNextStep('mindset'); selectNextStep(this)">
+    Mindset
+</button>
 
                 <button onclick="selectNextStep(this); showNextStep('habits')">
                     Habits
