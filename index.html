@@ -1027,7 +1027,7 @@ footer {
 
             <div class="next-step-options">
 
-                <button onclick="showNextStep('mindset'); selectNextStep(this)">
+                <button onclick="selectNextStep(this); showNextStep('mindset')">
     Mindset
 </button>
 
@@ -1186,19 +1186,35 @@ navLinks.querySelectorAll("a").forEach(link => {
         });
     }, 100);
 }
-       function openNextStep(area, card) {
-           document.querySelectorAll(".area-card").forEach(function (item) {
-    item.classList.remove("selected");
-});
+      function openNextStep(area, card) {
 
-card.classList.add("selected");
+    document.querySelectorAll(".area-card").forEach(function (item) {
+        item.classList.remove("selected");
+    });
+
+    card.classList.add("selected");
+
     document.getElementById("reflection").scrollIntoView({
         behavior: "smooth",
         block: "start"
     });
 
     setTimeout(function () {
+
         showNextStep(area);
+
+        document.querySelectorAll(".next-step-options button").forEach(function (button) {
+            button.classList.remove("selected");
+        });
+
+        const areaButtons = document.querySelectorAll(".next-step-options > button");
+
+        areaButtons.forEach(function (button) {
+            if (button.textContent.trim().toLowerCase().includes(area.toLowerCase())) {
+                button.classList.add("selected");
+            }
+        });
+
     }, 500);
 }
 </script>
