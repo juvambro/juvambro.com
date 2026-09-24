@@ -1204,18 +1204,22 @@ navLinks.querySelectorAll("a").forEach(link => {
     setTimeout(function () {
 
         showNextStep(area);
+        const areaButtons = document.querySelectorAll(
+            ".awareness-box > .next-step-options > button"
+        );
 
-        document.querySelectorAll(".next-step-options button").forEach(function (button) {
+        areaButtons.forEach(function (button) {
             button.classList.remove("selected");
         });
 
-        const areaButtons = document.querySelectorAll(".next-step-options > button");
-
-        areaButtons.forEach(function (button) {
-            if (button.textContent.trim().toLowerCase().includes(area.toLowerCase())) {
-                button.classList.add("selected");
-            }
+        const selectedAreaButton = Array.from(areaButtons).find(function (button) {
+            const onclick = button.getAttribute("onclick") || "";
+            return onclick.includes("showNextStep('" + area + "')");
         });
+
+        if (selectedAreaButton) {
+            selectedAreaButton.classList.add("selected");
+        }
 
     }, 500);
 }
