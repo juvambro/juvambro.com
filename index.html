@@ -996,9 +996,9 @@ footer {
     starting a conversation, exercising, reading,
     planning, creating or simply taking time to reflect.
 </p>
-            <a href="#reflection" class="secondary-button">
-                Find My Next Step
-            </a>
+            <a href="#reflection" class="secondary-button" onclick="goToReflection(event)">
+    Find My Next Step
+</a>
 
         </div>
 
@@ -2138,8 +2138,21 @@ function goToStart(event) {
         document.documentElement.style.scrollBehavior = "";
     }
 }
+
+        function goToReflection(event) {
+    if (window.innerWidth <= 800) {
+        event.preventDefault();
+
+        const reflectionSection = document.getElementById("reflection");
+
+        document.documentElement.style.scrollBehavior = "auto";
+
+        window.scrollTo(0, reflectionSection.offsetTop);
+
+        document.documentElement.style.scrollBehavior = "";
+    }
+}
         
 </script>        
-</script>
 </body>
 </html>
