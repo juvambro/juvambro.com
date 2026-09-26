@@ -618,9 +618,9 @@ footer {
             and create a more meaningful life.
         </p>
 
-        <a href="#start" class="primary-button">
-            Start Your Journey
-        </a>
+        <a href="#start" class="primary-button" onclick="goToStart(event)">
+    Start Your Journey
+</a>
 
     </div>
 
@@ -2113,7 +2113,33 @@ result.innerHTML = `
 
     button.classList.add("selected");
 }
+function selectNextStep(button) {
+
+    const buttons = button.parentElement.querySelectorAll("button");
+
+    buttons.forEach(function (btn) {
+        btn.classList.remove("selected");
+    });
+
+    button.classList.add("selected");
+}
+
+
+function goToStart(event) {
+    if (window.innerWidth <= 800) {
+        event.preventDefault();
+
+        const startSection = document.getElementById("start");
+
+        document.documentElement.style.scrollBehavior = "auto";
+
+        window.scrollTo(0, startSection.offsetTop);
+
+        document.documentElement.style.scrollBehavior = "";
+    }
+}
         
+</script>        
 </script>
 </body>
 </html>
