@@ -1129,9 +1129,9 @@ footer {
 
             <div class="footer-links">
 <a href="index.html">Home</a>
-<a href="index.html#journey">Journey</a>
-<a href="index.html#areas">Explore</a>
-<a href="index.html#about">About</a>
+<a href="index.html#journey" onclick="goToSection(event, 'journey')">Journey</a>
+<a href="index.html#areas" onclick="goToSection(event, 'areas')">Explore</a>
+<a href="index.html#about" onclick="goToSection(event, 'about')">About</a>
             </div>
 
         </div>
@@ -1144,6 +1144,19 @@ footer {
 
 </footer>
 <script>
+    function goToSection(event, sectionId) {
+    if (window.innerWidth <= 800) {
+        event.preventDefault();
+
+        const section = document.getElementById(sectionId);
+
+        document.documentElement.style.scrollBehavior = "auto";
+
+        window.scrollTo(0, section.offsetTop);
+
+        document.documentElement.style.scrollBehavior = "";
+    }
+}
     const menuToggle = document.querySelector(".menu-toggle");
 const navLinks = document.querySelector(".nav-links");
 
