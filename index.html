@@ -1169,6 +1169,32 @@ navLinks.querySelectorAll("a").forEach(link => {
         navLinks.classList.remove("active");
     });
 });
+    document.getElementById("next-step-result").addEventListener("click", function(event) {
+
+    if (event.target.tagName === "BUTTON") {
+
+        setTimeout(function() {
+
+            const result = document.getElementById("next-step-result");
+
+            if (window.innerWidth <= 800) {
+                document.documentElement.style.scrollBehavior = "auto";
+
+                window.scrollTo(0, result.offsetTop);
+
+                document.documentElement.style.scrollBehavior = "";
+            } else {
+                result.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center"
+                });
+            }
+
+        }, 150);
+
+    }
+
+});
 </script>
     <script>
     let lastScrollY = window.scrollY;
