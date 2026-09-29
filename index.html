@@ -2163,29 +2163,7 @@ result.innerHTML = `
     });
 
     button.classList.add("selected");
-}document.getElementById("next-step-result").addEventListener("click", function(event) {
 
-    if (window.innerWidth <= 800 && event.target.tagName === "BUTTON") {
-
-        setTimeout(function() {
-
-            const nextStep = document.getElementById("next-step-text");
-
-            if (!nextStep) return;
-
-            const y = nextStep.getBoundingClientRect().top
-                + window.scrollY
-                - 80;
-
-            window.scrollTo({
-                top: y,
-                behavior: "smooth"
-            });
-
-        }, 200);
-    }
-
-});
 function selectNextStep(button) {
 
     const buttons = button.parentElement.querySelectorAll("button");
