@@ -1748,6 +1748,13 @@ function showLearningStep(problem) {
 
 result.innerHTML = `
     <h3>What is most difficult for you right now?</h3>
+    <div style="margin-top:30px;">
+        <h3>Your next step</h3>
+
+        <p id="next-step-text" style="margin-top:15px; color:#64718a;">
+            ${learningSteps[problem]}
+        </p>
+    </div>
 
     <div class="next-step-options">
 
@@ -1773,13 +1780,7 @@ result.innerHTML = `
 
     </div>
 
-    <div style="margin-top:30px;">
-        <h3>Your next step</h3>
-
-        <p id="next-step-text" style="margin-top:15px; color:#64718a;">
-            ${learningSteps[problem]}
-        </p>
-    </div>
+    
 `;
 }
         function showGoalStep(problem) {
