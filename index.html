@@ -1600,7 +1600,318 @@ perspective:
 
     document.getElementById("next-step-result").style.display = "block";
 }
+function showNextStep(area) {
 
+    const result = document.getElementById("next-step-result");
+
+    result.style.display = "block";
+
+    if (area === "mindset") {
+
+        result.innerHTML = `
+            <h3>What is most difficult for you right now?</h3>
+
+            <div class="next-step-options">
+
+                <button onclick="showMindsetStep('negative')">
+                    Negative thoughts
+                </button>
+
+                <button onclick="showMindsetStep('confidence')">
+                    Lack of confidence
+                </button>
+
+                <button onclick="showMindsetStep('fear')">
+                    Fear of failure
+                </button>
+
+                <button onclick="showMindsetStep('overthinking')">
+                    Overthinking
+                </button>
+
+                <button onclick="showMindsetStep('consistency')">
+                    Staying consistent
+                </button>
+
+            </div>
+        `;
+
+        scrollToNextStep();
+        return;
+    }
+
+    if (area === "habits") {
+
+        result.innerHTML = `
+            <h3>What is most difficult for you right now?</h3>
+
+            <div class="next-step-options">
+
+                <button onclick="showHabitStep('starting')">
+                    Starting a habit
+                </button>
+
+                <button onclick="showHabitStep('consistency')">
+                    Staying consistent
+                </button>
+
+                <button onclick="showHabitStep('procrastination')">
+                    Procrastination
+                </button>
+
+                <button onclick="showHabitStep('phone')">
+                    Phone distraction
+                </button>
+
+                <button onclick="showHabitStep('routine')">
+                    Improving my routine
+                </button>
+
+            </div>
+        `;
+
+        scrollToNextStep();
+        return;
+    }
+
+    if (area === "learning") {
+
+        result.innerHTML = `
+            <h3>What is most difficult for you right now?</h3>
+
+            <div class="next-step-options">
+
+                <button onclick="showLearningStep('knowing')">
+                    Not knowing what to learn
+                </button>
+
+                <button onclick="showLearningStep('starting')">
+                    Getting started
+                </button>
+
+                <button onclick="showLearningStep('focus')">
+                    Staying focused
+                </button>
+
+                <button onclick="showLearningStep('understanding')">
+                    Understanding difficult things
+                </button>
+
+                <button onclick="showLearningStep('consistency')">
+                    Learning consistently
+                </button>
+
+            </div>
+        `;
+
+        scrollToNextStep();
+        return;
+    }
+
+    if (area === "goals") {
+
+        result.innerHTML = `
+            <h3>What is most difficult for you right now?</h3>
+
+            <div class="next-step-options">
+
+                <button onclick="showGoalStep('unclear')">
+                    I don't know what I want
+                </button>
+
+                <button onclick="showGoalStep('choosing')">
+                    I have too many goals
+                </button>
+
+                <button onclick="showGoalStep('starting')">
+                    I don't know where to start
+                </button>
+
+                <button onclick="showGoalStep('procrastination')">
+                    I keep delaying my goals
+                </button>
+
+                <button onclick="showGoalStep('consistency')">
+                    I start but don't stay consistent
+                </button>
+
+            </div>
+        `;
+
+        scrollToNextStep();
+        return;
+    }
+
+    if (area === "career") {
+
+        result.innerHTML = `
+            <h3>What is most difficult for you right now?</h3>
+
+            <div class="next-step-options">
+
+                <button onclick="showCareerStep('direction')">
+                    I don't know what career I want
+                </button>
+
+                <button onclick="showCareerStep('skills')">
+                    I don't know what skills to learn
+                </button>
+
+                <button onclick="showCareerStep('experience')">
+                    I don't have enough experience
+                </button>
+
+                <button onclick="showCareerStep('confidence')">
+                    I lack confidence in my abilities
+                </button>
+
+                <button onclick="showCareerStep('action')">
+                    I don't know what to do next
+                </button>
+
+            </div>
+        `;
+
+        scrollToNextStep();
+        return;
+    }
+
+    if (area === "perspective") {
+
+        result.innerHTML = `
+            <h3>What is most difficult for you right now?</h3>
+
+            <div class="next-step-options">
+
+                <button onclick="showPerspectiveStep('stuck')">
+                    I feel stuck
+                </button>
+
+                <button onclick="showPerspectiveStep('different')">
+                    I want to think differently
+                </button>
+
+                <button onclick="showPerspectiveStep('negative')">
+                    I often see things negatively
+                </button>
+
+                <button onclick="showPerspectiveStep('open')">
+                    I want to understand other viewpoints
+                </button>
+
+                <button onclick="showPerspectiveStep('growth')">
+                    I want to grow my way of thinking
+                </button>
+
+            </div>
+        `;
+
+        scrollToNextStep();
+        return;
+    }
+
+    if (area === "relationships") {
+
+        result.innerHTML = `
+            <h3>What is most difficult for you right now?</h3>
+
+            <div class="next-step-options">
+
+                <button onclick="showRelationshipStep('communication')">
+                    Communicating better
+                </button>
+
+                <button onclick="showRelationshipStep('connection')">
+                    Building deeper connections
+                </button>
+
+                <button onclick="showRelationshipStep('conflict')">
+                    Dealing with conflict
+                </button>
+
+                <button onclick="showRelationshipStep('boundaries')">
+                    Setting healthy boundaries
+                </button>
+
+                <button onclick="showRelationshipStep('loneliness')">
+                    Feeling lonely
+                </button>
+
+            </div>
+        `;
+
+        scrollToNextStep();
+        return;
+    }
+
+    if (area === "health") {
+
+        result.innerHTML = `
+            <h3>What is most difficult for you right now?</h3>
+
+            <div class="next-step-options">
+
+                <button onclick="showHealthStep('energy')">
+                    Having low energy
+                </button>
+
+                <button onclick="showHealthStep('sleep')">
+                    Improving my sleep
+                </button>
+
+                <button onclick="showHealthStep('exercise')">
+                    Being more active
+                </button>
+
+                <button onclick="showHealthStep('nutrition')">
+                    Eating better
+                </button>
+
+                <button onclick="showHealthStep('stress')">
+                    Managing stress
+                </button>
+
+            </div>
+        `;
+
+        scrollToNextStep();
+        return;
+    }
+
+    if (area === "money") {
+
+        result.innerHTML = `
+            <h3>What is most difficult for you right now?</h3>
+
+            <div class="next-step-options">
+
+                <button onclick="showMoneyStep('budget')">
+                    Managing my spending
+                </button>
+
+                <button onclick="showMoneyStep('saving')">
+                    Saving money
+                </button>
+
+                <button onclick="showMoneyStep('debt')">
+                    Dealing with debt
+                </button>
+
+                <button onclick="showMoneyStep('investing')">
+                    Learning about investing
+                </button>
+
+                <button onclick="showMoneyStep('knowledge')">
+                    Understanding money better
+                </button>
+
+            </div>
+        `;
+
+        scrollToNextStep();
+        return;
+    }
+}
 function showMindsetStep(problem) {
 
     const mindsetSteps = {
