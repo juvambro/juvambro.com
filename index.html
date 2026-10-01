@@ -1360,37 +1360,33 @@ function showNextStep(area) {
         scrollToNextStep();
         return;
     }
-    if (area === "goals") {
+    document.getElementById("next-step-result").innerHTML = `
+    <h3>What is most difficult for you right now?</h3>
 
-        document.getElementById("next-step-result").style.display = "block";
+    <div class="next-step-options">
 
-        document.getElementById("next-step-result").innerHTML = `
-            <h3>What is most difficult for you right now?</h3>
+        <button onclick="showGoalStep('unclear')">
+            I don't know what I want
+        </button>
 
-            <div class="next-step-options">
+        <button onclick="showGoalStep('choosing')">
+            I have too many goals
+        </button>
 
-                <button onclick="showGoalStep('unclear')">
-                    I don't know what I want
-                </button>
+        <button onclick="showGoalStep('starting')">
+            I don't know where to start
+        </button>
 
-                <button onclick="showGoalStep('choosing')">
-                    I have too many goals
-                </button>
+        <button onclick="showGoalStep('procrastination')">
+            I keep delaying my goals
+        </button>
 
-                <button onclick="showGoalStep('starting')">
-                    I don't know where to start
-                </button>
+        <button onclick="showGoalStep('consistency')">
+            I start but don't stay consistent
+        </button>
 
-                <button onclick="showGoalStep('procrastination')">
-                    I keep delaying my goals
-                </button>
-
-                <button onclick="showGoalStep('consistency')">
-                    I start but don't stay consistent
-                </button>
-
-            </div>
-        `;
+    </div>
+`;
         
 scrollToNextStep();
         return;
@@ -1627,17 +1623,10 @@ function showMindsetStep(problem) {
 
     const result = document.getElementById("next-step-result");
 
-result.style.display = "block";
+    result.style.display = "block";
 
-result.innerHTML = `
+    result.innerHTML = `
         <h3>What is most difficult for you right now?</h3>
-        <div style="margin-top:30px;">
-            <h3>Your next step</h3>
-
-            <p id="next-step-text" style="margin-top:15px; color:#64718a;">
-                ${mindsetSteps[problem]}
-            </p>
-        </div>
 
         <div class="next-step-options">
 
@@ -1663,6 +1652,15 @@ result.innerHTML = `
 
         </div>
 
+        <div style="margin-top:30px;">
+
+            <h3>Your next step</h3>
+
+            <p id="next-step-text" style="margin-top:15px; color:#64718a;">
+                ${mindsetSteps[problem]}
+            </p>
+
+        </div>
     `;
 }
         function showHabitStep(problem) {
