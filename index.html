@@ -1360,6 +1360,7 @@ function showNextStep(area) {
         scrollToNextStep();
         return;
     }
+    if (area === "goals") {
     document.getElementById("next-step-result").innerHTML = `
     <h3>What is most difficult for you right now?</h3>
 
