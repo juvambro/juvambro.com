@@ -1241,10 +1241,10 @@ navLinks.querySelectorAll("a").forEach(link => {
         });
 
         const selectedAreaButton = Array.from(areaButtons).find(function (button) {
-            const onclick = button.getAttribute("onclick") || "";
-            return onclick.includes("showNextStep('" + area + "')");
-        });
-
+    const onclick = button.getAttribute("onclick") || "";
+    return onclick.includes("showNextStep('" + area + "')") ||
+           onclick.includes('showNextStep("' + area + '")');
+});
         if (selectedAreaButton) {
             selectedAreaButton.classList.add("selected");
         }
