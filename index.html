@@ -1265,7 +1265,8 @@ areaButtons.forEach(function (button) {
 
 const selectedAreaButton = Array.from(areaButtons).find(function (button) {
     const onclick = button.getAttribute("onclick") || "";
-    return onclick.includes("showNextStep('" + area + "')");
+    return onclick.includes("showNextStep('" + area + "')") ||
+           onclick.includes('showNextStep("' + area + '")');
 });
 
 if (selectedAreaButton) {
