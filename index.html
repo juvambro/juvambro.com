@@ -1169,33 +1169,6 @@ navLinks.querySelectorAll("a").forEach(link => {
         navLinks.classList.remove("active");
     });
 });
-    function selectNextStep(button) {
-    document.querySelectorAll(".next-step-options button").forEach(btn => {
-        btn.classList.remove("selected");
-    });
-
-    button.classList.add("selected");
-}
-
-function showNextStep(category) {
-    const result = document.getElementById("next-step-result");
-    const text = document.getElementById("next-step-text");
-
-    const steps = {
-        mindset: "Take a moment to notice one thought or belief you would like to improve.",
-        learning: "Choose one small thing you would like to learn and spend 10 minutes on it today.",
-        habits: "Choose one small habit you want to build and practice it today.",
-        goals: "Choose one goal that matters to you and define one small action you can take today.",
-        career: "Think about one skill that could help you grow in your career and take one small step to develop it.",
-        perspective: "Look at one situation from a different point of view and ask what you can learn from it.",
-        relationships: "Think about one relationship you would like to improve and take one positive action.",
-        health: "Choose one small action today that supports your physical or mental well-being.",
-        money: "Look at one small way you can improve how you manage or understand your money."
-    };
-
-    text.textContent = steps[category];
-
-    result.style.display = "block";
 }
 </script>
     <script>
