@@ -2112,7 +2112,7 @@ function showLearningStep(problem) {
 
         </div>
     `;
-};
+}
        function showGoalStep(problem) {
 
     const goalSteps = {
@@ -2136,7 +2136,33 @@ function showLearningStep(problem) {
     const result = document.getElementById("next-step-result");
 
 result.innerHTML = `
+    result.innerHTML = `
     <h3>What is most difficult for you right now?</h3>
+
+    <div class="next-step-options">
+
+        <button class="${problem === 'unclear' ? 'selected' : ''}" onclick="showGoalStep('unclear')">
+            I don't know what I want
+        </button>
+
+        <button class="${problem === 'choosing' ? 'selected' : ''}" onclick="showGoalStep('choosing')">
+            I have too many goals
+        </button>
+
+        <button class="${problem === 'starting' ? 'selected' : ''}" onclick="showGoalStep('starting')">
+            I don't know where to start
+        </button>
+
+        <button class="${problem === 'procrastination' ? 'selected' : ''}" onclick="showGoalStep('procrastination')">
+            I keep delaying my goals
+        </button>
+
+        <button class="${problem === 'consistency' ? 'selected' : ''}" onclick="showGoalStep('consistency')">
+            I start but don't stay consistent
+        </button>
+
+    </div>
+
     <div style="margin-top:30px;">
         <h3>Your next step</h3>
 
@@ -2144,8 +2170,7 @@ result.innerHTML = `
             ${goalSteps[problem]}
         </p>
     </div>
-
-    <div class="next-step-options">
+`;
 
         <button class="${problem === 'unclear' ? 'selected' : ''}" onclick="showGoalStep('unclear')">
             I don't know what I want
