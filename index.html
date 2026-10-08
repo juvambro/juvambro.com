@@ -1169,7 +1169,6 @@ navLinks.querySelectorAll("a").forEach(link => {
         navLinks.classList.remove("active");
     });
 });
-}
 </script>
     <script>
     let lastScrollY = window.scrollY;
@@ -1253,1269 +1252,312 @@ navLinks.querySelectorAll("a").forEach(link => {
     }, 500);
 }
 </script>
-    <script>
-function showNextStep(area) {
-    document.getElementById("next-step-result").innerHTML = "";
-    const areaButtons = document.querySelectorAll(
-    ".awareness-box > .next-step-options > button"
-);
+   <script>
+/* ================================
+   FIND YOUR NEXT STEP
+   ================================ */
 
-areaButtons.forEach(function (button) {
-    button.classList.remove("selected");
-});
+const nextStepData = {
 
-const selectedAreaButton = Array.from(areaButtons).find(function (button) {
-    const onclick = button.getAttribute("onclick") || "";
-    return onclick.includes("showNextStep('" + area + "')") ||
-           onclick.includes('showNextStep("' + area + '")');
-});
+    mindset: {
+        options: {
+            negative: "Negative thoughts",
+            confidence: "Lack of confidence",
+            fear: "Fear of failure",
+            overthinking: "Overthinking",
+            consistency: "Staying consistent"
+        },
+        steps: {
+            negative: "Write down one negative thought you often have. Then ask: Is this thought completely true? Write one more balanced way to look at the situation.",
+            confidence: "Choose one small thing you have been avoiding because you doubt yourself. Take the first step today, even if it feels uncomfortable.",
+            fear: "Choose one small action you are afraid to take. Make it smaller and take the first step today. You do not need to feel ready before you begin.",
+            overthinking: "Choose one decision you have been thinking about too much. Give yourself 10 minutes to write the options, choose one, and take one small action.",
+            consistency: "Choose one behaviour you want to repeat. Make it very small and decide exactly when you will do it today."
+        }
+    },
 
-if (selectedAreaButton) {
-    selectedAreaButton.classList.add("selected");
-}
-    if (area === "mindset") {
+    habits: {
+        options: {
+            starting: "Starting a habit",
+            consistency: "Staying consistent",
+            procrastination: "Procrastination",
+            phone: "Phone distraction",
+            routine: "Improving my routine"
+        },
+        steps: {
+            starting: "Choose one habit you want to build. Make it so small that you can do it in less than 2 minutes. Do it once today.",
+            consistency: "Choose one habit you already started. Decide exactly when you will do it tomorrow, and keep the action small enough to repeat.",
+            procrastination: "Choose one task you have been avoiding. Work on it for just 5 minutes. You do not need to finish it today.",
+            phone: "Choose one time of day when your phone distracts you most. Put your phone away for 20 minutes and use that time for something important.",
+            routine: "Choose one part of your daily routine to improve. Decide one small action you will do at the same time every day."
+        }
+    },
 
-        document.getElementById("next-step-result").style.display = "block";
+    learning: {
+        options: {
+            knowing: "Not knowing what to learn",
+            starting: "Getting started",
+            focus: "Staying focused",
+            understanding: "Understanding difficult things",
+            consistency: "Learning consistently"
+        },
+        steps: {
+            knowing: "Choose one useful skill or topic that can help you reach an important goal. Spend 10 minutes today exploring it.",
+            starting: "Do not wait until you feel ready. Choose one small learning task and spend just 10 minutes doing it today.",
+            focus: "Remove one distraction and study for just 15 minutes. Put your phone away and focus only on the task.",
+            understanding: "When something feels difficult, break it into a smaller part. Spend 10 minutes understanding just one part before moving on.",
+            consistency: "Choose one small learning activity you can repeat every day. Decide when you will do it and start today."
+        }
+    },
 
-        document.getElementById("next-step-result").innerHTML = `
-            <h3>What is most difficult for you right now?</h3>
+    goals: {
+        options: {
+            unclear: "I don't know what I want",
+            choosing: "I have too many goals",
+            starting: "I don't know where to start",
+            procrastination: "I keep delaying my goals",
+            consistency: "I start but don't stay consistent"
+        },
+        steps: {
+            unclear: "Take 10 minutes today to think about what really matters to you. Write down one thing you would like to improve or achieve.",
+            choosing: "Choose one goal that matters most to you right now. Put the other goals aside for now and give your attention to this one.",
+            starting: "Choose one goal and ask yourself: What is the smallest action I can take today? Do that action before the day ends.",
+            procrastination: "Choose one goal you have been delaying. Work on it for just 5 minutes today. Starting is more important than finishing.",
+            consistency: "Choose one small action that moves you toward your goal. Decide when you will do it each day and focus on repeating it."
+        }
+    },
 
-            <div class="next-step-options">
+    career: {
+        options: {
+            direction: "I don't know what career I want",
+            skills: "I don't know what skills to learn",
+            experience: "I don't have enough experience",
+            confidence: "I lack confidence in my abilities",
+            action: "I don't know what to do next"
+        },
+        steps: {
+            direction: "Think about what you enjoy, what you are good at, and what kind of problems you would like to solve. Write down three possible career directions.",
+            skills: "Choose one skill that could make you more valuable in the career you want. Spend 20 minutes today learning or practicing it.",
+            experience: "Choose one small project, volunteer activity, or practical task where you can use your skills. Start looking for one opportunity today.",
+            confidence: "Choose one skill you already have and use it today. Notice what you can do well instead of focusing only on what you still need to learn.",
+            action: "Choose one career-related action you can complete today. It could be learning a skill, improving your CV, researching an opportunity, or contacting someone."
+        }
+    },
 
-               <button onclick="selectNextStep(this); showMindsetStep('negative')">
-                    Negative thoughts
-                </button>
+    perspective: {
+        options: {
+            stuck: "I feel stuck",
+            different: "I want to think differently",
+            negative: "I often see things negatively",
+            open: "I want to understand other viewpoints",
+            growth: "I want to grow my way of thinking"
+        },
+        steps: {
+            stuck: "Step back from the situation for a moment. Ask yourself: What is one thing I can control or change today?",
+            different: "Expose yourself to one new idea today. Read something, listen to someone, or explore a viewpoint that is different from your usual way of thinking.",
+            negative: "Notice one negative thought you have today. Ask yourself: Is there another way to look at this situation?",
+            open: "Choose a topic you feel strongly about. Listen to someone with a different viewpoint and try to understand why they see it that way.",
+            growth: "Choose one idea you want to understand better. Spend 15 minutes learning about it and ask yourself how it could change the way you think."
+        }
+    },
 
-                <button onclick="selectNextStep(this); showMindsetStep('confidence')">
-                    Lack of confidence
-                </button>
+    relationships: {
+        options: {
+            communication: "Communicating better",
+            connection: "Building deeper connections",
+            conflict: "Dealing with conflict",
+            boundaries: "Setting healthy boundaries",
+            loneliness: "Feeling lonely"
+        },
+        steps: {
+            communication: "Choose one person who matters to you. Have one honest conversation with them today and listen carefully without interrupting.",
+            connection: "Choose one person you would like to know better. Send them a message or spend some time with them today.",
+            conflict: "Think about one conflict you are facing. Before reacting, take a moment to understand the other person's point of view.",
+            boundaries: "Think about one situation where you need a healthier boundary. Decide what you are comfortable with and communicate it clearly.",
+            loneliness: "Take one small step toward connection today. Message someone, join an activity, or start a conversation with someone new."
+        }
+    },
 
-                <button onclick="selectNextStep(this); showMindsetStep('fear')">
-                    Fear of failure
-                </button>
+    health: {
+        options: {
+            energy: "Having low energy",
+            sleep: "Improving my sleep",
+            exercise: "Being more active",
+            nutrition: "Eating better",
+            stress: "Managing stress"
+        },
+        steps: {
+            energy: "Choose one small action that can support your energy today. Take a short walk, drink some water, or take a short break if you need one.",
+            sleep: "Choose one small change for tonight. Try going to bed at a regular time and put your phone away before you sleep.",
+            exercise: "Start small. Take a 10-minute walk today or do a few simple exercises. Focus on getting started, not doing a perfect workout.",
+            nutrition: "Choose one meal today and make one healthier change. For example, add some fruit or vegetables or choose water instead of a sugary drink.",
+            stress: "Take 10 minutes today without distractions. Walk, breathe slowly, or sit quietly and notice what is causing you stress."
+        }
+    },
 
-                <button onclick="selectNextStep(this); showMindsetStep('overthinking')">
-                    Overthinking
-                </button>
-
-                <button onclick="selectNextStep(this); showMindsetStep('consistency')">
-                    Staying consistent
-                </button>
-
-                        </div>
-                `;
-
-        scrollToNextStep();
-        return;
+    money: {
+        options: {
+            budget: "Managing my spending",
+            saving: "Saving money",
+            debt: "Dealing with debt",
+            investing: "Learning about investing",
+            knowledge: "Understanding money better"
+        },
+        steps: {
+            budget: "Take 10 minutes today to look at where your money is going. Choose one expense you can reduce or control.",
+            saving: "Choose a small amount you can save regularly. Start with an amount that feels realistic and put it aside today.",
+            debt: "Write down your debts and choose one to focus on first. Learn its balance, interest rate, and minimum payment.",
+            investing: "Spend 20 minutes learning one investing basic, such as the difference between saving and investing or what a diversified investment means.",
+            knowledge: "Choose one money topic you want to understand better. Spend 15 minutes learning about it from a reliable source."
+        }
     }
-        if (area === "habits") {
+};
 
-        document.getElementById("next-step-result").style.display = "block";
 
-        document.getElementById("next-step-result").innerHTML = `
-            <h3>What is most difficult for you right now?</h3>
-
-            <div class="next-step-options">
-
-                <button onclick="showHabitStep('starting')">
-                    Starting a habit
-                </button>
-
-                <button onclick="showHabitStep('consistency')">
-                    Staying consistent
-                </button>
-
-                <button onclick="showHabitStep('procrastination')">
-                    Procrastination
-                </button>
-
-                <button onclick="showHabitStep('phone')">
-                    Too much phone time
-                </button>
-
-                <button onclick="showHabitStep('routine')">
-                    Building a routine
-                </button>
-
-            </div>
-                `;
-
-        scrollToNextStep();
-        return;
-    }
-        if (area === "learning") {
-
-        document.getElementById("next-step-result").style.display = "block";
-
-        document.getElementById("next-step-result").innerHTML = `
-            <h3>What is most difficult for you right now?</h3>
-
-            <div class="next-step-options">
-
-                <button onclick="showLearningStep('knowing')">
-                    Not knowing what to learn
-                </button>
-
-                <button onclick="showLearningStep('starting')">
-                    Getting started
-                </button>
-
-                <button onclick="showLearningStep('focus')">
-                    Staying focused
-                </button>
-
-                <button onclick="showLearningStep('understanding')">
-                    Understanding difficult things
-                </button>
-
-                <button onclick="showLearningStep('consistency')">
-                    Learning consistently
-                </button>
-
-            </div>
-                `;
-
-        scrollToNextStep();
-        return;
-    }
-    if (area === "goals") {
-    document.getElementById("next-step-result").innerHTML = `
-    <h3>What is most difficult for you right now?</h3>
-
-    <div class="next-step-options">
-
-        <button onclick="showGoalStep('unclear')">
-            I don't know what I want
-        </button>
-
-        <button onclick="showGoalStep('choosing')">
-            I have too many goals
-        </button>
-
-        <button onclick="showGoalStep('starting')">
-            I don't know where to start
-        </button>
-
-        <button onclick="showGoalStep('procrastination')">
-            I keep delaying my goals
-        </button>
-
-        <button onclick="showGoalStep('consistency')">
-            I start but don't stay consistent
-        </button>
-
-    </div>
-`;
-        
-scrollToNextStep();
-        return;
-    }
-if (area === "career") {
-
-    document.getElementById("next-step-result").style.display = "block";
-
-    document.getElementById("next-step-result").innerHTML = `
-        <h3>What is most difficult for you right now?</h3>
-
-        <div class="next-step-options">
-
-            <button onclick="showCareerStep('direction')">
-                I don't know what career I want
-            </button>
-
-            <button onclick="showCareerStep('skills')">
-                I don't know what skills to learn
-            </button>
-
-            <button onclick="showCareerStep('experience')">
-                I don't have enough experience
-            </button>
-
-            <button onclick="showCareerStep('confidence')">
-                I lack confidence in my abilities
-            </button>
-
-            <button onclick="showCareerStep('action')">
-                I don't know what to do next
-            </button>
-
-        </div>
-    `;
-    
-scrollToNextStep();
-    return;
-}
-if (area === "relationships") {
-
-    document.getElementById("next-step-result").style.display = "block";
-
-    document.getElementById("next-step-result").innerHTML = `
-        <h3>What is most difficult for you right now?</h3>
-
-        <div class="next-step-options">
-
-            <button onclick="showRelationshipStep('communication')">
-                Communicating better
-            </button>
-
-            <button onclick="showRelationshipStep('connection')">
-                Building deeper connections
-            </button>
-
-            <button onclick="showRelationshipStep('conflict')">
-                Dealing with conflict
-            </button>
-
-            <button onclick="showRelationshipStep('boundaries')">
-                Setting healthy boundaries
-            </button>
-
-            <button onclick="showRelationshipStep('loneliness')">
-                Feeling lonely
-            </button>
-
-        </div>
-    `;
-    
-scrollToNextStep();
-    return;
-}
-if (area === "health") {
-
-    document.getElementById("next-step-result").style.display = "block";
-
-    document.getElementById("next-step-result").innerHTML = `
-        <h3>What is most difficult for you right now?</h3>
-
-        <div class="next-step-options">
-
-            <button onclick="showHealthStep('energy')">
-                Having low energy
-            </button>
-
-            <button onclick="showHealthStep('sleep')">
-                Improving my sleep
-            </button>
-
-            <button onclick="showHealthStep('exercise')">
-                Being more active
-            </button>
-
-            <button onclick="showHealthStep('nutrition')">
-                Eating better
-            </button>
-
-            <button onclick="showHealthStep('stress')">
-                Managing stress
-            </button>
-
-        </div>
-    `;
-    
-scrollToNextStep();
-    return;
-}
-if (area === "money") {
-
-    document.getElementById("next-step-result").style.display = "block";
-
-    document.getElementById("next-step-result").innerHTML = `
-        <h3>What is most difficult for you right now?</h3>
-
-        <div class="next-step-options">
-
-            <button onclick="showMoneyStep('budget')">
-                Managing my spending
-            </button>
-
-            <button onclick="showMoneyStep('saving')">
-                Saving money
-            </button>
-
-            <button onclick="showMoneyStep('debt')">
-                Dealing with debt
-            </button>
-
-            <button onclick="showMoneyStep('investing')">
-                Learning about investing
-            </button>
-
-            <button onclick="showMoneyStep('knowledge')">
-                Understanding money better
-            </button>
-
-        </div>
-    `;
-    
-scrollToNextStep();
-    return;
-}
-if (area === "perspective") {
-
-    document.getElementById("next-step-result").style.display = "block";
-
-    document.getElementById("next-step-result").innerHTML = `
-        <h3>What is most difficult for you right now?</h3>
-
-        <div class="next-step-options">
-
-            <button onclick="showPerspectiveStep('stuck')">
-                I feel stuck
-            </button>
-
-            <button onclick="showPerspectiveStep('different')">
-                I want to think differently
-            </button>
-
-            <button onclick="showPerspectiveStep('negative')">
-                I often see things negatively
-            </button>
-
-            <button onclick="showPerspectiveStep('open')">
-                I want to understand other viewpoints
-            </button>
-
-            <button onclick="showPerspectiveStep('growth')">
-                I want to grow my way of thinking
-            </button>
-
-        </div>
-    `;
-    
-scrollToNextStep();
-    return;
-}
-    const steps = {
-
-        mindset:
-            "Take 10 minutes today to write down one thought or belief that may be holding you back. Ask yourself: Is this really true?",
-
-        habits:
-            "Choose one small habit you want to improve. Make it so easy that you can start today.",
-
-        learning:
-            "Spend 20 minutes today learning one useful thing that can help you move toward an important goal.",
-
-        goals:
-            "Choose one goal that matters to you. Write down the smallest action you can take today to move toward it.",
-
-        career:
-            "Choose one skill that could make you more valuable. Spend 20 minutes today learning or practicing it.",
-
-            relationships:
-    "Think of one person who matters to you. Take one small action today to improve that relationship.",
-
-health:
-    "Choose one small action that supports your well-being today, such as taking a walk, drinking enough water, getting enough sleep, or taking a short break.",
-
-money:
-    "Take 10 minutes today to look at one part of your finances. Learn where your money is going and choose one small improvement you can make.",
-
-perspective:
-    "Expose yourself to one new idea today. Read, listen, or talk to someone who can help you see a situation from a different point of view."
-    };
-
-    document.getElementById("next-step-text").textContent = steps[area];
-
-    document.getElementById("next-step-result").style.display = "block";
-}
-function showNextStep(area) {
-
-    const result = document.getElementById("next-step-result");
-
-    result.style.display = "block";
-
-    if (area === "mindset") {
-
-        result.innerHTML = `
-            <h3>What is most difficult for you right now?</h3>
-
-            <div class="next-step-options">
-
-                <button onclick="showMindsetStep('negative')">
-                    Negative thoughts
-                </button>
-
-                <button onclick="showMindsetStep('confidence')">
-                    Lack of confidence
-                </button>
-
-                <button onclick="showMindsetStep('fear')">
-                    Fear of failure
-                </button>
-
-                <button onclick="showMindsetStep('overthinking')">
-                    Overthinking
-                </button>
-
-                <button onclick="showMindsetStep('consistency')">
-                    Staying consistent
-                </button>
-
-            </div>
-        `;
-
-        scrollToNextStep();
-        return;
-    }
-
-    if (area === "habits") {
-
-        result.innerHTML = `
-            <h3>What is most difficult for you right now?</h3>
-
-            <div class="next-step-options">
-
-                <button onclick="showHabitStep('starting')">
-                    Starting a habit
-                </button>
-
-                <button onclick="showHabitStep('consistency')">
-                    Staying consistent
-                </button>
-
-                <button onclick="showHabitStep('procrastination')">
-                    Procrastination
-                </button>
-
-                <button onclick="showHabitStep('phone')">
-                    Phone distraction
-                </button>
-
-                <button onclick="showHabitStep('routine')">
-                    Improving my routine
-                </button>
-
-            </div>
-        `;
-
-        scrollToNextStep();
-        return;
-    }
-
-    if (area === "learning") {
-
-        result.innerHTML = `
-            <h3>What is most difficult for you right now?</h3>
-
-            <div class="next-step-options">
-
-                <button onclick="showLearningStep('knowing')">
-                    Not knowing what to learn
-                </button>
-
-                <button onclick="showLearningStep('starting')">
-                    Getting started
-                </button>
-
-                <button onclick="showLearningStep('focus')">
-                    Staying focused
-                </button>
-
-                <button onclick="showLearningStep('understanding')">
-                    Understanding difficult things
-                </button>
-
-                <button onclick="showLearningStep('consistency')">
-                    Learning consistently
-                </button>
-
-            </div>
-        `;
-
-        scrollToNextStep();
-        return;
-    }
-
-    if (area === "goals") {
-
-        result.innerHTML = `
-            <h3>What is most difficult for you right now?</h3>
-
-            <div class="next-step-options">
-
-                <button onclick="showGoalStep('unclear')">
-                    I don't know what I want
-                </button>
-
-                <button onclick="showGoalStep('choosing')">
-                    I have too many goals
-                </button>
-
-                <button onclick="showGoalStep('starting')">
-                    I don't know where to start
-                </button>
-
-                <button onclick="showGoalStep('procrastination')">
-                    I keep delaying my goals
-                </button>
-
-                <button onclick="showGoalStep('consistency')">
-                    I start but don't stay consistent
-                </button>
-
-            </div>
-        `;
-
-        scrollToNextStep();
-        return;
-    }
-
-    if (area === "career") {
-
-        result.innerHTML = `
-            <h3>What is most difficult for you right now?</h3>
-
-            <div class="next-step-options">
-
-                <button onclick="showCareerStep('direction')">
-                    I don't know what career I want
-                </button>
-
-                <button onclick="showCareerStep('skills')">
-                    I don't know what skills to learn
-                </button>
-
-                <button onclick="showCareerStep('experience')">
-                    I don't have enough experience
-                </button>
-
-                <button onclick="showCareerStep('confidence')">
-                    I lack confidence in my abilities
-                </button>
-
-                <button onclick="showCareerStep('action')">
-                    I don't know what to do next
-                </button>
-
-            </div>
-        `;
-
-        scrollToNextStep();
-        return;
-    }
-
-    if (area === "perspective") {
-
-        result.innerHTML = `
-            <h3>What is most difficult for you right now?</h3>
-
-            <div class="next-step-options">
-
-                <button onclick="showPerspectiveStep('stuck')">
-                    I feel stuck
-                </button>
-
-                <button onclick="showPerspectiveStep('different')">
-                    I want to think differently
-                </button>
-
-                <button onclick="showPerspectiveStep('negative')">
-                    I often see things negatively
-                </button>
-
-                <button onclick="showPerspectiveStep('open')">
-                    I want to understand other viewpoints
-                </button>
-
-                <button onclick="showPerspectiveStep('growth')">
-                    I want to grow my way of thinking
-                </button>
-
-            </div>
-        `;
-
-        scrollToNextStep();
-        return;
-    }
-
-    if (area === "relationships") {
-
-        result.innerHTML = `
-            <h3>What is most difficult for you right now?</h3>
-
-            <div class="next-step-options">
-
-                <button onclick="showRelationshipStep('communication')">
-                    Communicating better
-                </button>
-
-                <button onclick="showRelationshipStep('connection')">
-                    Building deeper connections
-                </button>
-
-                <button onclick="showRelationshipStep('conflict')">
-                    Dealing with conflict
-                </button>
-
-                <button onclick="showRelationshipStep('boundaries')">
-                    Setting healthy boundaries
-                </button>
-
-                <button onclick="showRelationshipStep('loneliness')">
-                    Feeling lonely
-                </button>
-
-            </div>
-        `;
-
-        scrollToNextStep();
-        return;
-    }
-
-    if (area === "health") {
-
-        result.innerHTML = `
-            <h3>What is most difficult for you right now?</h3>
-
-            <div class="next-step-options">
-
-                <button onclick="showHealthStep('energy')">
-                    Having low energy
-                </button>
-
-                <button onclick="showHealthStep('sleep')">
-                    Improving my sleep
-                </button>
-
-                <button onclick="showHealthStep('exercise')">
-                    Being more active
-                </button>
-
-                <button onclick="showHealthStep('nutrition')">
-                    Eating better
-                </button>
-
-                <button onclick="showHealthStep('stress')">
-                    Managing stress
-                </button>
-
-            </div>
-        `;
-
-        scrollToNextStep();
-        return;
-    }
-
-    if (area === "money") {
-
-        result.innerHTML = `
-            <h3>What is most difficult for you right now?</h3>
-
-            <div class="next-step-options">
-
-                <button onclick="showMoneyStep('budget')">
-                    Managing my spending
-                </button>
-
-                <button onclick="showMoneyStep('saving')">
-                    Saving money
-                </button>
-
-                <button onclick="showMoneyStep('debt')">
-                    Dealing with debt
-                </button>
-
-                <button onclick="showMoneyStep('investing')">
-                    Learning about investing
-                </button>
-
-                <button onclick="showMoneyStep('knowledge')">
-                    Understanding money better
-                </button>
-
-            </div>
-        `;
-
-        scrollToNextStep();
-        return;
-    }
-}
-function showMindsetStep(problem) {
-
-    const mindsetSteps = {
-
-        negative:
-            "Write down one negative thought you often have. Then ask: Is this thought completely true? Write one more balanced way to look at the situation.",
-
-        confidence:
-            "Choose one small thing you have been avoiding because you doubt yourself. Take the first step today, even if it feels uncomfortable.",
-
-        fear:
-            "Choose one small action you are afraid to take. Make it smaller and take the first step today. You do not need to feel ready before you begin.",
-
-        overthinking:
-            "Choose one decision you have been thinking about too much. Give yourself 10 minutes to write the options, choose one, and take one small action.",
-
-        consistency:
-            "Choose one behaviour you want to repeat. Make it very small and decide exactly when you will do it today."
-    };
-
-    const result = document.getElementById("next-step-result");
-
-    result.style.display = "block";
-
-    result.innerHTML = `
-        <h3>What is most difficult for you right now?</h3>
-
-        <div class="next-step-options">
-
-            <button class="${problem === 'negative' ? 'selected' : ''}" onclick="showMindsetStep('negative')">
-                Negative thoughts
-            </button>
-
-            <button class="${problem === 'confidence' ? 'selected' : ''}" onclick="showMindsetStep('confidence')">
-                Lack of confidence
-            </button>
-
-            <button class="${problem === 'fear' ? 'selected' : ''}" onclick="showMindsetStep('fear')">
-                Fear of failure
-            </button>
-
-            <button class="${problem === 'overthinking' ? 'selected' : ''}" onclick="showMindsetStep('overthinking')">
-                Overthinking
-            </button>
-
-            <button class="${problem === 'consistency' ? 'selected' : ''}" onclick="showMindsetStep('consistency')">
-                Staying consistent
-            </button>
-
-        </div>
-
-        <div style="margin-top:30px;">
-
-            <h3>Your next step</h3>
-
-            <p id="next-step-text" style="margin-top:15px; color:#64718a;">
-                ${mindsetSteps[problem]}
-            </p>
-
-        </div>
-    `;
-}
-        function showHabitStep(problem) {
-
-    const habitSteps = {
-
-        starting:
-            "Choose one habit you want to build. Make it so small that you can do it in less than 2 minutes. Do it once today.",
-
-        consistency:
-            "Choose one habit you already started. Decide exactly when you will do it tomorrow, and keep the action small enough to repeat.",
-
-        procrastination:
-            "Choose one task you have been avoiding. Work on it for just 5 minutes. You do not need to finish it today.",
-
-        phone:
-            "Choose one time of day when your phone distracts you most. Put your phone away for 20 minutes and use that time for something important.",
-
-        routine:
-            "Choose one part of your daily routine to improve. Decide one small action you will do at the same time every day."
-    };
-
-    const result = document.getElementById("next-step-result");
-
-    result.innerHTML = `
-        <h3>What is most difficult for you right now?</h3>
-        
-
-        <div class="next-step-options">
-
-            <button class="${problem === 'starting' ? 'selected' : ''}" onclick="showHabitStep('starting')">
-                Starting a habit
-            </button>
-
-            <button class="${problem === 'consistency' ? 'selected' : ''}" onclick="showHabitStep('consistency')">
-                Staying consistent
-            </button>
-
-            <button class="${problem === 'procrastination' ? 'selected' : ''}" onclick="showHabitStep('procrastination')">
-                Procrastination
-            </button>
-
-            <button class="${problem === 'phone' ? 'selected' : ''}" onclick="showHabitStep('phone')">
-                Phone distraction
-            </button>
-
-            <button class="${problem === 'routine' ? 'selected' : ''}" onclick="showHabitStep('routine')">
-                Improving my routine
-            </button>
-
-        </div>
-
-        <div style="margin-top:30px;">
-            <h3>Your next step</h3>
-
-            <p id="next-step-text" style="margin-top:15px; color:#64718a;">
-                ${habitSteps[problem]}
-            </p>
-        </div>
-    `;
-}
-
-function showLearningStep(problem) {
-
-    const learningSteps = {
-
-        knowing:
-            "Choose one useful skill or topic that can help you reach an important goal. Spend 10 minutes today exploring it.",
-
-        starting:
-            "Do not wait until you feel ready. Choose one small learning task and spend just 10 minutes doing it today.",
-
-        focus:
-            "Remove one distraction and study for just 15 minutes. Put your phone away and focus only on the task.",
-
-        understanding:
-            "When something feels difficult, break it into a smaller part. Spend 10 minutes understanding just one part before moving on.",
-
-        consistency:
-            "Choose one small learning activity you can repeat every day. Decide when you will do it and start today."
-    };
-
-    const result = document.getElementById("next-step-result");
-
-    result.innerHTML = `
-        <h3>What is most difficult for you right now?</h3>
-
-        <div class="next-step-options">
-
-            <button class="${problem === 'knowing' ? 'selected' : ''}" onclick="showLearningStep('knowing')">
-                Not knowing what to learn
-            </button>
-
-            <button class="${problem === 'starting' ? 'selected' : ''}" onclick="showLearningStep('starting')">
-                Getting started
-            </button>
-
-            <button class="${problem === 'focus' ? 'selected' : ''}" onclick="showLearningStep('focus')">
-                Staying focused
-            </button>
-
-            <button class="${problem === 'understanding' ? 'selected' : ''}" onclick="showLearningStep('understanding')">
-                Understanding difficult things
-            </button>
-
-            <button class="${problem === 'consistency' ? 'selected' : ''}" onclick="showLearningStep('consistency')">
-                Learning consistently
-            </button>
-
-        </div>
-
-        <div style="margin-top:30px;">
-
-            <h3>Your next step</h3>
-
-            <p id="next-step-text" style="margin-top:15px; color:#64718a;">
-                ${learningSteps[problem]}
-            </p>
-
-        </div>
-    `;
-}
-       function showGoalStep(problem) {
-
-    const goalSteps = {
-
-        unclear:
-            "Take 10 minutes today to think about what really matters to you. Write down one thing you would like to improve or achieve.",
-
-        choosing:
-            "Choose one goal that matters most to you right now. Put the other goals aside for now and give your attention to this one.",
-
-        starting:
-            "Choose one goal and ask yourself: What is the smallest action I can take today? Do that action before the day ends.",
-
-        procrastination:
-            "Choose one goal you have been delaying. Work on it for just 5 minutes today. Starting is more important than finishing.",
-
-        consistency:
-            "Choose one small action that moves you toward your goal. Decide when you will do it each day and focus on repeating it."
-    };
-
-    const result = document.getElementById("next-step-result");
-
-result.innerHTML = `
-    result.innerHTML = `
-    <h3>What is most difficult for you right now?</h3>
-
-    <div class="next-step-options">
-
-        <button class="${problem === 'unclear' ? 'selected' : ''}" onclick="showGoalStep('unclear')">
-            I don't know what I want
-        </button>
-
-        <button class="${problem === 'choosing' ? 'selected' : ''}" onclick="showGoalStep('choosing')">
-            I have too many goals
-        </button>
-
-        <button class="${problem === 'starting' ? 'selected' : ''}" onclick="showGoalStep('starting')">
-            I don't know where to start
-        </button>
-
-        <button class="${problem === 'procrastination' ? 'selected' : ''}" onclick="showGoalStep('procrastination')">
-            I keep delaying my goals
-        </button>
-
-        <button class="${problem === 'consistency' ? 'selected' : ''}" onclick="showGoalStep('consistency')">
-            I start but don't stay consistent
-        </button>
-
-    </div>
-
-    <div style="margin-top:30px;">
-        <h3>Your next step</h3>
-
-        <p id="next-step-text" style="margin-top:15px; color:#64718a;">
-            ${goalSteps[problem]}
-        </p>
-    </div>
-`;
-
-        <button class="${problem === 'unclear' ? 'selected' : ''}" onclick="showGoalStep('unclear')">
-            I don't know what I want
-        </button>
-
-        <button class="${problem === 'choosing' ? 'selected' : ''}" onclick="showGoalStep('choosing')">
-            I have too many goals
-        </button>
-
-        <button class="${problem === 'starting' ? 'selected' : ''}" onclick="showGoalStep('starting')">
-            I don't know where to start
-        </button>
-
-        <button class="${problem === 'procrastination' ? 'selected' : ''}" onclick="showGoalStep('procrastination')">
-            I keep delaying my goals
-        </button>
-
-        <button class="${problem === 'consistency' ? 'selected' : ''}" onclick="showGoalStep('consistency')">
-            I start but don't stay consistent
-        </button>
-
-    </div>
-
-    
-`;
-}
-        function showCareerStep(problem) {
-
-    const careerSteps = {
-
-        direction:
-            "Think about what you enjoy, what you are good at, and what kind of problems you would like to solve. Write down three possible career directions.",
-
-        skills:
-            "Choose one skill that could make you more valuable in the career you want. Spend 20 minutes today learning or practicing it.",
-
-        experience:
-            "Choose one small project, volunteer activity, or practical task where you can use your skills. Start looking for one opportunity today.",
-
-        confidence:
-            "Choose one skill you already have and use it today. Notice what you can do well instead of focusing only on what you still need to learn.",
-
-        action:
-            "Choose one career-related action you can complete today. It could be learning a skill, improving your CV, researching an opportunity, or contacting someone."
-    };
-
-    const result = document.getElementById("next-step-result");
-
-result.innerHTML = `
-    <h3>What is most difficult for you right now?</h3>
-    <div style="margin-top:30px;">
-        <h3>Your next step</h3>
-
-        <p id="next-step-text" style="margin-top:15px; color:#64718a;">
-            ${careerSteps[problem]}
-        </p>
-    </div>
-
-    result.innerHTML = `
-    <h3>What is most difficult for you right now?</h3>
-
-    <div class="next-step-options">
-
-        <button class="${problem === 'knowing' ? 'selected' : ''}" onclick="showLearningStep('knowing')">
-            Not knowing what to learn
-        </button>
-
-        <button class="${problem === 'starting' ? 'selected' : ''}" onclick="showLearningStep('starting')">
-            Getting started
-        </button>
-
-        <button class="${problem === 'focus' ? 'selected' : ''}" onclick="showLearningStep('focus')">
-            Staying focused
-        </button>
-
-        <button class="${problem === 'understanding' ? 'selected' : ''}" onclick="showLearningStep('understanding')">
-            Understanding difficult things
-        </button>
-
-        <button class="${problem === 'consistency' ? 'selected' : ''}" onclick="showLearningStep('consistency')">
-            Learning consistently
-        </button>
-
-    </div>
-
-    <div style="margin-top:30px;">
-        <h3>Your next step</h3>
-
-        <p id="next-step-text" style="margin-top:15px; color:#64718a;">
-            ${learningSteps[problem]}
-        </p>
-    </div>
-`;
-}
-        function showRelationshipStep(problem) {
-
-    const relationshipSteps = {
-
-        communication:
-            "Choose one person who matters to you. Have one honest conversation with them today and listen carefully without interrupting.",
-
-        connection:
-            "Choose one person you would like to know better. Send them a message or spend some time with them today.",
-
-        conflict:
-            "Think about one conflict you are facing. Before reacting, take a moment to understand the other person's point of view.",
-
-        boundaries:
-            "Think about one situation where you need a healthier boundary. Decide what you are comfortable with and communicate it clearly.",
-
-        loneliness:
-            "Take one small step toward connection today. Message someone, join an activity, or start a conversation with someone new."
-    };
-
-    const result = document.getElementById("next-step-result");
-
-result.innerHTML = `
-    <h3>What is most difficult for you right now?</h3>
-    
-    <div style="margin-top:30px;">
-        <h3>Your next step</h3>
-
-        <p id="next-step-text" style="margin-top:15px; color:#64718a;">
-            ${relationshipSteps[problem]}
-        </p>
-    </div>
-
-    <div class="next-step-options">
-
-        <button class="${problem === 'communication' ? 'selected' : ''}" onclick="showRelationshipStep('communication')">
-            Communicating better
-        </button>
-
-        <button class="${problem === 'connection' ? 'selected' : ''}" onclick="showRelationshipStep('connection')">
-            Building deeper connections
-        </button>
-
-        <button class="${problem === 'conflict' ? 'selected' : ''}" onclick="showRelationshipStep('conflict')">
-            Dealing with conflict
-        </button>
-
-        <button class="${problem === 'boundaries' ? 'selected' : ''}" onclick="showRelationshipStep('boundaries')">
-            Setting healthy boundaries
-        </button>
-
-        <button class="${problem === 'loneliness' ? 'selected' : ''}" onclick="showRelationshipStep('loneliness')">
-            Feeling lonely
-        </button>
-
-    </div>
-
-    
-`;
-}
-        function showHealthStep(problem) {
-
-    const healthSteps = {
-
-        energy:
-            "Choose one small action that can support your energy today. Take a short walk, drink some water, or take a short break if you need one.",
-
-        sleep:
-            "Choose one small change for tonight. Try going to bed at a regular time and put your phone away before you sleep.",
-
-        exercise:
-            "Start small. Take a 10-minute walk today or do a few simple exercises. Focus on getting started, not doing a perfect workout.",
-
-        nutrition:
-            "Choose one meal today and make one healthier change. For example, add some fruit or vegetables or choose water instead of a sugary drink.",
-
-        stress:
-            "Take 10 minutes today without distractions. Walk, breathe slowly, or sit quietly and notice what is causing you stress."
-    };
-
-    const result = document.getElementById("next-step-result");
-
-result.innerHTML = `
-    <h3>What is most difficult for you right now?</h3>
-    <div style="margin-top:30px;">
-        <h3>Your next step</h3>
-
-        <p id="next-step-text" style="margin-top:15px; color:#64718a;">
-            ${healthSteps[problem]}
-        </p>
-    </div>
-
-    <div class="next-step-options">
-
-        <button class="${problem === 'energy' ? 'selected' : ''}" onclick="showHealthStep('energy')">
-            Having low energy
-        </button>
-
-        <button class="${problem === 'sleep' ? 'selected' : ''}" onclick="showHealthStep('sleep')">
-            Improving my sleep
-        </button>
-
-        <button class="${problem === 'exercise' ? 'selected' : ''}" onclick="showHealthStep('exercise')">
-            Being more active
-        </button>
-
-        <button class="${problem === 'nutrition' ? 'selected' : ''}" onclick="showHealthStep('nutrition')">
-            Eating better
-        </button>
-
-        <button class="${problem === 'stress' ? 'selected' : ''}" onclick="showHealthStep('stress')">
-            Managing stress
-        </button>
-
-    </div>
-
-    
-`;
-}
-        function showMoneyStep(problem) {
-
-    const moneySteps = {
-
-        budget:
-            "Take 10 minutes today to look at where your money is going. Choose one expense you can reduce or control.",
-
-        saving:
-            "Choose a small amount you can save regularly. Start with an amount that feels realistic and put it aside today.",
-
-        debt:
-            "Write down your debts and choose one to focus on first. Learn its balance, interest rate, and minimum payment.",
-
-        investing:
-            "Spend 20 minutes learning one investing basic, such as the difference between saving and investing or what a diversified investment means.",
-
-        knowledge:
-            "Choose one money topic you want to understand better. Spend 15 minutes learning about it from a reliable source."
-    };
-
-    const result = document.getElementById("next-step-result");
-
-result.innerHTML = `
-    <h3>What is most difficult for you right now?</h3>
-    <div style="margin-top:30px;">
-        <h3>Your next step</h3>
-
-        <p id="next-step-text" style="margin-top:15px; color:#64718a;">
-            ${moneySteps[problem]}
-        </p>
-    </div>
-
-    <div class="next-step-options">
-
-        <button class="${problem === 'budget' ? 'selected' : ''}" onclick="showMoneyStep('budget')">
-            Managing my spending
-        </button>
-
-        <button class="${problem === 'saving' ? 'selected' : ''}" onclick="showMoneyStep('saving')">
-            Saving money
-        </button>
-
-        <button class="${problem === 'debt' ? 'selected' : ''}" onclick="showMoneyStep('debt')">
-            Dealing with debt
-        </button>
-
-        <button class="${problem === 'investing' ? 'selected' : ''}" onclick="showMoneyStep('investing')">
-            Learning about investing
-        </button>
-
-        <button class="${problem === 'knowledge' ? 'selected' : ''}" onclick="showMoneyStep('knowledge')">
-            Understanding money better
-        </button>
-
-    </div>
-
-    
-`;
-}
-        function showPerspectiveStep(problem) {
-
-    const perspectiveSteps = {
-
-        stuck:
-            "Step back from the situation for a moment. Ask yourself: What is one thing I can control or change today?",
-
-        different:
-            "Expose yourself to one new idea today. Read something, listen to someone, or explore a viewpoint that is different from your usual way of thinking.",
-
-        negative:
-            "Notice one negative thought you have today. Ask yourself: Is there another way to look at this situation?",
-
-        open:
-            "Choose a topic you feel strongly about. Listen to someone with a different viewpoint and try to understand why they see it that way.",
-
-        growth:
-            "Choose one idea you want to understand better. Spend 15 minutes learning about it and ask yourself how it could change the way you think."
-    };
-
-    const result = document.getElementById("next-step-result");
-
-result.innerHTML = `
-    <h3>What is most difficult for you right now?</h3>
-    <div style="margin-top:30px;">
-        <h3>Your next step</h3>
-
-        <p id="next-step-text" style="margin-top:15px; color:#64718a;">
-            ${perspectiveSteps[problem]}
-        </p>
-    </div>
-
-    <div class="next-step-options">
-
-        <button class="${problem === 'stuck' ? 'selected' : ''}" onclick="showPerspectiveStep('stuck')">
-            I feel stuck
-        </button>
-
-        <button class="${problem === 'different' ? 'selected' : ''}" onclick="showPerspectiveStep('different')">
-            I want to think differently
-        </button>
-
-        <button class="${problem === 'negative' ? 'selected' : ''}" onclick="showPerspectiveStep('negative')">
-            I often see things negatively
-        </button>
-
-        <button class="${problem === 'open' ? 'selected' : ''}" onclick="showPerspectiveStep('open')">
-            I want to understand other viewpoints
-        </button>
-
-        <button class="${problem === 'growth' ? 'selected' : ''}" onclick="showPerspectiveStep('growth')">
-            I want to grow my way of thinking
-        </button>
-
-    </div>
-
-    
-`;
-}
-        function selectNextStep(button) {
+/* Select the main category */
+function selectNextStep(button) {
 
     const buttons = button.parentElement.querySelectorAll("button");
 
-    buttons.forEach(function (btn) {
+    buttons.forEach(function(btn) {
         btn.classList.remove("selected");
     });
 
     button.classList.add("selected");
-        }
+}
 
 
+/* Show the second-level options */
+function showNextStep(area) {
+
+    const result = document.getElementById("next-step-result");
+    const data = nextStepData[area];
+
+    if (!result || !data) {
+        return;
+    }
+
+    let optionsHTML = "";
+
+    Object.keys(data.options).forEach(function(problem) {
+
+        optionsHTML += `
+            <button onclick="showProblemStep('${area}', '${problem}')">
+                ${data.options[problem]}
+            </button>
+        `;
+
+    });
+
+    result.style.display = "block";
+
+    result.innerHTML = `
+        <h3>What is most difficult for you right now?</h3>
+
+        <div class="next-step-options">
+            ${optionsHTML}
+        </div>
+    `;
+
+    if (typeof scrollToNextStep === "function") {
+        scrollToNextStep();
+    }
+}
+
+
+/* Show the selected problem and the next step */
+function showProblemStep(area, problem) {
+
+    const result = document.getElementById("next-step-result");
+    const data = nextStepData[area];
+
+    if (!result || !data || !data.steps[problem]) {
+        return;
+    }
+
+    let optionsHTML = "";
+
+    Object.keys(data.options).forEach(function(option) {
+
+        const selected =
+            option === problem ? "selected" : "";
+
+        optionsHTML += `
+            <button
+                class="${selected}"
+                onclick="showProblemStep('${area}', '${option}')">
+                ${data.options[option]}
+            </button>
+        `;
+
+    });
+
+    result.style.display = "block";
+
+    result.innerHTML = `
+        <h3>What is most difficult for you right now?</h3>
+
+        <div class="next-step-options">
+            ${optionsHTML}
+        </div>
+
+        <div style="margin-top:30px;">
+
+            <h3>Your next step</h3>
+
+            <p id="next-step-text"
+               style="margin-top:15px; color:#64718a;">
+                ${data.steps[problem]}
+            </p>
+
+        </div>
+    `;
+}
+
+
+/* These functions keep your existing button names working */
+function showMindsetStep(problem) {
+    showProblemStep("mindset", problem);
+}
+
+function showHabitStep(problem) {
+    showProblemStep("habits", problem);
+}
+
+function showLearningStep(problem) {
+    showProblemStep("learning", problem);
+}
+
+function showGoalStep(problem) {
+    showProblemStep("goals", problem);
+}
+
+function showCareerStep(problem) {
+    showProblemStep("career", problem);
+}
+
+function showPerspectiveStep(problem) {
+    showProblemStep("perspective", problem);
+}
+
+function showRelationshipStep(problem) {
+    showProblemStep("relationships", problem);
+}
+
+function showHealthStep(problem) {
+    showProblemStep("health", problem);
+}
+
+function showMoneyStep(problem) {
+    showProblemStep("money", problem);
+}
+
+
+/* Mobile navigation */
 function goToStart(event) {
+
     if (window.innerWidth <= 800) {
+
         event.preventDefault();
 
         const startSection = document.getElementById("start");
@@ -2528,11 +1570,15 @@ function goToStart(event) {
     }
 }
 
-        function goToReflection(event) {
+
+function goToReflection(event) {
+
     if (window.innerWidth <= 800) {
+
         event.preventDefault();
 
-        const reflectionSection = document.getElementById("reflection");
+        const reflectionSection =
+            document.getElementById("reflection");
 
         document.documentElement.style.scrollBehavior = "auto";
 
@@ -2541,7 +1587,7 @@ function goToStart(event) {
         document.documentElement.style.scrollBehavior = "";
     }
 }
-        
-</script>        
+
+</script>       
 </body>
 </html>
