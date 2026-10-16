@@ -1,3 +1,4 @@
+const CACHE_NAME = "juvambro-v2";
 const FILES_TO_CACHE = [
   "./",
   "./index.html",
