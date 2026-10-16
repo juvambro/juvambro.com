@@ -1,0 +1,11 @@
+{
+  "name": "Juvambro",
+  "short_name": "Juvambro",
+  "description": "Think differently. Start small. Keep growing.",
+  "start_url": "/index.html",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": []
+}
