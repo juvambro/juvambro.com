@@ -1,9 +1,19 @@
-const CACHE_NAME = "juvambro-v1";
-
 const FILES_TO_CACHE = [
   "./",
   "./index.html",
-  "./manifest.webmanifest"
+  "./manifest.webmanifest",
+  "./act.html",
+  "./awareness.html",
+  "./become.html",
+  "./complete.html",
+  "./define.html",
+  "./develop.html",
+  "./envision.html",
+  "./grow.html",
+  "./journey.html",
+  "./plan.html",
+  "./reflect.html",
+  "./understand.html"
 ];
 
 self.addEventListener("install", (event) => {
