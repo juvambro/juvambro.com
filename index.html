@@ -1457,14 +1457,20 @@ function selectNextStep(button) {
         changeButton.style.marginLeft = "10px";
 
         changeButton.onclick = function() {
-            buttons.forEach(function(btn) {
-                btn.style.display = "";
-                btn.classList.remove("selected");
-            });
+    buttons.forEach(function(btn) {
+        btn.style.display = "";
+        btn.classList.remove("selected");
+    });
 
-            changeButton.remove();
-        };
+    const result = document.getElementById("next-step-result");
 
+    if (result) {
+        result.style.display = "none";
+        result.innerHTML = "";
+    }
+
+    changeButton.remove();
+};
         container.appendChild(changeButton);
     }
 }
