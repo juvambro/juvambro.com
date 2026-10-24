@@ -1435,15 +1435,38 @@ const nextStepData = {
 
 
 /* Select the main category */
+/* Select the main category and hide the others */
 function selectNextStep(button) {
-
-    const buttons = button.parentElement.querySelectorAll("button");
+    const container = button.parentElement;
+    const buttons = container.querySelectorAll("button");
 
     buttons.forEach(function(btn) {
         btn.classList.remove("selected");
+        btn.style.display = "none";
     });
 
     button.classList.add("selected");
+    button.style.display = "inline-block";
+
+    let changeButton = container.querySelector(".change-topic-btn");
+
+    if (!changeButton) {
+        changeButton = document.createElement("button");
+        changeButton.className = "change-topic-btn";
+        changeButton.textContent = "Change topic";
+        changeButton.style.marginLeft = "10px";
+
+        changeButton.onclick = function() {
+            buttons.forEach(function(btn) {
+                btn.style.display = "";
+                btn.classList.remove("selected");
+            });
+
+            changeButton.remove();
+        };
+
+        container.appendChild(changeButton);
+    }
 }
 
 
