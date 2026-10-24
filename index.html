@@ -1509,8 +1509,8 @@ function showNextStep(area) {
 
 
 /* Show the selected problem and the next step */
+/* Show the selected challenge and recommendation */
 function showProblemStep(area, problem) {
-
     const result = document.getElementById("next-step-result");
     const data = nextStepData[area];
 
@@ -1518,22 +1518,7 @@ function showProblemStep(area, problem) {
         return;
     }
 
-    let optionsHTML = "";
-
-    Object.keys(data.options).forEach(function(option) {
-
-        const selected =
-            option === problem ? "selected" : "";
-
-        optionsHTML += `
-            <button
-                class="${selected}"
-                onclick="showProblemStep('${area}', '${option}')">
-                ${data.options[option]}
-            </button>
-        `;
-
-    });
+    const selectedChallenge = data.options[problem];
 
     result.style.display = "block";
 
@@ -1541,23 +1526,27 @@ function showProblemStep(area, problem) {
         <h3>What is most difficult for you right now?</h3>
 
         <div class="next-step-options">
-            ${optionsHTML}
+            <button class="selected" disabled>
+                ${selectedChallenge}
+            </button>
+            <button
+                class="change-challenge-btn"
+                onclick="showNextStep('${area}')">
+                Change challenge
+            </button>
         </div>
 
         <div style="margin-top:30px;">
-
             <h3>Your next step</h3>
 
             <p id="next-step-text"
                style="margin-top:15px; color:#64718a;">
                 ${data.steps[problem]}
             </p>
-
         </div>
     `;
 
-    // Bring the recommendation into view automatically
-    setTimeout(function () {
+    setTimeout(function() {
         const nextStep = document.getElementById("next-step-text");
 
         if (nextStep) {
