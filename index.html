@@ -1113,8 +1113,8 @@ footer {
             Take one small action. Learn. Repeat. Grow.
         </p>
 
-       <a href="index.html" class="primary-button">
-    Begin Again
+       <a href="index.html#reflection" class="primary-button" onclick="resetNextStep()">
+    Explore Another Topic
 </a>
 
     </div>
@@ -1563,7 +1563,41 @@ function showProblemStep(area, problem) {
     }, 100);
 }
 
+function resetNextStep() {
+    const container = document.querySelector(".awareness-box");
 
+    if (!container) {
+        return;
+    }
+
+    // Restore all topic buttons
+    container.querySelectorAll(".next-step-options button").forEach(function(button) {
+        button.style.display = "";
+        button.classList.remove("selected");
+    });
+
+    // Remove the Change topic button
+    const changeTopicButton = container.querySelector(".change-topic-btn");
+    if (changeTopicButton) {
+        changeTopicButton.remove();
+    }
+
+    // Clear the previous challenge and recommendation
+    const result = document.getElementById("next-step-result");
+    if (result) {
+        result.style.display = "none";
+        result.innerHTML = "";
+    }
+
+    // Return to the topic-selection section
+    document.getElementById("reflection").scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+}
+
+/* These functions keep your existing button names working */
+function showMindsetStep(problem) {
 /* These functions keep your existing button names working */
 function showMindsetStep(problem) {
     showProblemStep("mindset", problem);
