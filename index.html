@@ -243,6 +243,21 @@ section {
     color: #64718a;
 }
 
+.journey-guidance {
+    max-width: 820px;
+    margin: -10px auto 30px;
+    text-align: center;
+    color: #64718a;
+}
+
+.journey-card:focus-visible,
+.next-step-options button:focus-visible,
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid #5146e5;
+    outline-offset: 3px;
+}
+
 /* AREAS */
 
 .areas {
@@ -592,7 +607,7 @@ footer {
     <span>Juvambro</span>
 </a>
 
-        <button class="menu-toggle" aria-label="Open menu">
+        <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-label="Open menu">
             ☰
         </button>
 
@@ -689,6 +704,11 @@ footer {
             Real growth does not happen overnight.
             It begins with understanding yourself and
             continues through small actions repeated over time.
+        </p>
+
+        <p class="journey-guidance">
+            Follow the nine stages in order if you are new to the journey, or choose the stage that feels most useful today.
+            You can move at your own pace — you do not need to change everything at once.
         </p>
 
         <div class="journey-grid">
@@ -1038,6 +1058,9 @@ footer {
             <h3>
                 What would you like to improve right now?
             </h3>
+            <p style="margin: 8px auto 18px; max-width: 680px; color: #64718a;">
+                Choose one button below. There are no right or wrong answers — this is a starting point, not a test. If you are unsure, choose “I'm not sure yet.”
+            </p>
 
             <div class="next-step-options">
 
@@ -1075,6 +1098,10 @@ footer {
 
     <button onclick="selectNextStep(this); showNextStep('money')">
         Money & Finances
+    </button>
+
+    <button onclick="selectNextStep(this); showUnsureStep()">
+        I'm not sure yet
     </button>
 
 </div>
@@ -1175,15 +1202,19 @@ footer {
     const menuToggle = document.querySelector(".menu-toggle");
 const navLinks = document.querySelector(".nav-links");
 
-menuToggle.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-});
-
-navLinks.querySelectorAll("a").forEach(link => {
-    link.addEventListener("click", () => {
-        navLinks.classList.remove("active");
+if (menuToggle && navLinks) {
+    menuToggle.addEventListener("click", () => {
+        const isOpen = navLinks.classList.toggle("active");
+        menuToggle.setAttribute("aria-expanded", String(isOpen));
     });
-});
+
+    navLinks.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+            navLinks.classList.remove("active");
+            menuToggle.setAttribute("aria-expanded", "false");
+        });
+    });
+}
 </script>
     <script>
     let lastScrollY = window.scrollY;
@@ -1467,6 +1498,39 @@ function selectNextStep(button) {
     changeButton.remove();
 };
         container.appendChild(changeButton);
+    }
+}
+
+
+/* Help visitors who are not sure which topic to choose */
+function showUnsureStep() {
+    const result = document.getElementById("next-step-result");
+
+    if (!result) {
+        return;
+    }
+
+    result.style.display = "block";
+    result.innerHTML = `
+        <h3>Start by noticing what you need</h3>
+        <p style="margin-top: 10px; color: #64718a;">
+            You do not need to figure everything out right now. Take two minutes and think about these questions:
+        </p>
+        <div style="margin-top: 16px;">
+            <p><strong>1.</strong> What has been taking up most of my thoughts lately?</p>
+            <p><strong>2.</strong> What is one thing in my life I wish were a little better?</p>
+            <p><strong>3.</strong> What is one small thing I can do in five minutes?</p>
+        </div>
+        <p style="margin-top: 16px; color: #64718a;">
+            Choose the topic that feels most relevant, or simply write down one thought. You can come back and explore more when you are ready.
+        </p>
+        <button type="button" class="change-challenge-btn" style="margin-top: 18px; padding: 10px 16px; border: 1px solid #d8dce8; border-radius: 10px; background: white; cursor: pointer;" onclick="resetNextStep()">
+            Choose a topic instead
+        </button>
+    `;
+
+    if (typeof scrollToNextStep === "function") {
+        scrollToNextStep();
     }
 }
 
