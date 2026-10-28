@@ -1524,9 +1524,13 @@ function showUnsureStep() {
         <p style="margin-top: 16px; color: #64718a;">
             Choose the topic that feels most relevant, or simply write down one thought. You can come back and explore more when you are ready.
         </p>
-        <button type="button" class="change-challenge-btn" style="margin-top: 18px; padding: 10px 16px; border: 1px solid #d8dce8; border-radius: 10px; background: white; cursor: pointer;" onclick="resetNextStep()">
-            ← Back to topics
-        </button>
+        <button
+    type="button"
+    class="change-challenge-btn"
+    style="margin-top: 18px; padding: 12px 20px; border: 1px solid #dcd7ff; border-radius: 12px; background: #f0edff; color: #5145cd; font-size: 15px; font-weight: 600; cursor: pointer; transition: all 0.2s ease;"
+    onclick="resetNextStep()">
+    ← Back to topics
+</button>
     `;
 
     if (typeof scrollToNextStep === "function") {
