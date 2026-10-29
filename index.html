@@ -1628,32 +1628,33 @@ function showProblemStep(area, problem) {
 }
 
 function resetNextStep() {
-    const container = document.querySelector(".awareness-box");
-
-    if (!container) {
-        return;
-    }
-
-    // Restore all topic buttons
-    container.querySelectorAll(".next-step-options button").forEach(function(button) {
-        button.style.display = "";
-        button.classList.remove("selected");
-    });
-
-    // Remove the Change topic button
-    const changeTopicButton = container.querySelector(".change-topic-btn");
-    if (changeTopicButton) {
-        changeTopicButton.remove();
-    }
-
-    // Clear the previous challenge and recommendation
     const result = document.getElementById("next-step-result");
+
+    // Clear the current result
     if (result) {
         result.style.display = "none";
         result.innerHTML = "";
     }
 
-    // Return to the topic-selection section
+    // Restore all topic buttons
+    const topicContainer = document.querySelector(
+        "#reflection .awareness-box > .next-step-options"
+    );
+
+    if (topicContainer) {
+        topicContainer.querySelectorAll("button").forEach(function(button) {
+            button.style.display = "";
+            button.classList.remove("selected");
+        });
+
+        // Remove the Change topic button
+        const changeButton = topicContainer.querySelector(".change-topic-btn");
+        if (changeButton) {
+            changeButton.remove();
+        }
+    }
+
+    // Return to the topic selection
     document.getElementById("reflection").scrollIntoView({
         behavior: "smooth",
         block: "start"
