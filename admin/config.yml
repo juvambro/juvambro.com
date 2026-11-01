@@ -1,0 +1,23 @@
+backend:
+  name: turbo-github
+  repo: juvambro/juvambro.com
+  branch: main
+
+media_folder: "images/articles"
+public_folder: "/images/articles"
+
+publish_mode: simple
+
+collections:
+  - name: "articles"
+    label: "Articles"
+    folder: "articles"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publication Date", name: "date", widget: "datetime" }
+      - { label: "Short Description", name: "description", widget: "text" }
+      - { label: "Article Content", name: "body", widget: "markdown" }
