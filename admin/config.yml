@@ -1,7 +1,8 @@
 backend:
-  name: turbo-github
-  repo: juvambro/juvambro.com
-  branch: main
+name: turbo-github
+repo: juvambro/juvambro.com
+branch: main
+turbo_site_id: 0e1ebe94-aa5c-4c05-b2d7-fc92a44222db
 
 media_folder: "images/articles"
 public_folder: "/images/articles"
@@ -9,15 +10,17 @@ public_folder: "/images/articles"
 publish_mode: simple
 
 collections:
-  - name: "articles"
-    label: "Articles"
-    folder: "articles"
-    create: true
-    slug: "{{slug}}"
-    extension: "md"
-    format: "frontmatter"
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Publication Date", name: "date", widget: "datetime" }
-      - { label: "Short Description", name: "description", widget: "text" }
-      - { label: "Article Content", name: "body", widget: "markdown" }
+
+* name: "articles"
+  label: "Articles"
+  folder: "articles"
+  create: true
+  slug: "{{slug}}"
+  extension: "md"
+  format: "frontmatter"
+  fields:
+
+  * { label: "Title", name: "title", widget: "string" }
+  * { label: "Publication Date", name: "date", widget: "datetime" }
+  * { label: "Short Description", name: "description", widget: "text" }
+  * { label: "Article Content", name: "body", widget: "markdown" }
