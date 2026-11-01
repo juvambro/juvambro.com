@@ -114,16 +114,64 @@
       <p>Practical ideas to understand yourself, build better habits, and grow.</p>
     </section>
 
-```
 <section id="articles">
-  <p class="empty-message">Articles will appear here as they become available.</p>
+    <p class="empty-message">Loading articles...</p>
 </section>
-```
+
 
   </main>
 
   <footer>
     <p><a href="index.html">Back to Juvambro</a></p>
   </footer>
+  html
+<script>
+async function loadArticles() {
+  const container = document.getElementById("articles");
+
+  try {
+    const response = await fetch("articles/index.json");
+    if (!response.ok) throw new Error("Articles could not be loaded.");
+
+    const articles = await response.json();
+    container.innerHTML = "";
+
+    if (articles.length === 0) {
+      container.innerHTML = '<p class="empty-message">New articles are coming soon.</p>';
+      return;
+    }
+
+    articles.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+    articles.forEach(article => {
+      const card = document.createElement("article");
+      card.className = "article-card";
+
+      const title = document.createElement("h2");
+      title.textContent = article.title;
+
+      const description = document.createElement("p");
+      description.textContent = article.description || "";
+
+      const date = document.createElement("p");
+      date.className = "article-date";
+      date.textContent = article.date || "";
+
+      const link = document.createElement("a");
+      link.href = "articles/" + encodeURIComponent(article.slug) + ".html";
+      link.textContent = "Read article";
+
+      card.append(title, date, description, link);
+      container.appendChild(card);
+    });
+  } catch (error) {
+    container.innerHTML = '<p class="empty-message">Articles are temporarily unavailable. Please try again later.</p>';
+    console.error(error);
+  }
+}
+
+loadArticles();
+</script>
+
 </body>
 </html>
