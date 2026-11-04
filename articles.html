@@ -126,6 +126,7 @@
   </footer>
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/js-yaml@4/dist/js-yaml.min.js"></script>
 
 <script>
 async function loadArticles() {
@@ -157,30 +158,23 @@ async function loadArticles() {
         }
 
         const markdown = await articleResponse.text();
-        const parts = markdown.split("---");
+       const frontmatterMatch = markdown.match(
+  /^---\s*\r?\n([\s\S]*?)\r?\n---\s*\r?\n?([\s\S]*)$/
+);
 
-        const frontmatter = parts[1] || "";
-        const body = parts.slice(2).join("---").trim();
-
-        function getField(name) {
-  const line = frontmatter
-    .split("\n")
-    .find(line => line.trim().startsWith(name + ":"));
-
-  if (!line) return "";
-
-  return line
-    .substring(line.indexOf(":") + 1)
-    .trim()
-    .replace(/^["']|["']$/g, "");
+if (!frontmatterMatch) {
+  throw new Error("Invalid article format: " + file.name);
 }
 
-        return {
-          title: getField("title"),
-          date: getField("date"),
-          description: getField("description"),
-          body: body
-        };
+const metadata = jsyaml.load(frontmatterMatch[1]) || {};
+const body = frontmatterMatch[2].trim();
+
+return {
+  title: metadata.title || file.name.replace(".md", ""),
+  date: metadata.date || "",
+  description: metadata.description || "",
+  body: body
+};
       })
     );
 
@@ -205,8 +199,14 @@ async function loadArticles() {
 
       const date = document.createElement("p");
       date.className = "article-date";
-      date.textContent = article.date;
-
+      const parsedDate = new Date(article.date);
+date.textContent = Number.isNaN(parsedDate.getTime())
+  ? ""
+  : new Intl.DateTimeFormat("en-GB", {
+      day: "numeric",
+      month: "long",
+      year: "numeric"
+    }).format(parsedDate);
       const description = document.createElement("p");
       description.textContent = article.description;
 
