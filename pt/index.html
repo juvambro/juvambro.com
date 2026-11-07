@@ -3,28 +3,221 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Juvambro | Crescimento Pessoal</title>
-    <meta name="description" content="Descubra ideias e ferramentas para o seu crescimento pessoal.">
+
+    <meta name="description" content="A Juvambro ajuda-te a conheceres-te melhor, desenvolver bons hábitos e crescer através de pequenas ações diárias.">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #172033;
+            background: #ffffff;
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        /* Navigation */
+        header {
+            background: #ffffff;
+            padding: 18px 0;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.04);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 28px;
+            font-weight: bold;
+            color: #5145ed;
+        }
+
+        .logo img {
+            width: 38px;
+            height: 38px;
+            object-fit: contain;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            font-weight: 600;
+        }
+
+        .nav-links a:hover {
+            color: #5145ed;
+        }
+
+        .language {
+            color: #5145ed;
+            border: 1px solid #5145ed;
+            padding: 8px 18px;
+            border-radius: 9px;
+        }
+
+        /* Hero section */
+        .hero {
+            min-height: 650px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, #f1f0ff, #ffffff);
+            padding: 90px 20px;
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .hero h1 {
+            font-size: clamp(40px, 6vw, 76px);
+            line-height: 1.15;
+            font-weight: 800;
+            margin-bottom: 25px;
+        }
+
+        .highlight {
+            color: #5145ed;
+        }
+
+        .hero h2 {
+            font-size: 25px;
+            margin-bottom: 25px;
+        }
+
+        .hero p {
+            max-width: 780px;
+            margin: auto;
+            font-size: 19px;
+            color: #526078;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 38px;
+            padding: 16px 35px;
+            background: #5145ed;
+            color: white;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 17px;
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            background: #3e34c7;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            padding: 30px 20px;
+            text-align: center;
+            color: #64748b;
+            border-top: 1px solid #eeeeee;
+        }
+
+        @media (max-width: 700px) {
+            .navbar {
+                flex-direction: column;
+            }
+
+            .nav-links {
+                gap: 18px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                min-height: 550px;
+            }
+
+            .hero h2 {
+                font-size: 21px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
     <header>
-        <h1>Juvambro</h1>
-        <nav>
-            <a href="index.html">Início</a>
-            <a href="../articles.html">Artigos</a>
-            <a href="../index.html">English</a>
-        </nav>
+        <div class="container navbar">
+
+            <a href="index.html" class="logo">
+                <img src="../icons/icon-192.png" alt="Juvambro">
+                <span>Juvambro</span>
+            </a>
+
+            <nav class="nav-links">
+                <a href="index.html">Início</a>
+                <a href="../articles.html">Artigos</a>
+                <a href="../index.html" class="language">English</a>
+            </nav>
+
+        </div>
     </header>
 
     <main>
-        <h2>Desenvolva o seu potencial.</h2>
-        <p>
-            O crescimento pessoal começa com o conhecimento de si mesmo,
-            pequenas ações e a vontade de melhorar todos os dias.
-        </p>
 
-        <a href="../articles.html">Explore os nossos artigos</a>
+        <section class="hero">
+            <div class="hero-content">
+
+                <h1>
+                    Pensa diferente.<br>
+                    <span class="highlight">Começa pequeno. Continua a crescer.</span>
+                </h1>
+
+                <h2>A tua vida pode mudar através de uma pequena ação de cada vez.</h2>
+
+                <p>
+                    A Juvambro é um espaço para quem deseja crescer,
+                    conhecer-se melhor, mudar a forma de pensar e agir,
+                    desenvolver bons hábitos, descobrir o seu potencial
+                    e construir uma vida com mais significado.
+                </p>
+
+                <a href="../index.html#start" class="button">
+                    Começa a tua jornada
+                </a>
+
+            </div>
+        </section>
+
     </main>
 
     <footer>
