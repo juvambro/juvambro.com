@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Torna-te | Juvambro</title>
+
+    <meta name="description"
+          content="Descobre em quem te queres tornar e as qualidades, hábitos e ações que te ajudarão a crescer.">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #172033;
+            background: #f7f8fc;
+            line-height: 1.7;
+        }
+        body {
+    width: 100vw;
+    min-width: 100vw;
+}
+
+        header {
+            background: white;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 30px;
+            font-weight: bold;
+            color: #172033;
+        }
+
+        .logo span {
+            color: #5146e5;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #172033;
+            font-weight: 600;
+        }
+
+        .start-button {
+            background: #5146e5;
+            color: white;
+            padding: 14px 24px;
+            border-radius: 12px;
+        }
+
+        .hero {
+            background: #eef0ff;
+            text-align: center;
+            padding: 90px 20px 70px;
+        }
+
+        .hero h1 {
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #5146e5;
+        }
+
+        .hero p {
+            max-width: 750px;
+            margin: auto;
+            font-size: 20px;
+            color: #53617a;
+        }
+
+        .progress {
+            max-width: 920px;
+            margin: 55px auto 0;
+            text-align: left;
+        }
+
+        .progress-top {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-weight: bold;
+            color: #53617a;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: #dfe2f1;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            width: 33%;
+            height: 100%;
+            background: #5146e5;
+        }
+
+        .section {
+            max-width: 930px;
+            margin: 70px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: #53617a;
+            font-size: 18px;
+        }
+
+        .question {
+            background: white;
+            padding: 35px;
+            margin-bottom: 30px;
+            border-radius: 18px;
+            border: 1px solid #e1e4ed;
+            box-shadow: 0 8px 25px rgba(23, 32, 51, 0.04);
+        }
+
+        .number {
+            width: 42px;
+            height: 42px;
+            background: #ebe9ff;
+            color: #5146e5;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .question h3 {
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        .question p {
+            color: #53617a;
+            margin-bottom: 20px;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 130px;
+            border: 1px solid #d6d9e3;
+            border-radius: 12px;
+            padding: 18px;
+            font-family: inherit;
+            font-size: 16px;
+            resize: vertical;
+            outline: none;
+        }
+
+        textarea:focus {
+            border-color: #5146e5;
+            box-shadow: 0 0 0 3px rgba(81, 70, 229, 0.1);
+        }
+
+        .closing {
+            background: #172033;
+            color: white;
+            text-align: center;
+            padding: 65px 30px;
+            border-radius: 25px;
+            margin-top: 60px;
+        }
+
+        .closing h2 {
+            font-size: 38px;
+            margin-bottom: 20px;
+        }
+
+        .closing p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: #dbe0ed;
+            font-size: 17px;
+        }
+
+        .continue-button {
+            display: inline-block;
+            text-decoration: none;
+            background: #5146e5;
+            color: white;
+            padding: 16px 30px;
+            border-radius: 12px;
+            font-weight: bold;
+        }
+
+        footer {
+            margin-top: 80px;
+            background: #101827;
+            color: white;
+            padding: 55px 12%;
+        }
+
+        footer p {
+            color: #c5ccdb;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 800px) {
+            header {
+                padding: 18px 6%;
+            }
+
+            nav {
+                gap: 12px;
+            }
+
+            .hero h1 {
+                font-size: 45px;
+            }
+
+            .section-title h2 {
+                font-size: 34px;
+            }
+        }
+        /* MOBILE */
+@media (max-width: 700px) {
+    html,
+body {
+    width: 100%;
+    max-width: 100%;
+}
+    nav {
+        padding: 15px 5%;
+    }
+
+    .nav-links {
+        gap: 12px;
+        font-size: 14px;
+    }
+
+    .nav-links a:nth-child(2),
+    .nav-links a:nth-child(3) {
+        display: none;
+    }
+
+    .hero {
+        padding: 65px 20px 55px;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .hero > p {
+        font-size: 18px;
+    }
+
+    main.container {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 20px;
+    }
+
+    .question {
+        padding: 24px;
+    }
+
+    footer {
+        padding: 40px 8%;
+    }
+}
+    </style>
+</head>
+
+<body>
+
+<nav>
+    <a href="index.html" class="logo">Ju<span>vambro</span></a>
+
+    <div class="nav-links">
+        <a href="index.html">Início</a>
+        <a href="index.html#journey">A Tua Jornada</a>
+        <a href="index.html#areas">Explorar</a>
+        <a href="index.html#about">Sobre</a>
+        <a href="awareness.html" class="start-button">Começar</a>
+    </div>
+</nav>
+
+<section class="hero">
+
+    <h1>Pensa em quem <span>te podes tornar.</span></h1>
+
+    <p>
+        Os teus objetivos descrevem aquilo que queres alcançar.
+        A tua identidade representa a pessoa que pode alcançá-los.
+    </p>
+
+    <div class="progress">
+
+        <div class="progress-top">
+            <span>A Tua Jornada Juvambro</span>
+            <span>Etapa 5 de 9</span>
+        </div>
+
+        <div class="progress-bar">
+            <div class="progress-fill"></div>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="section">
+
+    <div class="section-title">
+
+        <h2>Torna-te</h2>
+
+        <p>
+            Imagina a pessoa em quem te queres tornar e compreende
+            o que precisas de desenvolver para te aproximares desse futuro.
+        </p>
+
+    </div>
+<div style="background:#f4f3ff; border-left:4px solid #5146e5; padding:20px; border-radius:8px; margin-bottom:25px; color:#172033;">
+
+    <h3 style="margin:0 0 10px;">As tuas reflexões ficam no teu dispositivo</h3>
+
+    <p style="margin:0; font-size:15px;">
+        As tuas respostas são guardadas neste navegador e neste dispositivo.
+        Não estão associadas a uma conta nem são sincronizadas entre dispositivos.
+        Limpar os dados guardados no teu navegador pode apagar as tuas respostas.
+        Se utilizares um dispositivo partilhado, evita introduzir informações sensíveis.
+    </p>
+
+</div>
+    <div class="question">
+
+        <div class="number">1</div>
+
+        <h3>Em quem me quero tornar?</h3>
+
+        <p>
+            Imagina-te daqui a um, três ou cinco anos.
+            Em que tipo de pessoa terias orgulho em te tornar?
+        </p>
+
+        <textarea id="become1" placeholder="Descreve a pessoa em quem te queres tornar..."></textarea>
+
+    </div>
+
+    <div class="question">
+
+        <div class="number">2</div>
+
+        <h3>Que qualidades teria essa pessoa?</h3>
+
+        <p>
+            Pensa nas qualidades que te ajudariam a tornar-te
+            na pessoa que queres ser.
+        </p>
+
+        <textarea id="become2" placeholder="Por exemplo: disciplina, coragem, paciência, confiança..."></textarea>
+
+    </div>
+
+    <div class="question">
+
+        <div class="number">3</div>
+
+        <h3>O que faria essa pessoa de forma diferente?</h3>
+
+        <p>
+            Como é que essa pessoa ocuparia o seu tempo, tomaria decisões
+            e reagiria perante as dificuldades?
+        </p>
+
+       <textarea id="become3" placeholder="Descreve o que essa pessoa faria de forma diferente..."></textarea>
+
+    </div>
+
+    <div class="question">
+
+        <div class="number">4</div>
+
+        <h3>O que preciso de deixar de fazer?</h3>
+
+        <p>
+            Que hábitos, comportamentos ou formas de pensar podem estar
+            a impedir-te de te tornares essa pessoa?
+        </p>
+
+        <textarea id="become4" placeholder="O que precisas de deixar de fazer?"></textarea>
+    </div>
+
+    <div class="question">
+
+        <div class="number">5</div>
+
+        <h3>O que preciso de começar a fazer?</h3>
+
+        <p>
+            Que comportamentos ou hábitos te aproximariam
+            da pessoa em quem te queres tornar?
+        </p>
+
+       <textarea id="become5" placeholder="O que precisas de começar a fazer?"></textarea>
+
+    </div>
+
+    <div class="closing">
+
+        <h2>Tornar-te nessa pessoa exige desenvolvimento.</h2>
+
+        <p>
+            Não te tornas numa pessoa diferente apenas por desejares mudar.
+            Desenvolves os conhecimentos, as competências, os hábitos e as qualidades que tornam
+            possível o futuro que desejas.
+        </p>
+
+        <a href="develop.html" class="continue-button">
+    Continua para a Etapa 6 →
+</a>
+
+    </div>
+
+</section>
+
+<footer>
+
+    <h2>Juvambro</h2>
+
+    <p>Pensa de forma diferente. Começa pequeno. Continua a crescer.</p>
+
+</footer>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const fields = [
+        "become1",
+        "become2",
+        "become3",
+        "become4",
+        "become5"
+    ];
+
+    fields.forEach(function (id) {
+
+        const field = document.getElementById(id);
+
+        if (!field) return;
+
+        // Load saved answer
+        const saved = localStorage.getItem("juvambro_" + id);
+
+        if (saved !== null) {
+            field.value = saved;
+        }
+
+        // Save whenever the user types
+        field.addEventListener("input", function () {
+            localStorage.setItem("juvambro_" + id, field.value);
+        });
+
+    });
+
+});
+</script>
+</body>
+</html>
