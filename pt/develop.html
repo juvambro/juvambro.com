@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desenvolve-te — Juvambro</title>
+
+    <style>
+        * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+        body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #172033;
+    background: #f7f8fc;
+    line-height: 1.7;
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: white;
+    border-bottom: 1px solid #e7e9f2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 12%;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 800;
+    color: #172033;
+    text-decoration: none;
+}
+
+.logo span {
+    color: #5146e5;
+}
+
+.nav-links {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #172033;
+    font-weight: 600;
+}
+
+.start-button {
+    background: #5146e5;
+    color: white !important;
+    padding: 11px 22px;
+    border-radius: 10px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 70px auto;
+    padding: 0 20px;
+}
+
+        .step {
+    text-align: center;
+    color: #52617d;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+        h1 {
+    text-align: center;
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+        .intro {
+    text-align: center;
+    color: #52617d;
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 50px;
+}
+
+        .question {
+    background: white;
+    border: 1px solid #e4e7f0;
+    border-radius: 18px;
+    padding: 32px;
+    margin-bottom: 25px;
+    box-shadow: 0 8px 25px rgba(23, 32, 51, 0.04);
+}
+
+        .question h3 {
+    font-size: 23px;
+    margin-bottom: 8px;
+}
+
+.question-number {
+    display: inline-flex;
+    width: 38px;
+    height: 38px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #e9e7ff;
+    color: #5146e5;
+    font-weight: 800;
+    margin-bottom: 18px;
+}
+
+.question p {
+    color: #52617d;
+    margin-bottom: 18px;
+}
+
+textarea {
+    width: 100%;
+    min-height: 130px;
+    padding: 16px;
+    border: 1px solid #d8dce8;
+    border-radius: 12px;
+    resize: vertical;
+    font-family: inherit;
+    font-size: 16px;
+    color: #172033;
+    outline: none;
+    box-sizing: border-box;
+}
+        textarea:focus {
+    border-color: #5146e5;
+    outline: none;
+}
+
+        .button-container {
+            text-align: center;
+            margin-top: 35px;
+        }
+
+        .continue {
+    display: inline-block;
+    padding: 14px 28px;
+    background: #5146e5;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+        .continue:hover {
+            background: #444;
+        }
+        .hero {
+    text-align: center;
+    padding: 90px 20px 70px;
+    background: #eef0ff;
+}
+
+.hero h1 {
+    font-size: clamp(42px, 6vw, 68px);
+    line-height: 1.1;
+    margin-bottom: 22px;
+}
+
+.hero h1 span {
+    color: #5146e5;
+}
+
+.hero p {
+    max-width: 760px;
+    margin: auto;
+    color: #52617d;
+    font-size: 20px;
+}
+
+.progress {
+    max-width: 850px;
+    margin: 45px auto 0;
+}
+
+.progress-text {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    color: #52617d;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.progress-bar {
+    height: 8px;
+    background: #dfe2f2;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    width: 60%;
+    height: 100%;
+    background: #5146e5;
+    border-radius: 20px;
+}
+        /* MOBILE */
+@media (max-width: 700px) {
+    nav {
+        padding: 15px 5%;
+    }
+
+    .nav-links {
+        gap: 12px;
+        font-size: 14px;
+    }
+
+    .nav-links a:nth-child(2),
+    .nav-links a:nth-child(3) {
+        display: none;
+    }
+
+    .hero {
+        padding: 65px 20px 55px;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .hero > p {
+        font-size: 18px;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 20px;
+    }
+
+    .question {
+        padding: 24px;
+    }
+}
+    </style>
+</head>
+
+<body>
+
+<nav>
+    <a href="index.html" class="logo">Juv<span>ambro</span></a>
+
+    <div class="nav-links">
+        <a href="index.html">Início</a>
+        <a href="index.html#journey">A Tua Jornada</a>
+        <a href="index.html#areas">Explorar</a>
+        <a href="index.html#about">Sobre</a>
+        <a href="awareness.html" class="start-button">Começar</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <h1>Desenvolve <span>o teu potencial</span></h1>
+    <p>Desenvolve competências, hábitos, conhecimentos e qualidades que te ajudarão a tornar-te a pessoa que desejas ser.</p>
+
+    <div class="progress">
+        <div class="progress-text">
+            <span>A Tua Jornada Juvambro</span>
+            <span>Step 6 of 9</span>
+        </div>
+        <div class="progress-bar">
+            <div class="progress-fill"></div>
+        </div>
+    </div>
+</section>
+    <div class="container">
+
+<div style="background:#f4f3ff; border-left:4px solid #5146e5; padding:20px; border-radius:8px; margin-bottom:25px; color:#172033;">
+
+    <h3 style="margin:0 0 10px;">As tuas reflexões ficam guardadas no teu dispositivo</h3>
+
+    <p style="margin:0; font-size:15px;">
+        As tuas respostas são guardadas neste navegador e neste dispositivo.
+        Não estão associadas a uma conta nem são sincronizadas entre dispositivos.
+        Se limpares os dados guardados no navegador, poderás perder as tuas respostas.
+        Se utilizares um dispositivo partilhado, evita inserir informações pessoais ou sensíveis.
+    </p>
+
+</div>
+    <div class="question">
+    <div class="question-number">1</div>
+    <h3>Que competências preciso de desenvolver?</h3>
+    <p>Pensa nas capacidades que te ajudarão a tornar-te a pessoa que desejas ser.</p>
+    <textarea id="develop1" placeholder="Escreve aqui as tuas ideias..."></textarea>
+</div>
+
+    <div class="question">
+    <div class="question-number">2</div>
+    <h3>Que conhecimentos preciso de adquirir?</h3>
+    <p>Pensa no que precisas de aprender para reforçar as tuas competências e avançar em direção aos teus objetivos.</p>
+    <textarea id="develop2" placeholder="Escreve aqui as tuas ideias..."></textarea>
+</div>
+
+    <div class="question">
+    <div class="question-number">3</div>
+    <h3>Que hábitos preciso de criar?</h3>
+    <p>Pensa nos hábitos e nas rotinas diárias que te podem ajudar a melhorar e a tornar-te a pessoa que desejas ser.</p>
+    <textarea id="develop3" placeholder="Escreve aqui as tuas ideias..."></textarea>
+</div>
+
+    <div class="question">
+    <div class="question-number">4</div>
+    <h3>Que aspetos das minhas dificuldades preciso de melhorar?</h3>
+    <p>Sê honesto contigo próprio sobre os aspetos que te podem estar a limitar e pensa em como podes melhorá-los.</p>
+    <textarea id="develop4" placeholder="Escreve aqui as tuas ideias..."></textarea>
+</div>
+
+    <div class="question">
+    <div class="question-number">5</div>
+    <h3>Que recursos ou pessoas me podem ajudar a desenvolver?</h3>
+    <p>Pensa em mentores, livros, cursos, comunidades, ferramentas ou outros recursos que possam apoiar o teu crescimento.</p>
+    <textarea id="develop5" placeholder="Escreve aqui as tuas ideias..."></textarea>
+</div>
+
+    <div class="button-container">
+        <a href="act.html" class="continue">Continua →</a>
+    </div>
+
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const fields = document.querySelectorAll("textarea");
+
+    fields.forEach(function (field) {
+
+        const id = field.id;
+        const key = "juvambro_" + id;
+
+        const saved = localStorage.getItem(key);
+
+        if (saved !== null) {
+            field.value = saved;
+        }
+
+        field.addEventListener("input", function () {
+            localStorage.setItem(key, field.value);
+        });
+
+    });
+
+});
+</script>
+
+</body>
+</html>
