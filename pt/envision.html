@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualiza — Juvambro</title>
+
+    <style>
+        * {
+    box-sizing: border-box;
+}
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fa;
+            color: #222;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+
+        .step {
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .intro {
+            text-align: center;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+
+        .question {
+    background: white;
+    border: 1px solid #e4e7f0;
+    border-radius: 18px;
+    padding: 32px;
+    margin-bottom: 25px;
+    box-shadow: 0 8px 25px rgba(23, 32, 51, 0.04);
+}
+
+        .question-number {
+    display: inline-flex;
+    width: 38px;
+    height: 38px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #e9e7ff;
+    color: #5146e5;
+    font-weight: 800;
+    margin-bottom: 18px;
+}
+
+        .question h3 {
+    font-size: 23px;
+    margin-bottom: 8px;
+}
+
+        .question p {
+    color: #52617d;
+    margin-bottom: 18px;
+}
+        textarea {
+            width: 100%;
+            min-height: 120px;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            box-sizing: border-box;
+            resize: vertical;
+        }
+        textarea:focus {
+    border-color: #5146e5;
+    outline: none;
+}
+
+        .button-container {
+            text-align: center;
+            margin-top: 35px;
+        }
+
+        .continue {
+            display: inline-block;
+            padding: 14px 28px;
+            background: #222;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .continue:hover {
+            background: #444;
+        }
+        /* Modern Step 4 design */
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f7f8ff;
+    color: #172033;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    margin: 0;
+    background: white;
+    border-bottom: 1px solid #e7e9f2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 12%;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 800;
+    color: #172033;
+    text-decoration: none;
+}
+
+.logo span {
+    color: #5146e5;
+}
+
+.nav-links {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #172033;
+    font-weight: 600;
+}
+
+.nav-links a:hover {
+    color: #5146e5;
+}
+
+.start-button {
+    background: #5146e5;
+    color: white !important;
+    padding: 11px 22px;
+    border-radius: 10px;
+}
+
+.hero {
+    text-align: center;
+    padding: 90px 20px 70px;
+    background: #eef0ff;
+}
+
+.hero h1 {
+    font-size: clamp(42px, 6vw, 68px);
+    line-height: 1.1;
+    margin-bottom: 22px;
+}
+
+.hero h1 span {
+    color: #5146e5;
+}
+
+.hero > p {
+    max-width: 760px;
+    margin: auto;
+    color: #52617d;
+    font-size: 20px;
+    line-height: 1.6;
+}
+
+.progress {
+    max-width: 850px;
+    margin: 45px auto 0;
+}
+
+.progress-text {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    color: #52617d;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.progress-bar {
+    height: 8px;
+    background: #dfe2f2;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    width: 50%;
+    height: 100%;
+    background: #5146e5;
+    border-radius: 20px;
+}
+
+main.container {
+    max-width: 900px;
+    margin: 70px auto;
+    padding: 0 20px;
+}
+
+.intro {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.intro h2 {
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+.intro p {
+    color: #52617d;
+    font-size: 18px;
+}
+
+.question {
+    background: white;
+    border: 1px solid #e4e7f0;
+    border-radius: 18px;
+    padding: 32px;
+    margin-bottom: 25px;
+    box-shadow: 0 8px 25px rgba(23, 32, 51, 0.04);
+}
+
+.question h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.question textarea {
+    width: 100%;
+    min-height: 180px;
+    padding: 16px;
+    border: 1px solid #dfe2f2;
+    border-radius: 12px;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    resize: vertical;
+    box-sizing: border-box;
+}
+
+.button-container {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.continue {
+    display: inline-block;
+    background: #5146e5;
+    color: white;
+    text-decoration: none;
+    padding: 14px 25px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    padding: 40px;
+    color: #596987;
+}
+        textarea:focus {
+    border-color: #5146e5 !important;
+    outline: none;
+}
+        /* MOBILE */
+@media (max-width: 700px) {
+    nav {
+        padding: 15px 5%;
+    }
+
+    .nav-links {
+        gap: 12px;
+        font-size: 14px;
+    }
+
+    .nav-links a:nth-child(2),
+    .nav-links a:nth-child(3) {
+        display: none;
+    }
+
+    .hero {
+    width: 100vw;
+    margin-left: 0;
+    padding: 65px 20px 55px;
+}
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .hero > p {
+        font-size: 18px;
+    }
+
+    main.container {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 20px;
+    }
+
+    .question {
+        padding: 24px;
+    }
+
+    footer {
+        padding: 40px 8%;
+    }
+}
+    </style>
+</head>
+
+<body>
+
+<nav>
+    <a href="index.html" class="logo">Ju<span>vambro</span></a>
+
+    <div class="nav-links">
+        <a href="index.html">Início</a>
+        <a href="index.html#journey">A Tua Jornada</a>
+        <a href="index.html#areas">Explorar</a>
+        <a href="index.html#about">Sobre</a>
+        <a href="awareness.html" class="start-button">Começar</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <h1>Visualiza <span>o teu futuro.</span></h1>
+
+    <p>
+        Já tomaste consciência de ti próprio, definiste o que é importante para ti
+        e começaste a compreender a tua situação. Agora, imagina o futuro
+        que queres construir.
+    </p>
+
+    <div class="progress">
+        <div class="progress-text">
+            <span>A Tua Jornada Juvambro</span>
+            <span>Etapa 4 de 9</span>
+        </div>
+
+        <div class="progress-bar">
+            <div class="progress-fill"></div>
+        </div>
+    </div>
+</section>
+
+<main class="container">
+
+    <div class="intro">
+        <h2>Imagina o futuro que desejas.</h2>
+        <p>
+            Permite-te pensar para além da tua situação atual
+            e imaginar a vida que queres construir.
+        </p>
+    </div>
+<div style="background:#f4f3ff; border-left:4px solid #5146e5; padding:20px; border-radius:8px; margin-bottom:25px; color:#172033;">
+
+    <h3 style="margin:0 0 10px;">As tuas reflexões ficam no teu dispositivo</h3>
+
+    <p style="margin:0; font-size:15px;">
+        As tuas respostas são guardadas neste navegador e neste dispositivo.
+        Não estão associadas a uma conta nem são sincronizadas entre dispositivos.
+        Se apagares os dados guardados no navegador, poderás perder as tuas respostas.
+        Se utilizares um dispositivo partilhado, evita introduzir informações sensíveis.
+    </p>
+
+</div>
+    <div class="question">
+        <div class="question-number">1</div>
+<h3>Que tipo de vida quero construir?</h3>
+        <p>Pensa na vida que gostarias realmente de construir, para além da tua situação atual.</p>
+        <textarea id="envision1" placeholder="Escreve aqui as tuas reflexões..."></textarea>
+    </div>
+
+    <div class="question">
+        <div class="question-number">2</div>
+        <h3>Onde quero estar no futuro?</h3>
+        <p>Imagina onde gostarias de estar na tua vida pessoal, carreira, relacionamentos e noutras áreas importantes.</p>
+        <textarea id="envision2" placeholder="Escreve aqui as tuas reflexões..."></textarea>
+    </div>
+
+    <div class="question">
+        <div class="question-number">3</div>
+        <h3>Como imagino o meu futuro ideal?</h3>
+        <p>Descreve como seria e como te sentirias no teu futuro ideal, se pudesses imaginá-lo livremente.</p>
+        <textarea id="envision3" placeholder="Escreve aqui as tuas reflexões..."></textarea>
+    </div>
+
+    <div class="question">
+
+        <div class="question-number">4</div>
+        <h3>Que tipo de pessoa quero ser?</h3>
+        <p>Pensa nas qualidades, nos valores, nos hábitos e no carácter que queres desenvolver.</p>
+        <textarea id="envision4" placeholder="Escreve aqui as tuas reflexões..."></textarea>
+    </div>
+
+    <div class="question">
+       <div class="question-number">5</div> 
+        <h3>O que daria significado ao meu futuro?</h3>
+        <p>Pensa nas pessoas, no propósito, nas conquistas, nas experiências e nos valores que dariam significado ao teu futuro.</p>
+        <textarea id="envision5" placeholder="Escreve aqui as tuas reflexões..."></textarea>
+    </div>
+
+    <div class="button-container">
+        <a href="become.html" class="continue">Continua para a Etapa 5 →</a>
+    </div>
+
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const fields = document.querySelectorAll("textarea");
+
+    fields.forEach(function (field) {
+
+        const id = field.id;
+        const key = "juvambro_" + id;
+
+        const saved = localStorage.getItem(key);
+
+        if (saved !== null) {
+            field.value = saved;
+        }
+
+        field.addEventListener("input", function () {
+            localStorage.setItem(key, field.value);
+        });
+
+    });
+
+});
+</script>
+
+</body>
+</html>
