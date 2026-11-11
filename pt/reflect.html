@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Age | Juvambro</title>
+
+    <meta name="description"
+        content="Transforma os teus objetivos e a pessoa que desejas ser em ações com significado que podes realizar hoje.">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #172033;
+            background: #f7f8fc;
+            line-height: 1.7;
+        }
+
+        nav {
+            background: white;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e5e7ef;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .logo span {
+            color: #5146e5;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #172033;
+            font-weight: 600;
+            margin-left: 28px;
+        }
+
+        .start-button {
+            background: #5146e5;
+            color: white !important;
+            padding: 12px 22px;
+            border-radius: 12px;
+        }
+
+        .hero {
+            background: #eef0ff;
+            text-align: center;
+            padding: 90px 20px 80px;
+        }
+
+        .step {
+            display: inline-block;
+            background: #e1ddff;
+            color: #5146e5;
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-size: 58px;
+            line-height: 1.15;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: #5146e5;
+        }
+
+        .hero p {
+            max-width: 750px;
+            margin: auto;
+            font-size: 20px;
+            color: #52617d;
+        }
+
+        .journey {
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .journey-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .journey-title h2 {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .journey-title p {
+            color: #52617d;
+            font-size: 18px;
+        }
+
+        .question {
+            background: white;
+            border: 1px solid #e2e5ee;
+            border-radius: 20px;
+            padding: 35px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 25px rgba(20, 30, 60, 0.04);
+        }
+
+        .number {
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #e7e4ff;
+            color: #5146e5;
+            border-radius: 50%;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .question h3 {
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        .question p {
+            color: #52617d;
+            margin-bottom: 20px;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 140px;
+            border: 1px solid #d9ddea;
+            border-radius: 12px;
+            padding: 18px;
+            font-family: inherit;
+            font-size: 16px;
+            resize: vertical;
+            outline: none;
+        }
+
+        textarea:focus {
+            border-color: #5146e5;
+        }
+
+        .closing {
+            background: #172033;
+            color: white;
+            text-align: center;
+            padding: 70px 25px;
+            border-radius: 25px;
+            margin-top: 30px;
+        }
+
+        .closing h2 {
+            font-size: 38px;
+            margin-bottom: 20px;
+        }
+
+        .closing p {
+            max-width: 700px;
+            margin: auto;
+            color: #d7dbea;
+            font-size: 18px;
+        }
+
+        .continue {
+            display: inline-block;
+            margin-top: 30px;
+            background: #5146e5;
+            color: white;
+            text-decoration: none;
+            padding: 15px 28px;
+            border-radius: 12px;
+            font-weight: 700;
+        }
+
+        footer {
+            background: #101827;
+            color: white;
+            padding: 50px 8%;
+        }
+
+        footer p {
+            color: #c8cedd;
+            margin-top: 10px;
+        }
+.progress {
+    max-width: 850px;
+    margin: 45px auto 0;
+}
+
+.progress-text {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    color: #52617d;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.progress-bar {
+    height: 8px;
+    background: #dfe2f2;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    width: 77.78%;
+    height: 100%;
+    background: #5146e5;
+    border-radius: 20px;
+}
+       @media (max-width: 700px) {
+
+    nav {
+        flex-direction: row;
+        gap: 10px;
+        padding: 15px 5%;
+    }
+
+    nav > div:last-child {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    nav > div:last-child a {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    nav > div:last-child a:nth-child(2),
+    nav > div:last-child a:nth-child(3) {
+        display: none;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .question {
+        padding: 25px;
+    }
+}
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">Ju<span>vambro</span></div>
+
+        <div>
+            <a href="index.html">Início</a>
+            <a href="index.html#journey">A Tua Jornada</a>
+           <a href="index.html#areas">Explorar</a>
+            <a href="index.html#about">Sobre</a>
+            <a href="awareness.html" class="start-button">Começar</a>
+        </div>
+    </nav>
+
+   <section class="hero">
+
+    <h1>
+        Transforma a intenção em <span>ação.</span>
+    </h1>
+
+    <p>
+        Saber em quem te queres tornar é importante.
+        Mas a mudança acontece quando começas a agir como essa pessoa.
+    </p>
+
+    <div class="progress">
+        <div class="progress-text">
+            <span>A Tua Jornada Juvambro</span>
+            <span>Etapa 7 de 9</span>
+        </div>
+
+        <div class="progress-bar">
+            <div class="progress-fill"></div>
+        </div>
+    </div>
+
+</section>
+
+    <main class="journey">
+
+        <div class="journey-title">
+            <h2>Age.</h2>
+
+            <p>
+                Transforma aquilo que descobriste em pequenas ações realistas
+                que possas realmente realizar.
+            </p>
+        </div>
+<div style="background:#f4f3ff; border-left:4px solid #5146e5; padding:20px; border-radius:8px; margin-bottom:25px; color:#172033;">
+
+    <h3 style="margin:0 0 10px;">As tuas reflexões ficam guardadas no teu dispositivo</h3>
+
+    <p style="margin:0; font-size:15px;">
+        As tuas respostas são guardadas neste navegador e neste dispositivo.
+        Não estão associadas a uma conta nem são sincronizadas entre dispositivos.
+        Se limpares os dados guardados no navegador, poderás perder as tuas respostas.
+        Se utilizares um dispositivo partilhado, evita inserir informações pessoais ou sensíveis.
+    </p>
+
+</div>
+        <div class="question">
+            <div class="number">1</div>
+
+            <h3>O que devo começar a fazer?</h3>
+
+            <p>
+                Que comportamento ou hábito te pode aproximar
+                da pessoa que desejas ser?
+            </p>
+
+            <textarea id="act1" placeholder="Devo começar a..."></textarea>
+        </div>
+
+        <div class="question">
+            <div class="number">2</div>
+
+            <h3>Que pequena ação posso realizar hoje?</h3>
+
+            <p>
+                Não tentes mudar tudo de uma só vez.
+                Escolhe uma ação que consigas realizar hoje.
+            </p>
+
+            <textarea id="act2" placeholder="Hoje, vou..."></textarea>
+        </div>
+
+        <div class="question">
+            <div class="number">3</div>
+
+            <h3>Quando vou fazê-lo?</h3>
+
+            <p>
+                Escolhe uma hora ou situação específica em que vais
+                realizar esta ação.
+            </p>
+
+            <textarea id="act3" placeholder="Vou fazê-lo..."></textarea>
+        </div>
+
+        <div class="question">
+            <div class="number">4</div>
+
+            <h3>O que me pode impedir?</h3>
+
+            <p>
+                Pensa nos obstáculos, distrações ou desculpas
+                que te podem impedir de avançar.
+            </p>
+
+            <textarea id="act4" placeholder="Algo que me pode impedir é..."></textarea>
+        </div>
+
+        <div class="question">
+            <div class="number">5</div>
+
+            <h3>Como vou continuar?</h3>
+
+            <p>
+                O que podes fazer quando perderes a motivação?
+                Pensa em como podes manter a consistência.
+            </p>
+
+            <textarea id="act5" placeholder="Vou continuar a..."></textarea>
+        </div>
+
+        <div class="closing">
+            <h2>Pequenas ações criam mudanças.</h2>
+
+            <p>
+                Não precisas de transformar a tua vida num só dia.
+                Escolhe uma ação com significado e começa.
+            </p>
+
+           <a href="reflect.html" class="continue">
+                Continua a tua jornada →
+            </a>
+        </div>
+
+    </main>
+
+    <footer>
+        <h2>Juvambro</h2>
+        <p>Pensa de forma diferente. Começa pequeno. Continua a crescer.</p>
+    </footer>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const fields = document.querySelectorAll("textarea");
+
+    fields.forEach(function (field) {
+
+        const id = field.id;
+        const key = "juvambro_" + id;
+
+        const saved = localStorage.getItem(key);
+
+        if (saved !== null) {
+            field.value = saved;
+        }
+
+        field.addEventListener("input", function () {
+            localStorage.setItem(key, field.value);
+        });
+
+    });
+
+});
+</script>
+</body>
+</html>
