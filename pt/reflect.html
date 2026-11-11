@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Juvambro | Reflete</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            background: #f7f8fa;
+            color: #172033;
+            line-height: 1.7;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 850px;
+            margin: auto;
+        }
+
+        header {
+            background: white;
+            padding: 25px 0;
+            border-bottom: 1px solid #eeeeee;
+        }
+
+        .content {
+            padding: 60px 0;
+        }
+
+        .step {
+            color: #666;
+            font-size: 15px;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 42px;
+            margin: 0 0 15px;
+        }
+
+        .intro {
+            font-size: 19px;
+            color: #555;
+            margin-bottom: 40px;
+        }
+
+        .question {
+            background: white;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            border: 1px solid #eeeeee;
+        }
+
+        h2 {
+            font-size: 20px;
+            margin-top: 0;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 120px;
+            padding: 15px;
+            border: 1px solid #cccccc;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 16px;
+            resize: vertical;
+        }
+        textarea:focus {
+    border-color: #5146e5;
+    outline: none;
+}
+
+        .continue {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 14px 24px;
+            background: #172033;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+ nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: white;
+    border-bottom: 1px solid #e7e9f2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 12%;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 800;
+    color: #172033;
+    text-decoration: none;
+}
+
+.logo span {
+    color: #5146e5;
+}
+
+.nav-links {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #172033;
+    font-weight: 600;
+}
+
+.start-button {
+    background: #5146e5;
+    color: white !important;
+    padding: 11px 22px;
+    border-radius: 10px;
+}
+
+.hero {
+    text-align: center;
+    padding: 90px 20px 70px;
+    background: #eef0ff;
+}
+
+.hero h1 {
+    font-size: clamp(42px, 6vw, 68px);
+    line-height: 1.1;
+    margin-bottom: 22px;
+}
+
+.hero h1 span {
+    color: #5146e5;
+}
+
+.hero p {
+    max-width: 760px;
+    margin: auto;
+    color: #52617d;
+    font-size: 20px;
+}
+
+.progress {
+    max-width: 850px;
+    margin: 45px auto 0;
+}
+
+.progress-text {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    color: #52617d;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.progress-bar {
+    height: 8px;
+    background: #dfe2f2;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    width: 80%;
+    height: 100%;
+    background: #5146e5;
+    border-radius: 20px;
+}
+
+.question {
+    background: white;
+    border: 1px solid #e4e7f0;
+    border-radius: 18px;
+    padding: 32px;
+    margin-bottom: 25px;
+    box-shadow: 0 8px 25px rgba(23, 32, 51, 0.04);
+}
+
+.question-number {
+    display: inline-flex;
+    width: 38px;
+    height: 38px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #e9e7ff;
+    color: #5146e5;
+    font-weight: 800;
+    margin-bottom: 18px;
+}
+
+.question h2 {
+    font-size: 23px;
+    margin-bottom: 8px;
+}
+
+.question p {
+    color: #52617d;
+    margin-bottom: 18px;
+}   
+ /* MOBILE */
+@media (max-width: 700px) {
+    nav {
+        padding: 15px 5%;
+    }
+
+    .nav-links {
+        gap: 12px;
+        font-size: 14px;
+    }
+
+    .nav-links a:nth-child(2),
+    .nav-links a:nth-child(3) {
+        display: none;
+    }
+
+    .hero {
+        padding: 65px 20px 55px;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .hero > p {
+        font-size: 18px;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 20px;
+    }
+
+    .question {
+        padding: 24px;
+    }
+}       
+    </style>
+</head>
+
+<body>
+
+<nav>
+    <a href="index.html" class="logo">Juv<span>ambro</span></a>
+
+    <div class="nav-links">
+        <a href="index.html">Início</a>
+        <a href="index.html#journey">A Tua Jornada</a>
+        <a href="index.html#areas">Explorar</a>
+        <a href="index.html#about">Sobre</a>
+        <a href="awareness.html" class="start-button">Começar</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <h1>Reflete sobre <span>o teu crescimento</span></h1>
+    <p>Olha para trás e pensa no que fizeste, no que correu bem, no que não resultou e no que aprendeste.</p>
+
+    <div class="progress">
+        <div class="progress-text">
+            <span>A Tua Jornada Juvambro</span>
+            <span>Etapa 8 de 9</span>
+        </div>
+
+        <div class="progress-bar">
+            <div class="progress-fill"></div>
+        </div>
+    </div>
+</section>
+    <main class="content">
+    <div class="container">
+
+       <div style="background:#f4f3ff; border-left:4px solid #5146e5; padding:20px; border-radius:8px; margin-bottom:25px; color:#172033;">
+
+    <h3 style="margin:0 0 10px;">As tuas reflexões ficam guardadas no teu dispositivo</h3>
+
+    <p style="margin:0; font-size:15px;">
+        As tuas respostas são guardadas neste navegador e neste dispositivo.
+        Não estão associadas a uma conta nem são sincronizadas entre dispositivos.
+        Se limpares os dados guardados no navegador, poderás perder as tuas respostas.
+        Se utilizares um dispositivo partilhado, evita inserir informações pessoais ou sensíveis.
+    </p>
+
+</div>
+
+        <div class="question">
+    <div class="question-number">1</div>
+    <h3>O que correu bem comigo?</h3>
+    <p>Pensa nas ações, hábitos ou escolhas que te trouxeram bons resultados.</p>
+    <textarea id="reflect1" placeholder="Escreve a tua resposta..."></textarea>
+</div>
+
+        <div class="question">
+    <div class="question-number">2</div>
+    <h3>O que não correu bem?</h3>
+    <p>Pensa no que não correu como planeado e no que tornou as coisas mais difíceis.</p>
+    <textarea id="reflect2" placeholder="Escreve a tua resposta..."></textarea>
+</div>
+
+        <div class="question">
+    <div class="question-number">3</div>
+    <h3>O que aprendi?</h3>
+    <p>Pensa nas lições, descobertas ou novos conhecimentos que adquiriste.</p>
+    <textarea id="reflect3" placeholder="Escreve a tua resposta..."></textarea>
+</div>
+
+        <div class="question">
+    <div class="question-number">4</div>
+    <h3>O que faria de forma diferente?</h3>
+    <p>Pensa no que mudarias se tivesses a oportunidade de fazer tudo novamente.</p>
+    <textarea id="reflect4" placeholder="Escreve a tua resposta..."></textarea>
+</div>
+        <div class="question">
+    <div class="question-number">5</div>
+    <h3>O que vou melhorar a seguir?</h3>
+    <p>Escolhe uma área importante que queiras melhorar e decide o que vais fazer a seguir.</p>
+    <textarea id="reflect5" placeholder="Escreve a tua resposta..."></textarea>
+</div>
+
+        <a href="grow.html" class="continue">
+            Continua para a Etapa 9 →
+        </a>
+
+    </div>
+</main>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const fields = [
+        "reflect1",
+        "reflect2",
+        "reflect3",
+        "reflect4",
+        "reflect5"
+    ];
+
+    fields.forEach(function (id) {
+
+        const field = document.getElementById(id);
+
+        const saved = localStorage.getItem("juvambro_" + id);
+
+        if (saved !== null) {
+            field.value = saved;
+        }
+
+        field.addEventListener("input", function () {
+            localStorage.setItem("juvambro_" + id, field.value);
+        });
+
+    });
+
+});
+</script>
+
+</body>
+</html>
