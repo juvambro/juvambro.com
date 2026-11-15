@@ -200,7 +200,7 @@ We recognise Jim Rohn's contribution to personal development and acknowledge him
 
 These lessons are inspired by Jim Rohn's teachings. If you would like to explore his ideas in greater depth, I encourage you to watch the original seminar.
 
-**Watch on YouTube:** [https://youtu.be/WINhAhJHStI?si=itG9_tJusA8KfRUF](https://youtu.be/mo1NPH3ngkE?si=VpjNTqG-IKGIb7S0)
+**Watch on YouTube:** https://youtu.be/WINhAhJHStI?si=iu6RmfqAI-foUQcS
 
 Take some time to listen, reflect on the lessons, and consider how you can apply them in your own life.
 
