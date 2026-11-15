@@ -88,6 +88,48 @@
       padding: 35px 0;
     }
 
+    .article-share {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      margin-top: 22px;
+      padding-top: 16px;
+      border-top: 1px solid #eeeeee;
+    }
+    .article-share-label {
+      width: 100%;
+      margin-bottom: 2px;
+      color: #606779;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .share-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      background: #ffffff;
+      color: #344054;
+      padding: 8px 12px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .share-button:hover {
+      border-color: #5146e5;
+      color: #5146e5;
+    }
+    .share-status {
+      width: 100%;
+      min-height: 18px;
+      color: #287a73;
+      font-size: 13px;
+      margin: 0;
+    }
+
     footer {
       text-align: center;
       padding: 30px 5%;
@@ -173,7 +215,8 @@ return {
   title: metadata.title || file.name.replace(".md", ""),
   date: metadata.date || "",
   description: metadata.description || "",
-  body: body
+  body: body,
+  slug: file.name.replace(/\.md$/i, "")
 };
       })
     );
@@ -229,8 +272,62 @@ date.textContent = Number.isNaN(parsedDate.getTime())
         button.textContent = isHidden ? "Close article" : "Read article";
       });
 
+      const shareBox = document.createElement("div");
+      shareBox.className = "article-share";
+
+      const shareLabel = document.createElement("div");
+      shareLabel.className = "article-share-label";
+      shareLabel.textContent = "Share this article";
+
+      const articleUrl = new URL(window.location.href);
+      articleUrl.search = "";
+      articleUrl.hash = "";
+      articleUrl.searchParams.set("article", article.slug);
+      const shareUrl = articleUrl.toString();
+
+      const whatsappLink = document.createElement("a");
+      whatsappLink.className = "share-button";
+      whatsappLink.textContent = "WhatsApp";
+      whatsappLink.href = "https://wa.me/?text=" + encodeURIComponent(article.title + " " + shareUrl);
+      whatsappLink.target = "_blank";
+      whatsappLink.rel = "noopener noreferrer";
+
+      const facebookLink = document.createElement("a");
+      facebookLink.className = "share-button";
+      facebookLink.textContent = "Facebook";
+      facebookLink.href = "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(shareUrl);
+      facebookLink.target = "_blank";
+      facebookLink.rel = "noopener noreferrer";
+
+      const copyButton = document.createElement("button");
+      copyButton.type = "button";
+      copyButton.className = "share-button";
+      copyButton.textContent = "Copy link";
+
+      const shareStatus = document.createElement("p");
+      shareStatus.className = "share-status";
+      shareStatus.setAttribute("aria-live", "polite");
+
+      copyButton.addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText(shareUrl);
+          shareStatus.textContent = "Link copied!";
+        } catch (error) {
+          shareStatus.textContent = "Could not copy the link. " + shareUrl;
+        }
+      });
+
+      shareBox.append(shareLabel, whatsappLink, facebookLink, copyButton, shareStatus);
+      content.appendChild(shareBox);
+
       card.append(title, date, description, button, content);
       container.appendChild(card);
+
+      if (new URLSearchParams(window.location.search).get("article") === article.slug) {
+        content.style.display = "block";
+        button.textContent = "Close article";
+        setTimeout(() => card.scrollIntoView({ behavior: "smooth", block: "start" }), 100);
+      }
     });
 
   } catch (error) {
