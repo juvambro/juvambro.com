@@ -10,7 +10,7 @@ from bs4 import BeautifulSoup
 
 SOURCE_DIR = Path("articles")
 TARGET_DIR = Path("pt/articles")
-DEEPL_URL = "https://api.deepl.com/v2/translate"
+DEEPL_URL = "https://api-free.deepl.com/v2/translate"
 AUTH_KEY = os.environ.get("DEEPL_AUTH_KEY")
 
 if not AUTH_KEY:
