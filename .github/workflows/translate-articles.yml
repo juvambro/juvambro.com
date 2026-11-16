@@ -1,0 +1,46 @@
+name: Translate articles to Portuguese
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'articles/*.md'
+      - 'scripts/translate_articles.py'
+      - '.github/workflows/translate-articles.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  translate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          pip install requests markdown beautifulsoup4 pyyaml
+
+      - name: Translate articles
+        env:
+          DEEPL_AUTH_KEY: ${{ secrets.DEEPL_AUTH_KEY }}
+        run: python scripts/translate_articles.py
+
+      - name: Commit Portuguese translations
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add pt/articles/
+          git diff --cached --quiet || (
+            git commit -m "Automatically translate articles to Portuguese"
+            git push
+          )
