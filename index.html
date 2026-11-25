@@ -628,7 +628,7 @@ footer {
             <a href="articles.html">Articles</a>
             <a href="#start" class="nav-button">Start</a>
             <a href="index.html">EN</a>
-            <a href="pt/index.html#journey">PT</a>
+            <a href="pt/index.html">PT</a>
         </nav>
 
     </div>
@@ -1746,6 +1746,14 @@ function goToReflection(event) {
     }
 }
 
-</script>       
+</script> 
+    <script>
+document.querySelectorAll('a[href="pt/index.html"]').forEach(link => {
+    link.addEventListener('click', function(event) {
+        event.preventDefault();
+        window.location.href = 'pt/index.html' + window.location.hash;
+    });
+});
+</script>
 </body>
 </html>
